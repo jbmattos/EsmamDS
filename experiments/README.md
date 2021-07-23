@@ -52,14 +52,14 @@ The following hyper-parameters were defined with a randomised search considering
 - _W_ = 0.9; and
 - _alpha_ = 0.05  
 
-The EsmamDS was executed on actg320, breast-cancer and ptc data sets for (a sample of) 10\% of the total number of parameters' combinations.
+The EsmamDS was executed on _actg320_, _breast-cancer_ and _ptc_ data sets for (a sample of) 10\% of the total number of parameters' combinations.
 The algorithm configurations were chosen by ordering all samples according to their average performance considering the following metrics' order: description redundancy; coverage redundancy; CR; model redundancy; subgroup (average) coverage; data set coverage; subgroup (average) description size; and number of discovered subgroups.  
 
 The following configurations were selected for paramenter(value):
 - Population baseline: _alpha_(0.05), _nAnts_(100), _minCov_(0.1), _nConverg_(5), _maxStag_(40), _W_(0.9), _L_(5)
 - Complement baseline: _alpha_(0.05), _nAnts_ (100), _minCov_(0.05), _nConverg_(5), _maxStag_(40), _W_(0.9), _L_(10)
 
-The configuration of other approaches confronted in the experimentation were defined for each data set (considering to their baseline) according to the results achieved by the EsmamDS in the experimental proceadure.
+The configuration of other approaches confronted in the experimentation were defined for each data set (considering their baseline) according to the results achieved by the EsmamDS in the experimental proceadure.
 The following three parameters were adjusted as follows:
 - (_minCov_) _Minimum coverage_: defined by the same parameter value chosen for the EsmamDS;
 - (_bs_) _Beam-size_ (or maximum number of discovered subgroups): given by the average number of subgroups discovered by the EsmamDS in the 30 experiments;
