@@ -1,0 +1,355 @@
+@RELATION D:\GoogleDrive\Mestrado-UFPE\_Pesquisa-Mestrado\__ESM-AM\_survival_datasets_bracis14\discretizationQuantiles\ptc_disc.xz
+
+@ATTRIBUTE survival_time NUMERIC
+@ATTRIBUTE RISK_GROUP {High, Low, Intermediate}
+@ATTRIBUTE HISTOLOGICAL_TYPE {Follicular, Classical, 'Tall Cell'}
+@ATTRIBUTE AGE {'[50.00,60.00)', '[15.00,34.00)', '[34.00,41.00)', '[60.00,85.00]', '[41.00,50.00)'}
+@ATTRIBUTE SEX {Male, Female}
+@ATTRIBUTE PATH_T_STAGE {T2, T1b, T3, T1, T1a, T4a, TX, T4}
+@ATTRIBUTE PATH_N_STAGE {N0, NX, N1a, N1, N1b}
+@ATTRIBUTE PATH_M_STAGE {M1, MX, M0}
+@ATTRIBUTE TUMOR_STATUS {'WITH TUMOR', '[Not Available]', 'TUMOR FREE', [Unknown]}
+@ATTRIBUTE EXOME {1, 0}
+@ATTRIBUTE EXTRATHYROIDAL_EXTENSION {None, 'Minimal (T3)', '[Not Available]', 'Moderate/Advanced (T4a)', [Unknown]}
+@ATTRIBUTE MRNA_CLUSTER {1.0, 5.0, 2.0, 4.0, 3.0}
+@ATTRIBUTE MIRNA_CLUSTER {1.0, 2.0, 3.0, 4.0, 6.0, 5.0}
+@ATTRIBUTE ARM_SCNA_CLUSTER {22q, 'Many SCNA', SomeSCNA, Quiet}
+@ATTRIBUTE METHYLATION_CLUSTER {'CpG island methylated', follicular, 'classical 2', 'classical 1'}
+@ATTRIBUTE DISEASE_STAGE {'Stage IVC', 'Stage I', 'Stage II', 'Stage III', 'Stage IVA', 'Stage IV'}
+@ATTRIBUTE PRIMARY_EXOME {Yes, No}
+@ATTRIBUTE LOWPASS {Yes, No}
+@ATTRIBUTE WGS_STATUS {Yes, No}
+
+@DATA
+5,High,Follicular,'[50.00,60.00)',Male,T2,N0,M1,'WITH TUMOR',1,None,1.0,1.0,22q,'CpG island methylated','Stage IVC',Yes,Yes,Yes
+23,Low,Classical,'[15.00,34.00)',Male,T1b,N0,MX,'[Not Available]',1,None,1.0,1.0,22q,follicular,'Stage I',Yes,Yes,No
+20,Low,Classical,'[50.00,60.00)',Male,T2,N0,MX,'TUMOR FREE',0,None,1.0,1.0,'Many SCNA',follicular,'Stage II',No,Yes,No
+8,Intermediate,Classical,'[50.00,60.00)',Female,T3,NX,M0,'[Not Available]',1,'Minimal (T3)',1.0,1.0,SomeSCNA,follicular,'Stage III',Yes,Yes,No
+4,Low,Classical,'[34.00,41.00)',Female,T1,N0,M0,'TUMOR FREE',1,'[Not Available]',5.0,2.0,Quiet,'classical 2','Stage I',Yes,Yes,Yes
+2,Intermediate,Classical,'[34.00,41.00)',Female,T1,N1a,M0,'TUMOR FREE',1,'[Not Available]',2.0,3.0,Quiet,follicular,'Stage I',Yes,No,No
+5,Intermediate,Classical,'[60.00,85.00]',Female,T3,N0,MX,'[Not Available]',1,'[Not Available]',1.0,4.0,Quiet,'CpG island methylated','Stage III',Yes,No,No
+16,Intermediate,'Tall Cell','[15.00,34.00)',Female,T3,N1a,M0,'WITH TUMOR',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 1','Stage I',Yes,No,No
+1,Intermediate,Classical,'[41.00,50.00)',Female,T3,N1a,M0,'[Not Available]',1,'Minimal (T3)',2.0,3.0,Quiet,'classical 1','Stage III',Yes,Yes,No
+20,Intermediate,'Tall Cell','[60.00,85.00]',Male,T3,N1a,M0,'WITH TUMOR',1,'Minimal (T3)',4.0,5.0,SomeSCNA,'classical 2','Stage III',Yes,No,No
+14,Low,Classical,'[50.00,60.00)',Female,T1,N0,M0,'TUMOR FREE',0,'[Not Available]',1.0,2.0,Quiet,follicular,'Stage I',No,Yes,No
+4,Intermediate,Classical,'[60.00,85.00]',Male,T3,N0,M0,'WITH TUMOR',1,'Minimal (T3)',5.0,2.0,Quiet,'classical 2','Stage III',Yes,No,No
+15,Low,Classical,'[60.00,85.00]',Female,T1a,N0,M0,'TUMOR FREE',1,None,5.0,6.0,Quiet,follicular,'Stage I',Yes,Yes,No
+12,Intermediate,Classical,'[50.00,60.00)',Female,T3,N0,M0,'TUMOR FREE',1,'[Not Available]',1.0,2.0,22q,follicular,'Stage III',Yes,Yes,No
+7,Intermediate,Classical,'[50.00,60.00)',Male,T3,N1a,M0,'WITH TUMOR',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage III',Yes,Yes,No
+5,Intermediate,Classical,'[60.00,85.00]',Male,T3,N0,M0,'TUMOR FREE',0,'Minimal (T3)',1.0,1.0,SomeSCNA,'CpG island methylated','Stage III',No,No,No
+6,Low,Follicular,'[34.00,41.00)',Male,T2,N0,M0,'TUMOR FREE',1,None,1.0,1.0,22q,follicular,'Stage I',Yes,No,No
+3,Low,Classical,'[50.00,60.00)',Female,T1b,N0,M0,'TUMOR FREE',1,'[Not Available]',1.0,1.0,Quiet,follicular,'Stage I',Yes,No,No
+6,Intermediate,Follicular,'[41.00,50.00)',Female,T2,N1,M0,'TUMOR FREE',1,None,1.0,1.0,Quiet,'classical 2','Stage III',Yes,No,No
+7,Intermediate,Classical,'[41.00,50.00)',Male,T3,N0,M0,'WITH TUMOR',0,'Minimal (T3)',2.0,6.0,Quiet,'classical 2','Stage III',No,No,No
+6,Intermediate,'Tall Cell','[50.00,60.00)',Female,T3,N0,M0,'WITH TUMOR',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage III',Yes,No,No
+5,Intermediate,'Tall Cell','[34.00,41.00)',Female,T1a,N1a,M0,'TUMOR FREE',1,'[Not Available]',3.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+8,Low,Follicular,'[15.00,34.00)',Male,T2,N0,M0,[Unknown],1,None,1.0,1.0,Quiet,'CpG island methylated','Stage II',Yes,No,No
+4,Intermediate,Classical,'[41.00,50.00)',Male,T3,N1a,M0,'TUMOR FREE',1,None,5.0,6.0,Quiet,'classical 1','Stage III',Yes,No,No
+0,Intermediate,Classical,'[15.00,34.00)',Female,T3,N1,M0,'TUMOR FREE',1,'Minimal (T3)',4.0,1.0,SomeSCNA,'classical 2','Stage I',Yes,Yes,No
+0,Intermediate,Classical,'[15.00,34.00)',Female,T2,N1,M0,'TUMOR FREE',1,None,2.0,2.0,Quiet,follicular,'Stage I',Yes,Yes,No
+0,Intermediate,Classical,'[15.00,34.00)',Male,T2,N1,M0,'TUMOR FREE',1,None,4.0,2.0,Quiet,'classical 2','Stage I',Yes,No,No
+0,Low,Classical,'[50.00,60.00)',Female,T2,N0,M0,'TUMOR FREE',1,None,3.0,2.0,Quiet,'classical 2','Stage II',Yes,No,Yes
+0,Low,Classical,'[41.00,50.00)',Female,T1,N0,M0,'TUMOR FREE',0,None,4.0,1.0,Quiet,'classical 2','Stage I',No,No,Yes
+0,Intermediate,Classical,'[15.00,34.00)',Female,T1,N1,M0,'TUMOR FREE',1,None,4.0,1.0,Quiet,'classical 2','Stage I',Yes,No,Yes
+0,Intermediate,Classical,'[34.00,41.00)',Female,T2,N1,M0,'TUMOR FREE',0,None,3.0,5.0,Quiet,'classical 2','Stage I',No,No,No
+0,Intermediate,Classical,'[34.00,41.00)',Female,T2,N1,M0,'TUMOR FREE',1,None,1.0,1.0,22q,'classical 2','Stage I',Yes,No,No
+0,Intermediate,Classical,'[15.00,34.00)',Male,T2,N1,M0,'TUMOR FREE',1,None,2.0,6.0,SomeSCNA,'classical 2','Stage I',Yes,No,Yes
+6,Intermediate,Classical,'[60.00,85.00]',Female,T1b,N1a,M0,'TUMOR FREE',1,None,2.0,5.0,22q,'classical 1','Stage III',Yes,No,No
+15,Intermediate,Classical,'[41.00,50.00)',Female,T3,N1b,M0,'TUMOR FREE',1,'Minimal (T3)',4.0,2.0,SomeSCNA,'classical 2','Stage IVA',Yes,No,No
+4,Low,Classical,'[15.00,34.00)',Male,T2,NX,M0,'TUMOR FREE',1,None,1.0,1.0,Quiet,'classical 2','Stage I',Yes,No,No
+10,Intermediate,Classical,'[41.00,50.00)',Female,T3,N1b,M0,'WITH TUMOR',0,'Minimal (T3)',5.0,6.0,SomeSCNA,'classical 2','Stage I',No,No,No
+8,Intermediate,Classical,'[60.00,85.00]',Male,T3,N1b,M0,'WITH TUMOR',0,None,3.0,5.0,SomeSCNA,'classical 2','Stage IVA',No,No,No
+9,Low,Follicular,'[15.00,34.00)',Female,T1b,N0,M0,'TUMOR FREE',1,None,1.0,1.0,22q,follicular,'Stage I',Yes,Yes,No
+7,Low,Classical,'[50.00,60.00)',Male,T1b,N0,M0,'TUMOR FREE',1,None,2.0,1.0,Quiet,follicular,'Stage I',Yes,Yes,No
+137,Intermediate,Classical,'[50.00,60.00)',Female,T3,N0,M0,'TUMOR FREE',1,'Minimal (T3)',4.0,5.0,SomeSCNA,'classical 2','Stage III',Yes,Yes,No
+3,Intermediate,Follicular,'[50.00,60.00)',Male,T3,N0,M0,'TUMOR FREE',1,None,1.0,1.0,Quiet,follicular,'Stage III',Yes,Yes,No
+8,Low,Follicular,'[15.00,34.00)',Female,T1b,N0,M0,'TUMOR FREE',1,None,1.0,1.0,Quiet,follicular,'Stage I',Yes,Yes,Yes
+25,Low,Classical,'[34.00,41.00)',Female,T2,N0,M0,'TUMOR FREE',1,None,4.0,5.0,22q,'classical 2','Stage I',Yes,Yes,No
+13,Intermediate,Classical,'[60.00,85.00]',Male,T3,N0,M0,'TUMOR FREE',1,'Minimal (T3)',3.0,4.0,SomeSCNA,'classical 2','Stage III',Yes,Yes,No
+14,Low,Follicular,'[41.00,50.00)',Female,T1b,N0,M0,'TUMOR FREE',1,None,1.0,1.0,Quiet,'CpG island methylated','Stage I',Yes,Yes,No
+7,Intermediate,Follicular,'[50.00,60.00)',Female,T3,N0,M0,'TUMOR FREE',1,None,4.0,5.0,Quiet,'classical 2','Stage III',Yes,Yes,No
+10,Intermediate,Classical,'[15.00,34.00)',Female,T2,N1b,M0,'TUMOR FREE',1,None,3.0,6.0,Quiet,'classical 2','Stage I',Yes,Yes,No
+99,Intermediate,Classical,'[60.00,85.00]',Female,T3,N0,M0,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,SomeSCNA,'classical 2','Stage III',Yes,Yes,No
+18,Intermediate,Classical,'[60.00,85.00]',Female,T2,N0,M0,'TUMOR FREE',1,'Minimal (T3)',4.0,5.0,Quiet,'classical 2','Stage II',Yes,Yes,No
+6,Low,Follicular,'[60.00,85.00]',Male,T1b,N0,M0,'TUMOR FREE',1,None,1.0,1.0,22q,follicular,'Stage I',Yes,Yes,No
+7,Intermediate,'Tall Cell','[50.00,60.00)',Female,T3,N1a,M0,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage III',Yes,Yes,No
+7,Low,Follicular,'[60.00,85.00]',Male,T2,N0,M0,'TUMOR FREE',1,None,1.0,1.0,Quiet,'CpG island methylated','Stage II',Yes,Yes,No
+1,Low,Follicular,'[41.00,50.00)',Male,T1a,N0,M0,'TUMOR FREE',1,None,2.0,1.0,Quiet,follicular,'Stage I',Yes,Yes,No
+8,Low,Classical,'[41.00,50.00)',Female,T1b,N0,M0,'TUMOR FREE',1,None,4.0,5.0,SomeSCNA,'classical 2','Stage I',Yes,Yes,No
+1,Intermediate,'Tall Cell','[60.00,85.00]',Male,T3,N0,M0,'TUMOR FREE',1,'Minimal (T3)',3.0,6.0,Quiet,'classical 2','Stage III',Yes,Yes,No
+5,Intermediate,Classical,'[41.00,50.00)',Male,T3,N0,M0,'TUMOR FREE',1,'Minimal (T3)',3.0,6.0,Quiet,'classical 2','Stage I',Yes,Yes,No
+7,Low,Classical,'[50.00,60.00)',Male,T1a,N0,M0,'TUMOR FREE',1,None,2.0,4.0,Quiet,'classical 2','Stage I',Yes,No,No
+5,Low,Follicular,'[41.00,50.00)',Male,T2,N0,M0,'TUMOR FREE',1,None,1.0,4.0,Quiet,'CpG island methylated','Stage II',Yes,No,Yes
+20,Intermediate,Classical,'[15.00,34.00)',Male,T2,N1a,M0,'TUMOR FREE',1,None,4.0,5.0,Quiet,'classical 2','Stage I',Yes,No,Yes
+10,Intermediate,Classical,'[15.00,34.00)',Male,T3,N1a,M0,'TUMOR FREE',1,'Minimal (T3)',2.0,4.0,Quiet,'classical 2','Stage I',Yes,No,No
+1,Intermediate,Classical,'[34.00,41.00)',Female,T3,N1a,M0,'TUMOR FREE',1,'Minimal (T3)',2.0,5.0,Quiet,'classical 2','Stage I',Yes,No,No
+9,Intermediate,'Tall Cell','[60.00,85.00]',Female,T3,N0,M0,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage III',Yes,No,No
+10,Low,Classical,'[50.00,60.00)',Female,T2,N0,M0,'TUMOR FREE',1,None,4.0,4.0,Quiet,'classical 2','Stage II',Yes,No,No
+7,Low,Classical,'[50.00,60.00)',Female,T2,N0,M0,'TUMOR FREE',1,None,4.0,4.0,Quiet,'classical 2','Stage II',Yes,No,No
+7,Intermediate,Classical,'[60.00,85.00]',Male,T3,N1a,M0,'TUMOR FREE',1,None,4.0,4.0,SomeSCNA,'classical 2','Stage III',Yes,No,Yes
+5,Low,Follicular,'[50.00,60.00)',Female,T1b,N0,M0,'TUMOR FREE',1,None,2.0,5.0,Quiet,follicular,'Stage I',Yes,No,No
+8,Intermediate,'Tall Cell','[41.00,50.00)',Female,T3,N1a,M0,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage III',Yes,No,No
+8,Intermediate,Classical,'[60.00,85.00]',Male,T3,N0,M0,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage III',Yes,No,No
+8,Low,Classical,'[50.00,60.00)',Female,T2,N0,M0,'TUMOR FREE',1,None,1.0,1.0,'Many SCNA',follicular,'Stage II',Yes,No,No
+9,Intermediate,Classical,'[41.00,50.00)',Female,T1b,N1b,M0,'TUMOR FREE',1,None,2.0,6.0,Quiet,'classical 1','Stage I',Yes,No,No
+9,Intermediate,'Tall Cell','[60.00,85.00]',Female,T3,N1a,M0,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,Quiet,follicular,'Stage III',Yes,No,No
+9,Intermediate,Classical,'[50.00,60.00)',Male,T1b,N1a,M0,'TUMOR FREE',1,None,3.0,6.0,Quiet,'classical 2','Stage III',Yes,No,No
+9,Intermediate,Classical,'[50.00,60.00)',Male,T2,N1b,M0,'TUMOR FREE',1,None,2.0,5.0,Quiet,'classical 1','Stage IVA',Yes,No,No
+8,Intermediate,Classical,'[34.00,41.00)',Female,T1b,N1b,M0,'TUMOR FREE',1,'Minimal (T3)',5.0,5.0,Quiet,'classical 2','Stage I',Yes,No,No
+9,Intermediate,Classical,'[50.00,60.00)',Female,T2,N1a,M0,'TUMOR FREE',1,'Minimal (T3)',4.0,5.0,22q,'classical 2','Stage III',Yes,No,No
+10,Intermediate,'Tall Cell','[60.00,85.00]',Female,T1b,N1a,M0,'TUMOR FREE',1,None,5.0,6.0,Quiet,follicular,'Stage III',Yes,No,Yes
+12,Intermediate,Follicular,'[50.00,60.00)',Female,T3,N0,M0,'TUMOR FREE',1,'Minimal (T3)',4.0,5.0,22q,'classical 2','Stage III',Yes,No,No
+10,Intermediate,Follicular,'[50.00,60.00)',Female,T1b,N1b,M0,'TUMOR FREE',1,'Minimal (T3)',1.0,1.0,22q,follicular,'Stage IVA',Yes,No,No
+10,Low,Classical,'[60.00,85.00]',Female,T2,N0,M0,'TUMOR FREE',1,None,4.0,5.0,Quiet,'classical 2','Stage II',Yes,No,No
+15,Low,Classical,'[34.00,41.00)',Female,T1b,N0,M0,'TUMOR FREE',1,None,4.0,4.0,22q,'classical 2','Stage I',Yes,No,No
+31,Low,Classical,'[41.00,50.00)',Female,T1b,N0,M0,'TUMOR FREE',1,None,3.0,4.0,Quiet,'classical 2','Stage I',Yes,No,No
+12,Low,Classical,'[50.00,60.00)',Female,T1b,N0,M0,'TUMOR FREE',1,None,4.0,4.0,22q,'classical 2','Stage I',Yes,No,No
+21,Intermediate,Classical,'[60.00,85.00]',Male,T3,N1b,M0,'TUMOR FREE',1,'Minimal (T3)',4.0,4.0,22q,'classical 2','Stage IVA',Yes,No,No
+16,Low,Follicular,'[34.00,41.00)',Female,T2,N0,M0,[Unknown],1,None,1.0,4.0,22q,'classical 2','Stage I',Yes,No,No
+19,Intermediate,'Tall Cell','[41.00,50.00)',Female,T3,N1a,M0,'TUMOR FREE',1,'Minimal (T3)',5.0,4.0,Quiet,'classical 2','Stage III',Yes,No,No
+36,Intermediate,Follicular,'[50.00,60.00)',Female,T3,N1a,M0,'TUMOR FREE',1,'Minimal (T3)',4.0,4.0,Quiet,'classical 2','Stage III',Yes,No,No
+32,Low,Classical,'[34.00,41.00)',Female,T1b,N0,M0,'TUMOR FREE',1,None,2.0,4.0,Quiet,follicular,'Stage I',Yes,No,No
+15,Low,Follicular,'[41.00,50.00)',Female,T1a,N0,M0,'TUMOR FREE',1,None,1.0,4.0,Quiet,follicular,'Stage I',Yes,No,No
+17,Intermediate,Classical,'[41.00,50.00)',Female,T3,N0,M0,'TUMOR FREE',1,'Minimal (T3)',2.0,4.0,Quiet,'classical 2','Stage III',Yes,No,No
+42,Low,Classical,'[50.00,60.00)',Female,T1b,N0,M0,'TUMOR FREE',1,None,2.0,6.0,Quiet,'classical 1','Stage I',Yes,No,No
+11,Low,Classical,'[41.00,50.00)',Female,T1,N0,M0,'WITH TUMOR',1,None,2.0,4.0,Quiet,'classical 2','Stage I',Yes,No,No
+21,Low,Classical,'[15.00,34.00)',Female,T1b,N0,M0,'TUMOR FREE',1,None,2.0,4.0,Quiet,'classical 2','Stage I',Yes,No,No
+12,Intermediate,Classical,'[60.00,85.00]',Female,T3,N0,M0,'TUMOR FREE',0,'Minimal (T3)',2.0,1.0,Quiet,follicular,'Stage III',No,No,No
+25,High,'Tall Cell','[50.00,60.00)',Male,T4a,N1b,M0,'TUMOR FREE',0,'Moderate/Advanced (T4a)',5.0,2.0,Quiet,'classical 2','Stage IVA',No,No,No
+20,Intermediate,Classical,'[41.00,50.00)',Female,T2,N1a,M0,'TUMOR FREE',0,None,2.0,6.0,Quiet,'classical 2','Stage I',No,No,No
+30,Low,Classical,'[50.00,60.00)',Female,T2,N0,M0,'TUMOR FREE',0,None,2.0,4.0,Quiet,'classical 2','Stage II',No,No,No
+14,Intermediate,'Tall Cell','[60.00,85.00]',Female,T3,N1a,M0,'TUMOR FREE',0,'Minimal (T3)',2.0,6.0,Quiet,'classical 2','Stage III',No,No,No
+19,Intermediate,'Tall Cell','[60.00,85.00]',Female,T3,N0,M0,'TUMOR FREE',0,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage III',No,No,No
+9,Intermediate,'Tall Cell','[41.00,50.00)',Female,T3,N0,M0,'TUMOR FREE',1,'Minimal (T3)',3.0,5.0,Quiet,'classical 2','Stage III',Yes,No,No
+21,Intermediate,'Tall Cell','[15.00,34.00)',Female,T3,N1b,M0,'TUMOR FREE',0,'Minimal (T3)',3.0,6.0,Quiet,'classical 2','Stage I',No,No,No
+20,Intermediate,Classical,'[50.00,60.00)',Female,T2,N1b,M0,'TUMOR FREE',0,None,4.0,5.0,Quiet,'classical 2','Stage IVA',No,No,No
+11,Intermediate,Classical,'[34.00,41.00)',Female,T1b,N1a,M0,'TUMOR FREE',1,None,3.0,5.0,Quiet,'classical 2','Stage I',Yes,No,No
+22,Intermediate,'Tall Cell','[50.00,60.00)',Male,T3,N1a,M0,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage III',Yes,No,No
+20,Intermediate,Classical,'[15.00,34.00)',Female,T1b,N1a,M0,'TUMOR FREE',0,None,5.0,3.0,Quiet,follicular,'Stage I',No,No,No
+18,Low,Classical,'[50.00,60.00)',Male,T1b,N0,M0,'TUMOR FREE',1,None,3.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+7,Intermediate,'Tall Cell','[60.00,85.00]',Female,T3,N1b,M0,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage IVA',Yes,No,No
+8,Low,Follicular,'[34.00,41.00)',Male,T1b,N0,M0,'TUMOR FREE',0,None,1.0,1.0,Quiet,follicular,'Stage I',No,No,No
+13,Low,Follicular,'[34.00,41.00)',Male,T1a,N0,M0,'TUMOR FREE',1,None,1.0,1.0,Quiet,follicular,'Stage I',Yes,No,No
+27,Low,Follicular,'[60.00,85.00]',Female,T2,N0,M0,'TUMOR FREE',1,None,1.0,1.0,22q,follicular,'Stage II',Yes,No,Yes
+11,Low,Classical,'[60.00,85.00]',Female,T1b,N0,M0,'TUMOR FREE',1,None,4.0,5.0,Quiet,'classical 2','Stage I',Yes,No,Yes
+10,High,Follicular,'[34.00,41.00)',Female,T3,N1b,M1,[Unknown],0,'Minimal (T3)',1.0,1.0,SomeSCNA,follicular,'Stage II',No,No,No
+12,Low,Classical,'[15.00,34.00)',Female,T1a,N0,M0,'TUMOR FREE',1,None,2.0,6.0,Quiet,'classical 1','Stage I',Yes,No,No
+9,Intermediate,'Tall Cell','[34.00,41.00)',Female,T1a,N1b,M0,'TUMOR FREE',1,None,2.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+9,Low,Classical,'[34.00,41.00)',Female,T2,N0,M0,'TUMOR FREE',1,None,2.0,1.0,Quiet,follicular,'Stage I',Yes,No,No
+3,Low,Classical,'[34.00,41.00)',Female,T2,N0,M0,'TUMOR FREE',1,None,3.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+3,Intermediate,'Tall Cell','[41.00,50.00)',Female,T1a,N0,M0,'TUMOR FREE',1,None,2.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+16,Intermediate,Classical,'[50.00,60.00)',Male,T3,N1b,M0,'TUMOR FREE',1,'Minimal (T3)',2.0,6.0,Quiet,'classical 2','Stage IVA',Yes,No,No
+18,Intermediate,Classical,'[15.00,34.00)',Female,T3,N1b,MX,'TUMOR FREE',1,'Minimal (T3)',3.0,5.0,Quiet,'classical 2','Stage I',Yes,Yes,No
+2,Intermediate,Classical,'[41.00,50.00)',Male,T1b,N1b,MX,[Unknown],1,None,5.0,6.0,Quiet,follicular,'Stage IVA',Yes,No,No
+12,Intermediate,Follicular,'[50.00,60.00)',Female,T3,N0,M0,'TUMOR FREE',1,None,1.0,2.0,22q,follicular,'Stage III',Yes,No,No
+66,Low,Classical,'[34.00,41.00)',Female,T2,N0,MX,'TUMOR FREE',1,None,4.0,4.0,Quiet,'classical 2','Stage I',Yes,No,No
+40,Low,Classical,'[41.00,50.00)',Female,T1,N0,M0,'TUMOR FREE',1,None,3.0,2.0,Quiet,'classical 2','Stage I',Yes,No,Yes
+63,Intermediate,Follicular,'[34.00,41.00)',Female,T1,N1a,MX,'TUMOR FREE',1,None,2.0,2.0,Quiet,'classical 1','Stage I',Yes,No,No
+30,Low,Classical,'[41.00,50.00)',Female,T2,N0,M0,'WITH TUMOR',1,None,3.0,2.0,Quiet,'classical 2','Stage II',Yes,No,Yes
+14,High,Classical,'[50.00,60.00)',Male,T4a,N1b,MX,'TUMOR FREE',1,None,4.0,2.0,22q,'classical 2','Stage IVA',Yes,No,No
+1,Intermediate,Classical,'[50.00,60.00)',Female,T3,N0,MX,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage III',Yes,Yes,No
+22,Low,Classical,'[50.00,60.00)',Female,T1b,N0,M0,'TUMOR FREE',1,None,5.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+0,Intermediate,Classical,'[15.00,34.00)',Female,T3,N1a,M0,'TUMOR FREE',0,'Minimal (T3)',5.0,6.0,Quiet,'classical 1','Stage I',No,No,No
+19,High,Classical,'[50.00,60.00)',Female,T4a,N0,M0,'WITH TUMOR',0,'Moderate/Advanced (T4a)',5.0,6.0,Quiet,'classical 2','Stage IVA',No,No,No
+13,Low,Classical,'[34.00,41.00)',Female,T1b,N0,M0,'TUMOR FREE',1,None,2.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+14,Intermediate,Classical,'[41.00,50.00)',Female,T3,N0,M0,'TUMOR FREE',0,None,2.0,2.0,Quiet,follicular,'Stage III',No,No,No
+13,Intermediate,Classical,'[34.00,41.00)',Female,T1a,N1b,M0,'TUMOR FREE',1,None,2.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+14,Low,Classical,'[50.00,60.00)',Female,T1b,N0,M0,'TUMOR FREE',1,None,1.0,1.0,Quiet,follicular,'Stage I',Yes,No,No
+14,Intermediate,Classical,'[34.00,41.00)',Female,T2,N1a,M0,'TUMOR FREE',0,None,3.0,6.0,Quiet,'classical 2','Stage I',No,No,No
+3,High,Classical,'[60.00,85.00]',Female,T4a,N0,M0,'TUMOR FREE',1,'Moderate/Advanced (T4a)',3.0,5.0,Quiet,'classical 2','Stage IVA',Yes,No,No
+0,Intermediate,Classical,'[15.00,34.00)',Female,T2,N1,M0,'WITH TUMOR',1,None,5.0,6.0,Quiet,'classical 1','Stage I',Yes,No,No
+14,Low,Classical,'[50.00,60.00)',Female,T2,N0,M0,'TUMOR FREE',0,None,4.0,2.0,'Many SCNA','classical 2','Stage II',No,No,No
+14,Intermediate,Classical,'[15.00,34.00)',Female,T3,N0,M0,'TUMOR FREE',1,None,5.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+14,Low,Classical,'[50.00,60.00)',Female,T1a,N0,M0,'TUMOR FREE',0,None,2.0,1.0,Quiet,'classical 2','Stage I',No,No,No
+14,Intermediate,Classical,'[50.00,60.00)',Female,T2,N1b,M0,'TUMOR FREE',1,None,2.0,6.0,Quiet,follicular,'Stage IVA',Yes,No,No
+7,Low,Classical,'[50.00,60.00)',Female,TX,NX,M0,'TUMOR FREE',1,None,4.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+20,Low,Classical,'[15.00,34.00)',Female,T1b,N0,M0,'TUMOR FREE',0,None,4.0,1.0,Quiet,'classical 2','Stage I',No,No,No
+13,Low,Classical,'[50.00,60.00)',Female,T1b,N0,M0,'TUMOR FREE',1,None,5.0,6.0,Quiet,'classical 2','Stage I',Yes,No,Yes
+13,Low,Classical,'[15.00,34.00)',Female,T1b,N0,M0,'TUMOR FREE',1,None,2.0,6.0,Quiet,follicular,'Stage I',Yes,No,No
+155,Intermediate,Classical,'[41.00,50.00)',Female,T3,N0,M0,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage II',Yes,No,No
+157,Intermediate,Classical,'[60.00,85.00]',Female,T1,N1a,M0,'TUMOR FREE',1,None,5.0,6.0,Quiet,'classical 1','Stage III',Yes,No,No
+80,Low,Classical,'[15.00,34.00)',Female,T2,N0,M0,'TUMOR FREE',1,None,1.0,4.0,Quiet,'classical 2','Stage I',Yes,No,Yes
+52,Intermediate,Classical,'[34.00,41.00)',Female,T1,N1a,M0,'TUMOR FREE',1,None,1.0,4.0,Quiet,follicular,'Stage I',Yes,No,No
+39,Low,Classical,'[15.00,34.00)',Female,T2,N0,M0,'TUMOR FREE',1,None,1.0,2.0,SomeSCNA,'CpG island methylated','Stage I',Yes,No,No
+1,Intermediate,Classical,'[60.00,85.00]',Male,T3,N1a,M0,[Unknown],1,'Minimal (T3)',5.0,6.0,SomeSCNA,follicular,'Stage III',Yes,No,Yes
+30,Low,Follicular,'[60.00,85.00]',Female,T1,N0,M0,'TUMOR FREE',1,None,2.0,5.0,SomeSCNA,'classical 2','Stage I',Yes,No,No
+102,Intermediate,Classical,'[15.00,34.00)',Female,T3,NX,M0,'TUMOR FREE',1,'Minimal (T3)',3.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+65,Intermediate,Classical,'[34.00,41.00)',Female,T3,N1,M0,'TUMOR FREE',1,'Minimal (T3)',3.0,1.0,Quiet,'classical 2','Stage I',Yes,No,No
+17,Intermediate,Classical,'[60.00,85.00]',Female,T3,N1,M0,'WITH TUMOR',1,'Minimal (T3)',5.0,6.0,SomeSCNA,'classical 2','Stage III',Yes,No,No
+50,Intermediate,Classical,'[60.00,85.00]',Female,T3,N0,M0,'TUMOR FREE',1,'Minimal (T3)',4.0,5.0,Quiet,'classical 2','Stage III',Yes,No,No
+37,Low,Classical,'[34.00,41.00)',Female,T2,N0,M0,'TUMOR FREE',1,None,1.0,1.0,22q,follicular,'Stage I',Yes,No,No
+14,Intermediate,Classical,'[41.00,50.00)',Female,T2,N1,M0,'TUMOR FREE',1,None,5.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+101,High,Classical,'[34.00,41.00)',Female,T1,N1,M1,'TUMOR FREE',1,None,3.0,5.0,Quiet,'classical 2','Stage II',Yes,No,No
+38,High,Classical,'[41.00,50.00)',Female,T4,N1,M0,'TUMOR FREE',1,'Moderate/Advanced (T4a)',3.0,5.0,Quiet,'classical 2','Stage IVA',Yes,No,No
+52,High,Classical,'[50.00,60.00)',Female,T4,N1,M0,'TUMOR FREE',1,'Moderate/Advanced (T4a)',5.0,6.0,SomeSCNA,'classical 1','Stage IVA',Yes,No,Yes
+126,Intermediate,Classical,'[34.00,41.00)',Female,T3,N1,M0,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+131,Intermediate,Classical,'[34.00,41.00)',Female,T3,N1,M0,'TUMOR FREE',1,'Minimal (T3)',3.0,5.0,Quiet,'classical 2','Stage I',Yes,No,No
+108,Low,Classical,'[50.00,60.00)',Female,T2,N0,M0,'TUMOR FREE',1,None,4.0,4.0,Quiet,'classical 2','Stage II',Yes,No,No
+12,Intermediate,Classical,'[15.00,34.00)',Female,T2,N1,M0,'TUMOR FREE',1,'Minimal (T3)',3.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+147,Intermediate,Classical,'[50.00,60.00)',Female,T3,NX,M0,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage II',Yes,No,No
+130,Intermediate,Classical,'[41.00,50.00)',Female,T3,N1,M0,'WITH TUMOR',1,'Minimal (T3)',2.0,4.0,Quiet,'classical 2','Stage III',Yes,No,No
+129,Intermediate,Classical,'[34.00,41.00)',Female,T2,N0,M0,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+31,Intermediate,Classical,'[50.00,60.00)',Female,T2,N1,M0,'WITH TUMOR',1,None,1.0,4.0,22q,follicular,'Stage III',Yes,No,No
+116,Low,Classical,'[60.00,85.00]',Male,T2,N0,M0,'TUMOR FREE',1,None,3.0,4.0,Quiet,'classical 2','Stage II',Yes,No,No
+95,Low,Classical,'[34.00,41.00)',Male,T2,N0,M0,'TUMOR FREE',1,None,3.0,4.0,Quiet,'classical 2','Stage I',Yes,No,No
+66,Low,Classical,'[41.00,50.00)',Male,T2,N0,M0,'TUMOR FREE',1,None,2.0,4.0,Quiet,'classical 2','Stage I',Yes,No,No
+82,Intermediate,Classical,'[41.00,50.00)',Female,T2,N1a,M0,'TUMOR FREE',1,'Minimal (T3)',4.0,4.0,Quiet,'classical 2','Stage III',Yes,No,No
+77,Intermediate,Classical,'[15.00,34.00)',Male,T3,N0,M0,'TUMOR FREE',0,'Minimal (T3)',3.0,5.0,Quiet,'classical 2','Stage I',No,No,No
+78,Intermediate,Classical,'[41.00,50.00)',Female,T3,N1,M0,'TUMOR FREE',1,'Minimal (T3)',1.0,1.0,SomeSCNA,follicular,'Stage I',Yes,No,No
+31,Intermediate,Classical,'[41.00,50.00)',Female,T2,N1,M0,[Unknown],1,None,3.0,6.0,SomeSCNA,'classical 2','Stage I',Yes,No,Yes
+50,Intermediate,Classical,'[34.00,41.00)',Female,T1,N1,M0,[Unknown],0,None,4.0,5.0,22q,'classical 2','Stage I',No,No,No
+52,High,Classical,'[15.00,34.00)',Male,T4,N1,M0,'TUMOR FREE',0,'Moderate/Advanced (T4a)',2.0,6.0,Quiet,'classical 2','Stage I',No,No,No
+45,Low,Classical,'[60.00,85.00]',Female,T2,N0,M0,'TUMOR FREE',1,None,4.0,5.0,Quiet,'classical 2','Stage II',Yes,No,Yes
+48,Low,Classical,'[41.00,50.00)',Female,T2,N0,M0,'TUMOR FREE',1,None,1.0,1.0,SomeSCNA,follicular,'Stage II',Yes,No,No
+44,Intermediate,Classical,'[34.00,41.00)',Male,T3,N0,M0,'TUMOR FREE',1,'Minimal (T3)',3.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+45,Low,Classical,'[41.00,50.00)',Female,T2,N0,M0,'TUMOR FREE',1,None,1.0,1.0,22q,follicular,'Stage I',Yes,No,No
+45,Intermediate,Classical,'[15.00,34.00)',Female,T3,N0,MX,'TUMOR FREE',1,None,5.0,6.0,SomeSCNA,'classical 1','Stage I',Yes,No,Yes
+19,Intermediate,Classical,'[60.00,85.00]',Female,T3,N1,M0,'TUMOR FREE',0,None,5.0,6.0,Quiet,'classical 2','Stage III',No,No,No
+19,Low,Classical,'[41.00,50.00)',Female,T1,N0,M0,'TUMOR FREE',1,None,1.0,1.0,Quiet,follicular,'Stage I',Yes,No,No
+33,Intermediate,Classical,'[15.00,34.00)',Female,T3,N1,M0,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+28,High,Classical,'[60.00,85.00]',Male,T4,N1,MX,'TUMOR FREE',1,'Minimal (T3)',1.0,1.0,SomeSCNA,'CpG island methylated','Stage IV',Yes,No,No
+41,Intermediate,Classical,'[60.00,85.00]',Male,T2,N1,M0,'TUMOR FREE',0,'Minimal (T3)',4.0,5.0,Quiet,'classical 2','Stage III',No,No,No
+37,Intermediate,Classical,'[60.00,85.00]',Male,T2,N0,M0,'TUMOR FREE',0,'Minimal (T3)',4.0,6.0,SomeSCNA,'classical 2','Stage II',No,No,No
+29,Intermediate,Classical,'[41.00,50.00)',Male,T3,N1,M0,'TUMOR FREE',1,'Minimal (T3)',4.0,1.0,Quiet,'classical 2','Stage I',Yes,No,No
+13,Intermediate,Classical,'[34.00,41.00)',Female,T2,N0,M0,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+11,Low,Classical,'[34.00,41.00)',Female,T2,N0,M0,'TUMOR FREE',1,None,4.0,5.0,Quiet,'classical 2','Stage I',Yes,No,No
+8,Intermediate,Classical,'[60.00,85.00]',Male,T3,N0,MX,'TUMOR FREE',1,'Minimal (T3)',1.0,1.0,'Many SCNA','CpG island methylated','Stage III',Yes,No,No
+16,Low,Follicular,'[41.00,50.00)',Female,T1b,NX,MX,'TUMOR FREE',1,None,1.0,1.0,SomeSCNA,follicular,'Stage I',Yes,No,No
+17,Intermediate,Follicular,'[15.00,34.00)',Male,T2,N1b,MX,'TUMOR FREE',1,None,1.0,1.0,Quiet,follicular,'Stage I',Yes,No,No
+13,Low,Follicular,'[15.00,34.00)',Male,T2,NX,MX,'TUMOR FREE',1,None,1.0,1.0,Quiet,'CpG island methylated','Stage I',Yes,No,No
+23,High,Follicular,'[60.00,85.00]',Male,T3,N0,M1,'WITH TUMOR',1,None,1.0,4.0,Quiet,'CpG island methylated','Stage IVC',Yes,No,No
+6,Low,Follicular,'[60.00,85.00]',Female,T2,NX,MX,'TUMOR FREE',1,None,1.0,2.0,'Many SCNA',follicular,'Stage II',Yes,No,No
+2,Low,Follicular,'[15.00,34.00)',Female,T2,N0,MX,'TUMOR FREE',1,None,1.0,1.0,Quiet,follicular,'Stage I',Yes,No,No
+12,Intermediate,Follicular,'[34.00,41.00)',Female,T1b,N1a,MX,'TUMOR FREE',1,None,1.0,1.0,Quiet,follicular,'Stage I',Yes,No,No
+15,Intermediate,Classical,'[50.00,60.00)',Female,T3,N1b,MX,'WITH TUMOR',0,None,4.0,5.0,Quiet,'classical 2','Stage IVA',No,No,No
+10,Low,Follicular,'[15.00,34.00)',Female,T1b,N0,MX,'TUMOR FREE',1,None,1.0,1.0,Quiet,follicular,'Stage I',Yes,No,No
+13,Intermediate,Follicular,'[41.00,50.00)',Female,T2,N1a,MX,'TUMOR FREE',1,None,4.0,1.0,Quiet,'classical 2','Stage III',Yes,No,No
+22,Low,Follicular,'[60.00,85.00]',Female,T2,N0,MX,'TUMOR FREE',1,None,1.0,1.0,Quiet,follicular,'Stage II',Yes,No,No
+13,Low,Follicular,'[34.00,41.00)',Female,T1b,NX,MX,'TUMOR FREE',1,None,1.0,1.0,Quiet,follicular,'Stage I',Yes,No,No
+19,Intermediate,Classical,'[41.00,50.00)',Male,T1b,N1b,MX,'TUMOR FREE',1,None,4.0,2.0,SomeSCNA,'classical 2','Stage IVA',Yes,No,No
+17,Low,Follicular,'[41.00,50.00)',Female,T2,N0,MX,'TUMOR FREE',1,None,1.0,1.0,'Many SCNA',follicular,'Stage II',Yes,No,No
+12,Low,Classical,'[60.00,85.00]',Male,T1b,N0,MX,'TUMOR FREE',1,None,3.0,2.0,Quiet,'classical 2','Stage I',Yes,No,No
+17,Intermediate,Classical,'[15.00,34.00)',Male,T2,N1b,MX,'TUMOR FREE',1,None,3.0,2.0,Quiet,'classical 2','Stage I',Yes,No,No
+11,Intermediate,Classical,'[15.00,34.00)',Male,T2,N1b,MX,'WITH TUMOR',1,None,5.0,6.0,Quiet,follicular,'Stage I',Yes,No,No
+17,Intermediate,Follicular,'[41.00,50.00)',Male,T3,N0,MX,'TUMOR FREE',1,None,1.0,2.0,SomeSCNA,'classical 2','Stage III',Yes,No,No
+14,Low,Classical,'[41.00,50.00)',Female,T1b,NX,MX,'TUMOR FREE',1,None,5.0,6.0,Quiet,'classical 2','Stage I',Yes,No,Yes
+17,Low,Follicular,'[60.00,85.00]',Female,T2,NX,MX,'TUMOR FREE',1,None,1.0,2.0,'Many SCNA',follicular,'Stage II',Yes,No,No
+18,Intermediate,Follicular,'[34.00,41.00)',Male,T3,N1a,MX,'TUMOR FREE',1,None,1.0,1.0,Quiet,follicular,'Stage I',Yes,No,No
+15,Low,Classical,'[60.00,85.00]',Female,T1b,N0,MX,'TUMOR FREE',1,None,4.0,2.0,Quiet,'classical 2','Stage I',Yes,No,No
+14,Low,Follicular,'[41.00,50.00)',Female,T1b,N0,MX,'TUMOR FREE',1,None,1.0,2.0,Quiet,'CpG island methylated','Stage I',Yes,No,No
+19,Intermediate,Classical,'[34.00,41.00)',Female,T1b,N1b,MX,'TUMOR FREE',1,None,4.0,5.0,Quiet,'classical 2','Stage I',Yes,No,No
+13,Intermediate,Classical,'[60.00,85.00]',Male,T2,N1b,MX,'TUMOR FREE',1,None,4.0,2.0,Quiet,'classical 2','Stage IVA',Yes,No,No
+8,Low,Follicular,'[15.00,34.00)',Female,T2,NX,MX,'TUMOR FREE',1,None,1.0,2.0,22q,'classical 2','Stage I',Yes,No,No
+16,Low,Classical,'[60.00,85.00]',Female,T1b,N0,MX,'TUMOR FREE',1,None,4.0,2.0,Quiet,'classical 2','Stage I',Yes,No,No
+16,Intermediate,Classical,'[41.00,50.00)',Male,T1b,N1a,MX,'TUMOR FREE',1,None,2.0,2.0,Quiet,follicular,'Stage I',Yes,No,No
+27,Intermediate,Classical,'[15.00,34.00)',Female,T1a,N1b,MX,'TUMOR FREE',1,None,4.0,4.0,Quiet,'classical 2','Stage I',Yes,No,No
+23,Intermediate,Classical,'[15.00,34.00)',Female,T1b,N1b,MX,'TUMOR FREE',1,None,3.0,6.0,SomeSCNA,'classical 2','Stage I',Yes,No,No
+16,Low,Follicular,'[60.00,85.00]',Female,T1b,NX,MX,'TUMOR FREE',1,None,1.0,4.0,Quiet,follicular,'Stage I',Yes,No,No
+16,Intermediate,Classical,'[50.00,60.00)',Male,T2,N1b,MX,'TUMOR FREE',1,None,5.0,6.0,Quiet,'classical 2','Stage IVA',Yes,No,No
+12,Intermediate,Follicular,'[41.00,50.00)',Female,T3,N0,MX,'TUMOR FREE',1,None,1.0,4.0,Quiet,'CpG island methylated','Stage I',Yes,No,No
+17,Intermediate,Classical,'[34.00,41.00)',Male,T3,N0,MX,'TUMOR FREE',1,None,4.0,4.0,22q,'classical 2','Stage I',Yes,No,No
+17,Low,Follicular,'[60.00,85.00]',Female,T2,N0,MX,'TUMOR FREE',1,None,1.0,4.0,Quiet,follicular,'Stage II',Yes,No,No
+15,Intermediate,Classical,'[50.00,60.00)',Female,T2,N1a,MX,'TUMOR FREE',1,None,1.0,1.0,Quiet,'CpG island methylated','Stage III',Yes,Yes,No
+14,Intermediate,Classical,'[60.00,85.00]',Female,T2,N1a,MX,'TUMOR FREE',1,None,5.0,6.0,SomeSCNA,'classical 1','Stage III',Yes,Yes,No
+11,Low,Follicular,'[50.00,60.00)',Female,T2,NX,MX,'TUMOR FREE',1,None,1.0,2.0,Quiet,follicular,'Stage II',Yes,Yes,No
+7,Intermediate,Classical,'[41.00,50.00)',Female,T3,NX,MX,'TUMOR FREE',1,None,4.0,5.0,Quiet,'classical 2','Stage III',Yes,Yes,No
+12,Low,Follicular,'[15.00,34.00)',Female,T1b,N0,MX,'TUMOR FREE',1,None,1.0,1.0,Quiet,follicular,'Stage I',Yes,Yes,No
+9,Intermediate,Follicular,'[34.00,41.00)',Male,T3,N0,MX,'TUMOR FREE',1,None,1.0,2.0,'Many SCNA',follicular,'Stage I',Yes,Yes,No
+13,Low,Follicular,'[50.00,60.00)',Female,T2,N0,MX,'TUMOR FREE',1,None,1.0,1.0,Quiet,'CpG island methylated','Stage II',Yes,Yes,No
+7,Low,Follicular,'[15.00,34.00)',Female,T2,N0,MX,'TUMOR FREE',1,None,1.0,1.0,SomeSCNA,follicular,'Stage I',Yes,Yes,No
+11,Intermediate,Follicular,'[60.00,85.00]',Female,T3,N0,MX,'TUMOR FREE',0,None,1.0,1.0,Quiet,'CpG island methylated','Stage III',No,No,No
+16,Intermediate,Classical,'[41.00,50.00)',Female,T2,N1b,MX,'TUMOR FREE',0,None,5.0,6.0,Quiet,'classical 2','Stage I',No,No,No
+15,Intermediate,Classical,'[15.00,34.00)',Female,T3,N1a,MX,'TUMOR FREE',0,None,4.0,5.0,22q,'classical 2','Stage I',No,No,No
+13,Low,Follicular,'[34.00,41.00)',Male,T1b,NX,MX,'TUMOR FREE',0,None,1.0,1.0,'Many SCNA',follicular,'Stage I',No,No,No
+12,Low,Classical,'[41.00,50.00)',Female,T2,N0,MX,'TUMOR FREE',0,None,5.0,6.0,22q,'classical 2','Stage I',No,No,No
+60,Intermediate,Classical,'[34.00,41.00)',Female,T1b,N1,MX,'TUMOR FREE',0,None,5.0,6.0,Quiet,'classical 2','Stage I',No,No,Yes
+16,Intermediate,Follicular,'[60.00,85.00]',Male,T3,NX,MX,'TUMOR FREE',0,None,1.0,1.0,Quiet,follicular,'Stage III',No,No,No
+9,Low,Follicular,'[15.00,34.00)',Female,T2,NX,MX,'TUMOR FREE',1,None,1.0,1.0,Quiet,'CpG island methylated','Stage I',Yes,No,No
+4,Intermediate,Classical,'[50.00,60.00)',Female,T3,N1b,MX,'WITH TUMOR',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage IVA',Yes,No,Yes
+8,Intermediate,Classical,'[41.00,50.00)',Female,T1b,N1b,MX,'TUMOR FREE',0,None,3.0,6.0,Quiet,'classical 2','Stage IVA',No,No,No
+8,Low,Classical,'[60.00,85.00]',Male,T1b,N0,MX,'TUMOR FREE',1,None,2.0,3.0,22q,'classical 1','Stage I',Yes,No,No
+9,Intermediate,Follicular,'[41.00,50.00)',Female,T2,N1,MX,'TUMOR FREE',1,None,5.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+37,Intermediate,Follicular,'[34.00,41.00)',Male,T3,NX,MX,'TUMOR FREE',0,None,1.0,1.0,22q,follicular,'Stage I',No,No,Yes
+12,Low,Classical,'[60.00,85.00]',Female,T1b,N0,MX,'TUMOR FREE',1,None,2.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+0,Low,Classical,'[15.00,34.00)',Female,T1b,N0,MX,'TUMOR FREE',1,None,1.0,1.0,Quiet,follicular,'Stage I',Yes,No,No
+47,Intermediate,'Tall Cell','[50.00,60.00)',Female,T3,N0,MX,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage III',Yes,No,No
+48,Low,Follicular,'[34.00,41.00)',Female,T2,N0,MX,'TUMOR FREE',1,None,1.0,2.0,Quiet,follicular,'Stage I',Yes,No,No
+29,Intermediate,Classical,'[34.00,41.00)',Female,T2,N1a,MX,'TUMOR FREE',1,None,5.0,5.0,Quiet,'classical 2','Stage I',Yes,Yes,No
+32,Intermediate,Classical,'[34.00,41.00)',Female,T2,N1a,MX,'TUMOR FREE',1,None,4.0,2.0,Quiet,'classical 2','Stage I',Yes,Yes,No
+14,Intermediate,'Tall Cell','[50.00,60.00)',Female,T3,N1b,MX,'TUMOR FREE',0,'Minimal (T3)',5.0,6.0,22q,'classical 2','Stage IVA',No,Yes,No
+12,Intermediate,Classical,'[15.00,34.00)',Male,T2,N1,MX,'TUMOR FREE',0,None,5.0,2.0,Quiet,'classical 2','Stage I',No,Yes,Yes
+14,Intermediate,Classical,'[15.00,34.00)',Female,T2,N1a,MX,'TUMOR FREE',0,None,3.0,5.0,Quiet,'classical 2','Stage I',No,Yes,Yes
+27,Intermediate,Classical,'[34.00,41.00)',Female,T2,N1a,MX,'TUMOR FREE',1,None,4.0,5.0,22q,'classical 2','Stage I',Yes,No,No
+18,Low,Classical,'[15.00,34.00)',Female,T1,N0,MX,'TUMOR FREE',0,None,1.0,2.0,SomeSCNA,'classical 2','Stage I',No,No,Yes
+20,Intermediate,'Tall Cell','[50.00,60.00)',Female,T3,NX,MX,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage III',Yes,Yes,Yes
+54,Intermediate,Classical,'[15.00,34.00)',Male,T2,N1a,MX,'TUMOR FREE',0,None,3.0,1.0,Quiet,'classical 2','Stage I',No,No,No
+22,Low,Classical,'[60.00,85.00]',Female,T1b,NX,MX,'TUMOR FREE',1,None,5.0,5.0,Quiet,'classical 2','Stage I',Yes,No,No
+12,Low,Classical,'[34.00,41.00)',Male,T1b,N0,MX,'TUMOR FREE',1,None,4.0,2.0,SomeSCNA,'classical 2','Stage I',Yes,No,Yes
+16,Intermediate,Classical,'[50.00,60.00)',Female,T1b,N1a,MX,'TUMOR FREE',1,None,5.0,5.0,Quiet,'classical 2','Stage III',Yes,No,No
+19,Low,Follicular,'[34.00,41.00)',Female,T2,NX,MX,'TUMOR FREE',0,None,1.0,1.0,Quiet,'CpG island methylated','Stage I',No,No,No
+2,Intermediate,Follicular,'[50.00,60.00)',Female,T3,N0,MX,'TUMOR FREE',1,'Minimal (T3)',4.0,5.0,SomeSCNA,'classical 2','Stage III',Yes,No,No
+58,Intermediate,Follicular,'[41.00,50.00)',Female,T3,NX,MX,'TUMOR FREE',1,'Minimal (T3)',1.0,1.0,Quiet,follicular,'Stage III',Yes,No,No
+13,Low,Follicular,'[60.00,85.00]',Female,T1,NX,MX,'TUMOR FREE',1,None,1.0,4.0,Quiet,follicular,'Stage I',Yes,No,No
+70,Low,Classical,'[15.00,34.00)',Female,T2,NX,MX,'TUMOR FREE',1,None,4.0,4.0,Quiet,'classical 2','Stage I',Yes,No,No
+72,Intermediate,Classical,'[41.00,50.00)',Female,T3,N1a,MX,'TUMOR FREE',1,'Minimal (T3)',4.0,5.0,Quiet,'classical 2','Stage III',Yes,No,No
+65,Intermediate,Classical,'[15.00,34.00)',Female,T3,N0,MX,'TUMOR FREE',1,None,4.0,4.0,Quiet,'classical 2','Stage I',Yes,No,No
+84,Low,Classical,'[34.00,41.00)',Male,T2,NX,MX,'TUMOR FREE',1,None,4.0,2.0,22q,'classical 1','Stage I',Yes,No,No
+98,Intermediate,Classical,'[34.00,41.00)',Female,T3,NX,MX,'TUMOR FREE',1,None,1.0,1.0,'Many SCNA','classical 2','Stage I',Yes,No,No
+60,Intermediate,'Tall Cell','[34.00,41.00)',Male,T1,N0,MX,'TUMOR FREE',1,None,5.0,4.0,Quiet,'classical 1','Stage I',Yes,No,No
+58,Intermediate,Classical,'[60.00,85.00]',Female,T3,N0,MX,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,SomeSCNA,'classical 2','Stage III',Yes,No,No
+57,Low,Classical,'[15.00,34.00)',Female,T1,N0,MX,'TUMOR FREE',1,None,2.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+55,Low,Classical,'[15.00,34.00)',Female,T1,N0,MX,'TUMOR FREE',1,None,2.0,2.0,Quiet,'classical 2','Stage I',Yes,No,No
+59,Intermediate,Follicular,'[50.00,60.00)',Female,T3,N0,MX,'TUMOR FREE',1,'Minimal (T3)',3.0,4.0,Quiet,'classical 2','Stage III',Yes,No,No
+28,Low,Classical,'[15.00,34.00)',Female,T2,NX,MX,'TUMOR FREE',1,None,3.0,4.0,Quiet,'classical 2','Stage I',Yes,No,No
+5,Intermediate,'Tall Cell','[41.00,50.00)',Female,T3,N1a,MX,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+4,Intermediate,Classical,'[34.00,41.00)',Female,T2,N1a,MX,'TUMOR FREE',1,None,4.0,5.0,SomeSCNA,'classical 2','Stage I',Yes,No,No
+2,Low,Classical,'[15.00,34.00)',Female,T2,N0,MX,'TUMOR FREE',1,None,4.0,2.0,Quiet,'classical 2','Stage I',Yes,No,No
+5,Intermediate,Classical,'[41.00,50.00)',Male,T3,N1a,MX,'TUMOR FREE',1,'Minimal (T3)',2.0,5.0,Quiet,'classical 1','Stage I',Yes,No,No
+24,Intermediate,'Tall Cell','[60.00,85.00]',Female,T2,N1b,MX,'TUMOR FREE',1,None,5.0,4.0,Quiet,'classical 2','Stage IVA',Yes,No,No
+38,Intermediate,Classical,'[15.00,34.00)',Male,T1,N1a,MX,'TUMOR FREE',1,None,3.0,4.0,Quiet,'classical 2','Stage I',Yes,No,No
+2,Low,Classical,'[15.00,34.00)',Female,T2,NX,MX,'TUMOR FREE',1,None,4.0,4.0,Quiet,'classical 2','Stage I',Yes,No,No
+4,Intermediate,Classical,'[15.00,34.00)',Male,T3,N1a,MX,'TUMOR FREE',1,'Minimal (T3)',3.0,6.0,Quiet,'classical 2','Stage I',Yes,No,No
+18,Low,Classical,'[15.00,34.00)',Female,T2,NX,MX,'TUMOR FREE',1,None,5.0,6.0,Quiet,'classical 1','Stage I',Yes,No,No
+56,Low,Classical,'[41.00,50.00)',Female,T2,NX,MX,'TUMOR FREE',1,None,4.0,4.0,Quiet,'classical 2','Stage I',Yes,No,No
+59,Low,Follicular,'[41.00,50.00)',Female,T1,N0,MX,'TUMOR FREE',1,None,2.0,2.0,SomeSCNA,follicular,'Stage I',Yes,No,No
+43,Intermediate,Classical,'[41.00,50.00)',Female,T1,N1a,MX,'TUMOR FREE',1,None,3.0,4.0,Quiet,'classical 2','Stage I',Yes,No,No
+0,Low,Classical,'[15.00,34.00)',Female,T1,N0,MX,'TUMOR FREE',1,None,1.0,1.0,SomeSCNA,follicular,'Stage I',Yes,No,No
+17,Intermediate,Classical,'[15.00,34.00)',Female,T2,N1a,MX,'TUMOR FREE',1,None,2.0,3.0,Quiet,'classical 1','Stage I',Yes,No,No
+132,Intermediate,Follicular,'[60.00,85.00]',Female,T3,N0,MX,'TUMOR FREE',1,'Minimal (T3)',1.0,1.0,Quiet,'CpG island methylated','Stage II',Yes,No,No
+24,Intermediate,'Tall Cell','[60.00,85.00]',Male,T2,N1,MX,'TUMOR FREE',1,None,5.0,4.0,Quiet,'classical 2','Stage III',Yes,No,No
+3,Low,Follicular,'[15.00,34.00)',Female,T2,N0,MX,'TUMOR FREE',0,None,1.0,1.0,22q,follicular,'Stage I',No,No,No
+7,Intermediate,'Tall Cell','[34.00,41.00)',Male,T3,N1b,MX,'TUMOR FREE',0,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage I',No,No,Yes
+4,Intermediate,Follicular,'[15.00,34.00)',Female,T2,N1a,MX,'TUMOR FREE',0,None,2.0,1.0,Quiet,'classical 2','Stage I',No,No,No
+5,Low,Classical,'[60.00,85.00]',Male,T2,N0,MX,'TUMOR FREE',1,None,2.0,6.0,SomeSCNA,follicular,'Stage II',Yes,No,No
+2,Intermediate,Classical,'[15.00,34.00)',Female,T2,N1a,MX,'TUMOR FREE',0,None,2.0,6.0,22q,'classical 2','Stage I',No,No,No
+4,Intermediate,'Tall Cell','[50.00,60.00)',Female,T3,N0,MX,'TUMOR FREE',1,'Minimal (T3)',5.0,6.0,Quiet,'classical 1','Stage III',Yes,No,No
+1,Low,Follicular,'[41.00,50.00)',Female,T2,NX,MX,'TUMOR FREE',0,None,1.0,1.0,Quiet,follicular,'Stage II',No,No,No
+14,Intermediate,Classical,'[34.00,41.00)',Female,T3,N0,MX,'WITH TUMOR',0,'Minimal (T3)',3.0,2.0,SomeSCNA,'classical 2','Stage I',No,Yes,No
+30,Intermediate,Classical,'[60.00,85.00]',Male,T3,N0,MX,'WITH TUMOR',0,None,1.0,3.0,SomeSCNA,'CpG island methylated','Stage III',No,No,No
+94,High,Follicular,'[15.00,34.00)',Male,T4,N0,M1,'WITH TUMOR',0,'Minimal (T3)',4.0,1.0,Quiet,'classical 2','Stage II',No,Yes,No
+91,Intermediate,Classical,'[50.00,60.00)',Male,T3,N1a,MX,'TUMOR FREE',0,'Minimal (T3)',4.0,5.0,Quiet,'classical 2','Stage III',No,No,No
+0,Intermediate,Classical,'[60.00,85.00]',Female,T3,N0,MX,[Unknown],0,'Minimal (T3)',2.0,6.0,Quiet,follicular,'Stage III',No,No,No
+6,Intermediate,Classical,'[60.00,85.00]',Female,T3,N1a,MX,'TUMOR FREE',0,'Minimal (T3)',5.0,6.0,Quiet,'classical 2','Stage III',No,No,No
+6,High,Classical,'[50.00,60.00)',Female,T4a,N1b,MX,'TUMOR FREE',0,'Moderate/Advanced (T4a)',5.0,6.0,SomeSCNA,'classical 2','Stage IVA',No,No,No
+4,Low,Classical,'[50.00,60.00)',Female,T1b,N0,MX,'TUMOR FREE',0,None,1.0,3.0,SomeSCNA,'classical 2','Stage I',No,No,No
+0,Low,Follicular,'[50.00,60.00)',Female,T1a,N0,MX,'TUMOR FREE',0,None,2.0,1.0,Quiet,'classical 2','Stage I',No,No,No
+0,Low,Classical,'[60.00,85.00]',Male,T1a,NX,MX,'WITH TUMOR',0,None,1.0,1.0,SomeSCNA,'CpG island methylated','Stage I',No,No,No
+18,Low,Classical,'[34.00,41.00)',Female,T2,N0,MX,[Unknown],0,None,3.0,6.0,Quiet,'classical 2','Stage I',No,No,No
+9,Low,Follicular,'[34.00,41.00)',Female,T1b,N0,MX,'TUMOR FREE',0,None,1.0,1.0,22q,'CpG island methylated','Stage I',No,No,No
+2,Intermediate,Classical,'[34.00,41.00)',Female,T2,N1a,MX,'TUMOR FREE',0,None,5.0,6.0,Quiet,'classical 2','Stage I',No,No,No
+1,Intermediate,Classical,'[34.00,41.00)',Male,T3,N1b,M0,'WITH TUMOR',0,'Minimal (T3)',2.0,6.0,Quiet,'classical 2','Stage I',No,No,No
+31,Intermediate,Classical,'[41.00,50.00)',Female,T1b,N1a,M0,'TUMOR FREE',0,None,2.0,1.0,22q,follicular,'Stage III',No,No,No
+24,Intermediate,Classical,'[60.00,85.00]',Male,T1,N1,M0,'TUMOR FREE',0,None,5.0,6.0,Quiet,'classical 1','Stage III',No,No,No
+22,Intermediate,Classical,'[50.00,60.00)',Female,T2,N1a,M0,'TUMOR FREE',0,None,3.0,6.0,Quiet,'classical 2','Stage III',No,No,No
+5,Intermediate,Classical,'[34.00,41.00)',Male,T3,N1b,M0,'TUMOR FREE',0,None,4.0,5.0,22q,'classical 2','Stage I',No,Yes,No
+2,Intermediate,Classical,'[41.00,50.00)',Male,T1b,N1a,MX,[Unknown],0,None,2.0,2.0,Quiet,'classical 2','Stage III',No,No,No
+0,High,Classical,'[60.00,85.00]',Female,T4a,N1b,MX,'TUMOR FREE',0,'Moderate/Advanced (T4a)',1.0,5.0,Quiet,'classical 2','Stage IVA',No,No,No
+120,Intermediate,Classical,'[34.00,41.00)',Female,T2,N1,M0,'TUMOR FREE',0,None,4.0,5.0,Quiet,'classical 2','Stage I',No,No,No
+15,Low,Follicular,'[41.00,50.00)',Female,T1,N0,M0,'TUMOR FREE',0,None,1.0,1.0,22q,follicular,'Stage I',No,No,No
+86,Low,Follicular,'[34.00,41.00)',Female,T2,N0,M0,'TUMOR FREE',0,None,1.0,1.0,Quiet,follicular,'Stage I',No,No,No
+6,Low,Classical,'[34.00,41.00)',Female,T2,N0,M0,[Unknown],0,None,4.0,5.0,Quiet,'classical 2','Stage I',No,No,No
+12,Intermediate,Classical,'[41.00,50.00)',Male,T3,N1,M0,'TUMOR FREE',0,[Unknown],3.0,1.0,Quiet,'classical 2','Stage I',No,No,No
+12,Low,Classical,'[60.00,85.00]',Female,T1b,N0,M0,'TUMOR FREE',0,None,4.0,5.0,22q,'classical 2','Stage I',No,No,No
+14,Intermediate,Classical,'[41.00,50.00)',Female,T1b,N1a,M0,[Unknown],0,None,4.0,5.0,Quiet,'classical 2','Stage III',No,No,No
+20,Low,Follicular,'[50.00,60.00)',Female,T1,N0,M0,'TUMOR FREE',0,None,1.0,3.0,Quiet,follicular,'Stage I',No,No,No
+11,Intermediate,Classical,'[41.00,50.00)',Male,T2,N1a,M0,'TUMOR FREE',0,None,4.0,5.0,Quiet,'classical 2','Stage III',No,No,No
