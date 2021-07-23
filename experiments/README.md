@@ -52,7 +52,7 @@ The following hyper-parameters were defined with a randomised search considering
 - _W_ = 0.9; and
 - _alpha_ = 0.05  
 
-The algorithm was executed on actg320, breast-cancer and ptc data sets for (a sample of) 10\% of the total number of parameters' combinations.
+The EsmamDS was executed on actg320, breast-cancer and ptc data sets for (a sample of) 10\% of the total number of parameters' combinations.
 The algorithm configurations were chosen by ordering all samples according to their average performance considering the following metrics' order: description redundancy; coverage redundancy; CR; model redundancy; subgroup (average) coverage; data set coverage; subgroup (average) description size; and number of discovered subgroups.  
 
 The following configurations were selected for paramenter(value):
