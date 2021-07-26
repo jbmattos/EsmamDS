@@ -22,14 +22,13 @@ import pandas as pd
 VAR_TIME_NAME = 'survival_time'
 VAR_EVENT_NAME = 'survival_status'
 
-DATASETS = ['actg320','breast-cancer','cancer','carcinoma','gbsg2','lung','melanoma','mgus2','mgus','pbc','ptc','uis','veteran','whas500']
-
 # paths
 ROOT = "EsmamDS"
 PATH = os.path.dirname(__file__).split(ROOT)[0]+ROOT # read system path up to ROOT
 DATA_PATH = PATH+"\\data sets\\"
 READ_PATH = DATA_PATH+"final data sets\\"
 SAVE_PATH = DATA_PATH+"_arff data sets\\"
+SAVE_SD_PATH = DATA_PATH+"_arff data sets\\_arff single target (SD)\\"
 
 ARFF_FILE = '{}_disc.arff'
 
@@ -70,7 +69,10 @@ def generate_arff_file(db_name, _sd):
         data = [ [colTime.loc[i]] + [colEvent.loc[i]] + db_arff.loc[i].tolist() for i in range(db_arff.shape[0])]
 
     # SAVING ARFF FILE
-    save_name = SAVE_PATH + ARFF_FILE.format(db_name)
+    if _sd:
+        save_name = SAVE_SD_PATH + ARFF_FILE.format(db_name)
+    else:
+        save_name = SAVE_PATH + ARFF_FILE.format(db_name)
     
     arff_dict = {
         'attributes': attributes,
