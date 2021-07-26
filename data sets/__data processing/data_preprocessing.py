@@ -197,9 +197,6 @@ def process_folder(disc):
     return
 
 if __name__ == '__main__':
-    '''OBS: 
-        - IMPLEMENT **kwargs for discretization and pd.read_csv(header=HEADER, sep=SEP)
-    '''
     
     # parse args setting
     parser = argparse.ArgumentParser(description='Script to perform data preprocessing and discretisation.')
