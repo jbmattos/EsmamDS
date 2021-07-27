@@ -23,7 +23,7 @@ from datetime import datetime
 ROOT = "EsmamDS"
 ROOT_PATH = str(pathlib.Path(__file__).parent.absolute()).split(ROOT)[0] + ROOT + '/'
 CODE_PATH = ROOT_PATH + 'code/'
-DATA_PATH = ROOT_PATH + 'data sets/'
+DATA_PATH = ROOT_PATH + 'data sets/final data sets/'
 SAVE_PATH = ROOT_PATH + 'EsmamDS_statExe{}/'.format(datetime.now().strftime('%Y%m%d'))
 DB_NAMES = ['actg320','breast-cancer','cancer','carcinoma','gbsg2','lung','melanoma','mgus2','mgus','pbc','ptc','uis','veteran','whas500']
 
@@ -54,8 +54,8 @@ def stats_results(sg_baseline, _save_log=False):
         print('\n\n>> EsmamDS-{} >> database: {}'.format(comp,db_name))
 
         # ADJUST FILE PATHS
-        db_path = None
-        dtypes_path = None
+        db_path = DATA_PATH + "{}_disc.xz".format(db_name)
+        dtypes_path = DATA_PATH + "{}_disc_dtypes.json".format(db_name)
 
         # select the seeds
         seeds = SEEDS[db_name]
