@@ -1,3 +1,16 @@
+"""
+STATISTICAL EVALUATION
+
+This script executes the EsmamDS statistical evaluation procedure:
+    For each baseline {population, complement}, the EsmamDS is executed
+    30 times over 14 survival data sets.
+
+    The output files are saved in an especific folder on the EsmamDS/ path
+    The --log input parameters activates the saving of the EsmamDS .json log file
+
+This script should run inside EsmamDS/code/ folder.
+"""
+
 import argparse
 import errno
 import json
@@ -7,9 +20,6 @@ import pathlib
 from algorithm import EsmamDS
 from datetime import datetime
 
-"""
-ADJUST PATHS
-"""
 ROOT = "EsmamDS"
 ROOT_PATH = str(pathlib.Path(__file__).parent.absolute()).split(ROOT)[0] + ROOT + '/'
 CODE_PATH = ROOT_PATH + 'code/'
