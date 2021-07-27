@@ -14,7 +14,7 @@ from datetime import datetime
 
 # paths
 ROOT = "EsmamDS"
-SAVE_PATH = str(pathlib.Path(__file__).parent.absolute()).split(ROOT)[0] + 'EsmamDS_exe{}/'.format(datetime.now().strftime('%Y%m%d'))
+SAVE_PATH = str(pathlib.Path(__file__).parent.absolute()).split(ROOT)[0] + ROOT + '/EsmamDS_exe{}/'.format(datetime.now().strftime('%Y%m%d'))
 
 # default params
 PARAMS_POPULATION = {'alpha': 0.05,
