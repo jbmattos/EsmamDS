@@ -5,8 +5,7 @@ This folder provides 14 real-world survival data sets from the medical domain.
 The `final data sets` folder contains the .xz (.csv compressed) files regarding the processed data sets used for EsmamDS empirical evaluation and the json data dtypes files for proper data reading.
 The 14 processed survival data sets are presented in the Table bellow.  
 All numerical descriptive attributes were discretised using equal-frequency discretisation into five interval categories. Pre-processing of the data was employed to remove observations containing missing values (and features with a high level of missing data).  
-The codes and aditional files used for data processing and discretisation are provided in the `__data processing` folder.  
-Aditionally, the `_arff data sets` folder provide the data in .arff files, for single target and model target.
+The codes and aditional files used for data processing and discretisation are provided in the `__data processing` folder.
 
 _Table: Characteristics of the provided survival data sets: the number of observations (#obs), the number of descriptive attributes (#attr), the number of attributes that were discretised (#disc), the percentage of censored observations (%cens), and the survival event description (Event)_
 |**Dataset**       | **\#obs** | **\#attr** | **\#disc** | **\%cens** |  **Subject of research** | **Event** |
