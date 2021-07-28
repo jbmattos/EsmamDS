@@ -5,6 +5,7 @@ This script executes the randomised search for defining the
 EsmamDS configuration for both baselines, population and complement.
 
 """
+import argparse
 import errno
 import json
 import math
@@ -21,17 +22,6 @@ CODE_PATH = ROOT_PATH + 'code/'
 DATA_PATH = ROOT_PATH + 'data sets/final data sets/'
 SAVE_PATH = ROOT_PATH + 'EsmamDS_randExe{}/'.format(datetime.now().strftime('%Y%m%d'))
 DB_NAMES = ['actg320', 'breast-cancer', 'ptc']
-
-# creates directory for saving results and logs
-if not os.path.exists(os.path.dirname(SAVE_PATH)):
-    try:
-        os.makedirs(os.path.dirname(SAVE_PATH))
-    except OSError as exc:  # Guard against race condition
-        if exc.errno != errno.EEXIST:
-            raise
-# read the seeds
-with open(CODE_PATH+'_utils/_seeds.json', 'r') as f:
-    SEEDS = json.load(f)
 
 
 def __generate_pool_sample():
@@ -127,6 +117,20 @@ def run(file_path, dtypes_path, sg_baseline, seed, save_path, _save_log, **kwarg
 
 
 if __name__ == '__main__':
+
+    parser = argparse.ArgumentParser(description='EsmamDS randomised search of parameters')
+    args = parser.parse_args()
+
+    # creates directory for saving results and logs
+    if not os.path.exists(os.path.dirname(SAVE_PATH)):
+        try:
+            os.makedirs(os.path.dirname(SAVE_PATH))
+        except OSError as exc:  # Guard against race condition
+            if exc.errno != errno.EEXIST:
+                raise
+    # read the seeds
+    with open(CODE_PATH + '_utils/_seeds.json', 'r') as f:
+        SEEDS = json.load(f)
 
     print('\n ESMAM-DS RANDOMISED PARAMETERS SEARCH')
     print('.. this call will execute the EsmamDS algorithm for baseline={complement,population} on 3 datasets '
