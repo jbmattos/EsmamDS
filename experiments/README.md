@@ -39,7 +39,7 @@ The EsmamDS algorithm was implemented to mine exceptional subgroups considering 
 Such configuration is defined by the _baseline_ parameter. In the empirical evaluation, both configurations are considered separately.
 
 For each baseline, the EsmamDS was performed 30 times over each data set.  
-
+The [script](https://github.com/jbmattos/EsmamDS/blob/icde2022/code/statistical_evaluation.py) to run the statistical evaluation procedure is provided in the [code folder](https://github.com/jbmattos/EsmamDS/tree/icde2022/code).
 
 ## EsmamDS hyper-parameters selection
 
@@ -52,7 +52,8 @@ The following hyper-parameters were defined with a randomised search considering
 - _W_ = 0.9; and
 - _alpha_ = 0.05  
 
-The EsmamDS was executed on _actg320_, _breast-cancer_ and _ptc_ data sets for (a sample of) 10\% of the total number of parameters' combinations.
+The EsmamDS was executed on _actg320_, _breast-cancer_ and _ptc_ data sets for (a sample of) 10\% of the total number of parameters' combinations. The [script](https://github.com/jbmattos/EsmamDS/blob/icde2022/code/random_search.py) for running the randomised search is provided in the [code folder](https://github.com/jbmattos/EsmamDS/tree/icde2022/code).
+
 The algorithm configurations were chosen by ordering all samples according to their average performance considering the following metrics' order: description redundancy; coverage redundancy; CR; model redundancy; subgroup (average) coverage; data set coverage; subgroup (average) description size; and number of discovered subgroups.  
 
 The following configurations were selected for paramenter(value):
