@@ -1,0 +1,10 @@
+
+# My config
+*.ini
+.idea/
+__pycache__/
+venv/
+esmamds/__pycache__/
+esmam/__pycache__/
+esmamds/_results/
+esmam/_results/
