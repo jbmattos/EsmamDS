@@ -1,0 +1,6 @@
+
+# My config
+*.ini
+.idea/
+__pycache__/
+venv/
