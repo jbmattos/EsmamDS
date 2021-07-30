@@ -12,6 +12,7 @@ https://stackoverflow.com/questions/48993918/exporting-dataframe-to-arff-file-py
 '''
 
 import arff
+import errno
 import argparse
 import glob
 import json
@@ -27,8 +28,8 @@ ROOT = "EsmamDS"
 PATH = os.path.dirname(__file__).split(ROOT)[0]+ROOT # read system path up to ROOT
 DATA_PATH = PATH+"\\data sets\\"
 READ_PATH = DATA_PATH+"final data sets\\"
-SAVE_PATH = DATA_PATH+"_arff data sets\\"
-SAVE_SD_PATH = DATA_PATH+"_arff data sets\\_arff single target (SD)\\"
+SAVE_PATH = DATA_PATH+"_arff data sets\\model target (EMM)\\"
+SAVE_SD_PATH = DATA_PATH+"_arff data sets\\single target (SD)\\"
 
 ARFF_FILE = '{}_disc.arff'
 
@@ -42,7 +43,7 @@ def __read_data(db_name):
     return pd.read_csv(data_file, delimiter=',', header=0, index_col=False, compression='xz', dtype=dtypes)
 
 
-def generate_arff_file(db_name, _sd):
+def generate_arff_file(db_name, _sd, save_path):
     
     # read database
     db = __read_data(db_name)
@@ -67,17 +68,15 @@ def generate_arff_file(db_name, _sd):
         data = [ [colTime.loc[i]] + db_arff.loc[i].tolist() for i in range(db_arff.shape[0])]
     else:
         data = [ [colTime.loc[i]] + [colEvent.loc[i]] + db_arff.loc[i].tolist() for i in range(db_arff.shape[0])]
-
-    # SAVING ARFF FILE
-    if _sd:
-        save_name = SAVE_SD_PATH + ARFF_FILE.format(db_name)
-    else:
-        save_name = SAVE_PATH + ARFF_FILE.format(db_name)
     
     arff_dict = {
         'attributes': attributes,
         'data': data,
         'relation': READ_PATH+"{}_disc.xz".format(db_name)}
+    
+    # SAVING ARFF FILE
+    save_name = save_path + ARFF_FILE.format(db_name)
+    
     with open(save_name, "w", encoding="utf8") as f:
          arff.dump(arff_dict, f)
     print('..saved: {}'.format(save_name))
@@ -94,8 +93,22 @@ if __name__ == '__main__':
                         help="Generate .arff files for Subgroup Discovery (remove Survival Event feature)")
     args = parser.parse_args()
     
+    # SAVING ARFF FILE
+    if args.sd:
+        save_path = SAVE_SD_PATH
+    else:
+        save_path = SAVE_PATH
+    
+    # creates directory for saving results and logs
+    if not os.path.exists(os.path.dirname(save_path)):
+        try:
+            os.makedirs(os.path.dirname(save_path))
+        except OSError as exc:  # Guard against race condition
+            if exc.errno != errno.EEXIST:
+                raise
+    
     if args.db:
-        generate_arff_file(args.db, args.sd)
+        generate_arff_file(args.db, args.sd, save_path)
     
     else:
         
@@ -103,5 +116,5 @@ if __name__ == '__main__':
         for file in glob.iglob(files_path):
             
             print('>> process file: {}'.format(file))
-            db_name = file.split("\\")[-1].split('.')[0]
-            generate_arff_file(db_name, args.sd)
+            db_name = file.split("\\")[-1].split('_')[0]
+            generate_arff_file(db_name, args.sd, save_path)
