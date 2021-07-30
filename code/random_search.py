@@ -65,7 +65,7 @@ def randomised_search_parameters():
         params = json.load(f)
 
     # iterates over params config samples
-    for i, sample in range(len(params)):
+    for i in range(len(params)):
         print('\n\n>> SAMPLE #{}'.format(i))
 
         # creates directory for saving results and logs of each sample
@@ -78,7 +78,7 @@ def randomised_search_parameters():
                     raise
 
         # read sample configuration
-        config = params[i]
+        config = params[str(i)]
 
         # iterates over datasets
         for db_name in DB_NAMES:
