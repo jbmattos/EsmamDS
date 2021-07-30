@@ -11,6 +11,7 @@ providing the data set name (must be a file in <_original data sets> folder)
 '''
 
 import argparse
+import errno
 import glob
 import json
 import numpy as np
@@ -207,6 +208,14 @@ if __name__ == '__main__':
                         help="Do not perform data discretisation")
     
     args = parser.parse_args()
+    
+    # creates directory for saving results and logs
+    if not os.path.exists(os.path.dirname(FINAL_DATA_PATH)):
+        try:
+            os.makedirs(os.path.dirname(FINAL_DATA_PATH))
+        except OSError as exc:  # Guard against race condition
+            if exc.errno != errno.EEXIST:
+                raise
 
     if args.db:
         process_file(args.db, args.nodisc)
