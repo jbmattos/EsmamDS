@@ -35,6 +35,7 @@ class EsmamDS:
                  its_to_stagnation=ITS_TO_STAGNATION,
                  weigh_score=WEIGH_SCORE, logistic_offset=F_LOGISTIC_OFFSET, alpha=ALPHA,
                  seed=0, **kwargs):
+       
         self.sg_comp = sg_baseline
         self.no_of_ants = no_of_ants
         self.min_size_subgroup = min_size_subgroup
@@ -44,6 +45,17 @@ class EsmamDS:
         self.logistic_offset = logistic_offset
         self.alpha = alpha
         self._seed = seed
+        
+                
+        args = {'a': self.alpha,
+                'maxStag': self.its_to_stagnation,
+                'nAnts': self.no_of_ants,
+                'nConverg': self.no_rules_converg,
+                'minCov': self.min_size_subgroup,
+                'l': self.logistic_offset,
+                'w': self.weigh_score}
+        print(">> EsmamDS-{}".format(self.sg_comp))
+        print("..params: {}".format(args))
 
         self.discovered_rule_list = []
         self._Dataset = None

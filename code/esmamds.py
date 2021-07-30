@@ -32,14 +32,6 @@ PARAMS_COMPLEMENT = {'alpha': 0.05,
                      'logistic_offset': 10,
                      'weigh_score': 0.9}
 
-# creates directory for saving results and logs
-if not os.path.exists(os.path.dirname(SAVE_PATH)):
-    try:
-        os.makedirs(os.path.dirname(SAVE_PATH))
-    except OSError as exc: # Guard against race condition
-        if exc.errno != errno.EEXIST:
-            raise
-
 
 def __set_params(args):
 
@@ -98,6 +90,15 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     params = __set_params(args)
+    
+    # creates directory for saving results and logs
+    if not os.path.exists(os.path.dirname(SAVE_PATH)):
+        try:
+            os.makedirs(os.path.dirname(SAVE_PATH))
+        except OSError as exc: # Guard against race condition
+            if exc.errno != errno.EEXIST:
+                raise
+
 
     if args.baseline == "population":
         save_name = SAVE_PATH + 'EsmamDS-pop'
