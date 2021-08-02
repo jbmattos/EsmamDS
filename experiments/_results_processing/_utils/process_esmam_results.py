@@ -214,9 +214,7 @@ def __get_metrics_exp(version_log, db, exp):
     
     metrics_exp = version_log['metrics'].copy()  # read a dictionary
     for k in [k for k in metrics_exp.keys()]:
-        print(k)
         if k not in METRICS:
-            print(metrics_exp[k])
             del metrics_exp[k]
     metrics_exp['cr'] = None
 
