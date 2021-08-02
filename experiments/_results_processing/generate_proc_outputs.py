@@ -141,10 +141,13 @@ def run(algs):
 
     '''
     
+    print(">> running for {}".format(algs))
+    
     if len(algs)==1:
         __run(algs[0])
     else:
         for alg in algs:
+            print("\n>> running {}".format(alg))
             __run(alg)  
     return
 
@@ -165,5 +168,6 @@ if __name__ == '__main__':
     else:
         algs = ALGORITHMS
     
+    print("\n\nThis script will generate six output files in the following algorithms paths:")
     run(algs)
     __save_log_folder(algs)
