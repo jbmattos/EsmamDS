@@ -1,0 +1,17 @@
+DISCOVERED SUBGROUPS
+
+R0: (age=[74.00,87.00]) [size=39/176]
+[SM] R4: (age=[74.00,87.00]) & (pcdx=not-prog) [size=38/176; jaccard-c=0.97; jaccard-d=0.50]
+[SM] R5: (hgb=[7.00,11.00)) [size=14/176; jaccard-c=0.10; jaccard-d=0.00]
+
+R1: (alb=[2.00,3.00)) [size=43/176]
+
+R2: (age=[34.00,53.00)) [size=30/176]
+
+R3: (age=[74.00,87.00]) & (creat=[0.00,0.00]) & (alb=[2.00,3.00)) & (sex=male) [size=9/176]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

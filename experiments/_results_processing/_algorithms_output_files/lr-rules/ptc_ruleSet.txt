@@ -1,0 +1,9 @@
+Rules:
+r1: IF TUMOR_STATUS = {WITH TUMOR} THEN survival_status = {NaN}(p=25.0, n=0.0, P=332.0, N=0.0, weight=1.0)
+r2: IF TUMOR_STATUS = {TUMOR FREE} THEN survival_status = {NaN}(p=291.0, n=0.0, P=332.0, N=0.0, weight=0.999999999997036)
+r3: IF HISTOLOGICAL_TYPE = {Classical} AND RISK_GROUP = {Intermediate} THEN survival_status = {NaN}(p=138.0, n=0.0, P=332.0, N=0.0, weight=0.9985810860245543)
+r4: IF RISK_GROUP = {Low} THEN survival_status = {NaN}(p=127.0, n=0.0, P=332.0, N=0.0, weight=0.9839713493589723)
+General information:
+voting: true
+
+Estimator:

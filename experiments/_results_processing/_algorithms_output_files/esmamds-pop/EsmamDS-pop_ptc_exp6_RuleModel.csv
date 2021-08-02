@@ -1,0 +1,6 @@
+id,sg,baseline,fitness,pvalue,mean_sg,mean_pop,mean_cpm,size_sg,size_pop,size_cpm
+R0,(RISK_GROUP={'Intermediate'}) & (PATH_N_STAGE={'N1b'}),population,0.997769,0.002231,13.222222,24.102410,25.425676,36,332,296
+R1,(MRNA_CLUSTER={'5.0'}),population,0.973331,0.026669,26.323944,24.102410,23.498084,71,332,261
+R2,(PATH_N_STAGE={'N0'}) & (TUMOR_STATUS={'TUMOR FREE'}),population,0.988004,0.011996,25.134752,24.102410,23.340314,141,332,191
+R3,(SEX={'Male'}) & (RISK_GROUP={'Intermediate'}) & (WGS_STATUS={'No'}) & (HISTOLOGICAL_TYPE={'Classical'}),population,0.996261,0.003739,18.292683,24.102410,24.920962,41,332,291
+R4,(SEX={'Female'}) & (LOWPASS={'No'}) & (WGS_STATUS={'No'}) & (TUMOR_STATUS={'TUMOR FREE'}) & (METHYLATION_CLUSTER={'classical 2'}),population,0.977714,0.022286,29.314815,24.102410,21.589286,108,332,224

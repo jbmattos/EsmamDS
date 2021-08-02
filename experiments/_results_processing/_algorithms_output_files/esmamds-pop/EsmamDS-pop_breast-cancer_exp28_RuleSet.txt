@@ -1,0 +1,19 @@
+DISCOVERED SUBGROUPS
+
+R0: (er={'positive'}) & (X202240_at={'[6.00,7.00)'}) [size=41/196]
+[SM] R1: (size={'[1.00,2.00)'}) & (X217019_at={'[7.00,7.00]'}) [size=42/196; jaccard-c=0.24; jaccard-d=0.00]
+[SM] R3: (X200965_s_at={'[10.00,11.00]'}) & (X214806_at={'[7.00,7.00)'}) [size=27/196; jaccard-c=0.19; jaccard-d=0.00]
+[SM] R4: (X204014_at={'[9.00,10.00]'}) & (X221816_s_at={'[10.00,11.00]'}) [size=44/196; jaccard-c=0.23; jaccard-d=0.00]
+[SM] R7: (X202418_at={'[10.00,10.00)'}) & (X203306_s_at={'[9.00,10.00]'}) [size=68/196; jaccard-c=0.21; jaccard-d=0.00]
+[SM] R8: (X210314_x_at={'[9.00,9.00)'}) & (X217019_at={'[7.00,7.00]'}) & (X203391_at={'[10.00,10.00]'}) & (X221916_at={'[6.00,6.00]'}) [size=31/196; jaccard-c=0.18; jaccard-d=0.00]
+
+R2: (X204015_s_at={'[7.00,8.00)'}) [size=27/196]
+[SM] R5: (X201663_s_at={'[9.00,9.00)'}) & (X201288_at={'[11.00,12.00)'}) [size=23/196; jaccard-c=0.09; jaccard-d=0.00]
+[SM] R6: (X218883_s_at={'[9.00,10.00]'}) & (X216693_x_at={'[8.00,9.00)'}) [size=24/196; jaccard-c=0.16; jaccard-d=0.00]
+[SM] R9: (X210028_s_at={'[9.00,9.00]'}) & (X208180_s_at={'[7.00,8.00]'}) [size=33/196; jaccard-c=0.11; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

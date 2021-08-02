@@ -1,0 +1,15 @@
+DISCOVERED SUBGROUPS
+
+R0: (tumor-th=[2.00,4.00]) [size=45/205]
+[SM] R1: (ulceration=1) [size=90/205; jaccard-c=0.39; jaccard-d=0.00]
+[SM] R4: (tumor-th=[2.00,4.00]) & (ulceration=1) [size=38/205; jaccard-c=0.84; jaccard-d=0.50]
+
+R2: (tumor-th=[0.00,1.00)) [size=53/205]
+[SM] R3: (op-year=[1972.00,1977.00]) & (sex=woman) [size=46/205; jaccard-c=0.25; jaccard-d=0.00]
+[SM] R5: (ulceration=0) [size=115/205; jaccard-c=0.27; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

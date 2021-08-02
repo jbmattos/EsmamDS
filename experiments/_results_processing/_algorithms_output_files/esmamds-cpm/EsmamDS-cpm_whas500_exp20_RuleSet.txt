@@ -1,0 +1,19 @@
+DISCOVERED SUBGROUPS
+
+R0: (chf={'1'}) [size=155/500]
+[SM] R1: (bmi={'[13.00,22.00)'}) & (mitype={'0'}) [size=71/500; jaccard-c=0.14; jaccard-d=0.00]
+[SM] R3: (diasbp={'[6.00,60.00)'}) [size=88/500; jaccard-c=0.20; jaccard-d=0.00]
+[SM] R4: (hr={'[106.00,186.00]'}) [size=102/500; jaccard-c=0.27; jaccard-d=0.00]
+
+R2: (mitype={'1'}) [size=153/500]
+[SM] R6: (bmi={'[30.00,44.00]'}) [size=116/500; jaccard-c=0.17; jaccard-d=0.00]
+
+R5: (age={'[30.00,56.00)'}) [size=94/500]
+
+R7: (mitype={'0'}) [size=347/500]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

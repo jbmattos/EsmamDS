@@ -1,0 +1,12 @@
+DISCOVERED SUBGROUPS
+
+R0: (pnodes=[4.00,8.00]) [size=143/686]
+
+R1: (tgrade=I) [size=81/686]
+[SM] R2: (pnodes=[1.00,2.00)) [size=189/686; jaccard-c=0.12; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

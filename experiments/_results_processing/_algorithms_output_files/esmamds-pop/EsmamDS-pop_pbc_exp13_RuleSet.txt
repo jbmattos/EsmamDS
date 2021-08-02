@@ -1,0 +1,16 @@
+DISCOVERED SUBGROUPS
+
+R0: (sb={'[2.00,4.00]'}) [size=62/276]
+
+R1: (uc={'[4.00,39.00)'}) [size=55/276]
+[SM] R4: (spiders={'no'}) & (hp={'no'}) & (edema={'0.0'}) [size=107/276; jaccard-c=0.27; jaccard-d=0.00]
+[SM] R5: (edema={'0.0'}) & (spiders={'no'}) & (albumin={'[3.00,3.00]'}) [size=169/276; jaccard-c=0.24; jaccard-d=0.00]
+
+R2: (spiders={'yes'}) [size=80/276]
+[SM] R3: (ptb={'[10.00,10.00]'}) [size=98/276; jaccard-c=0.33; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

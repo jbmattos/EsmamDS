@@ -1,0 +1,13 @@
+DISCOVERED SUBGROUPS
+
+R0: (TUMOR_STATUS={'WITH TUMOR'}) [size=25/332]
+
+R1: (MRNA_CLUSTER={'5.0'}) [size=71/332]
+
+R2: (TUMOR_STATUS={'TUMOR FREE'}) [size=291/332]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

@@ -1,0 +1,20 @@
+DISCOVERED SUBGROUPS
+
+R0: (los={'[3.00,34.80)'}) [size=115/575]
+[SM] R4: (beck={'[19.40,25.00)'}) & (hercoc={'4'}) [size=33/575; jaccard-c=0.03; jaccard-d=0.00]
+[SM] R6: (race={'0'}) & (ndrugtx={'[4.00,7.00)'}) & (treatment={'0'}) [size=55/575; jaccard-c=0.10; jaccard-d=0.00]
+
+R1: (los={'[34.80,76.00)'}) [size=113/575]
+[SM] R3: (ivhx={'3'}) & (ndrugtx={'[7.00,40.00]'}) [size=77/575; jaccard-c=0.11; jaccard-d=0.00]
+[SM] R8: (race={'0'}) & (site={'0'}) & (treatment={'0'}) [size=149/575; jaccard-c=0.14; jaccard-d=0.00]
+
+R2: (los={'[173.00,400.00]'}) [size=116/575]
+
+R5: (ivhx={'1'}) [size=223/575]
+[SM] R7: (ndrugtx={'[2.00,4.00)'}) & (treatment={'1'}) [size=76/575; jaccard-c=0.15; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

@@ -1,0 +1,18 @@
+DISCOVERED SUBGROUPS
+
+R0: (age={'[83.00,104.00]'}) & (chf={'1'}) [size=58/500]
+[SD] R2: (chf={'1'}) [size=155/500; jaccard-c=0.37; jaccard-d=0.50]
+
+R1: (hr={'[106.00,186.00]'}) [size=102/500]
+[SM] R3: (bmi={'[13.00,22.00)'}) [size=92/500; jaccard-c=0.13; jaccard-d=0.00]
+
+R4: (age={'[56.00,67.00)'}) & (miord={'0'}) [size=74/500]
+
+R5: (bmi={'[30.00,44.00]'}) [size=116/500]
+[SM] R6: (sho={'0'}) & (av3={'0'}) & (chf={'0'}) [size=332/500; jaccard-c=0.24; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

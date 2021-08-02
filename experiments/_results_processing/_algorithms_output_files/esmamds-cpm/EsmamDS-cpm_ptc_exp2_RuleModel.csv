@@ -1,0 +1,5 @@
+id,sg,baseline,fitness,pvalue,mean_sg,mean_pop,mean_cpm,size_sg,size_pop,size_cpm
+R0,(TUMOR_STATUS={'TUMOR FREE'}),complement,1.000000,0.000000,25.065292,24.102410,17.268293,291,332,41
+R1,(SEX={'Male'}) & (PATH_T_STAGE={'T3'}) & (METHYLATION_CLUSTER={'classical 2'}) & (WGS_STATUS={'No'}) & (PATH_M_STAGE={'M0'}),complement,0.999369,0.000631,16.315789,24.102410,24.575080,19,332,313
+R2,(PRIMARY_EXOME={'Yes'}) & (WGS_STATUS={'No'}) & (PATH_M_STAGE={'M0'}) & (RISK_GROUP={'Intermediate'}) & (LOWPASS={'No'}) & (EXTRATHYROIDAL_EXTENSION={'None'}),complement,0.999865,0.000135,18.650000,24.102410,24.451923,20,332,312
+R3,(ARM_SCNA_CLUSTER={'Quiet'}) & (WGS_STATUS={'No'}) & (METHYLATION_CLUSTER={'classical 2'}) & (LOWPASS={'No'}),complement,0.995225,0.004775,30.875000,24.102410,19.852941,128,332,204

@@ -1,0 +1,5 @@
+Nr.	Depth	Coverage	Quality	Average	St. Dev.	p-Value	Conditions
+1	2	15	2.274229049682617	193.13333333333333	117.64401635159068	NaN	treat = 'standard' AND cell-type = 'large'
+2	2	15	2.274229049682617	193.13333333333333	117.64401635159068	NaN	cell-type = 'large' AND treat = 'standard'
+3	2	20	2.051656723022461	260.3	294.61960644193385	NaN	treat = 'test' AND cell-type = 'aquamous'
+4	2	20	2.051656723022461	260.3	294.61960644193385	NaN	cell-type = 'aquamous' AND treat = 'test'

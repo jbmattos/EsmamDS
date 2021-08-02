@@ -1,0 +1,23 @@
+DISCOVERED SUBGROUPS
+
+R0: (TUMOR_STATUS=WITH TUMOR) [size=25/332]
+[SM] R2: (HISTOLOGICAL_TYPE=Classical) & (PATH_N_STAGE=N1b) [size=31/332; jaccard-c=0.12; jaccard-d=0.00]
+[SM] R4: (SEX=Male) & (EXOME=1) & (MIRNA_CLUSTER=6.0) [size=17/332; jaccard-c=0.05; jaccard-d=0.00]
+[SM] R6: (PATH_N_STAGE=N1b) [size=41/332; jaccard-c=0.10; jaccard-d=0.00]
+[SM] R7: (PATH_T_STAGE=T3) & (HISTOLOGICAL_TYPE=Classical) & (PRIMARY_EXOME=No) [size=19/332; jaccard-c=0.19; jaccard-d=0.00]
+[SM] R8: (RISK_GROUP=Intermediate) & (PATH_N_STAGE=N1b) [size=36/332; jaccard-c=0.11; jaccard-d=0.00]
+[SM] R9: (MIRNA_CLUSTER=6.0) & (MRNA_CLUSTER=5.0) & (EXTRATHYROIDAL_EXTENSION=None) [size=23/332; jaccard-c=0.04; jaccard-d=0.00]
+[SM] R11: (PATH_N_STAGE=N1b) & (WGS_STATUS=No) [size=39/332; jaccard-c=0.08; jaccard-d=0.00]
+[SM] R12: (RISK_GROUP=Intermediate) & (DISEASE_STAGE=Stage IVA) [size=18/332; jaccard-c=0.07; jaccard-d=0.00]
+
+R1: (TUMOR_STATUS=TUMOR FREE) [size=291/332]
+
+R3: (MRNA_CLUSTER=5.0) & (MIRNA_CLUSTER=6.0) & (WGS_STATUS=No) [size=48/332]
+[SM] R5: (MRNA_CLUSTER=5.0) & (HISTOLOGICAL_TYPE=Classical) [size=49/332; jaccard-c=0.54; jaccard-d=0.25]
+[SM] R10: (RISK_GROUP=Intermediate) [size=190/332; jaccard-c=0.21; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

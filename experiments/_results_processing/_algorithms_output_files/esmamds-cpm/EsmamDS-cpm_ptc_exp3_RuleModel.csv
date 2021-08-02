@@ -1,0 +1,4 @@
+id,sg,baseline,fitness,pvalue,mean_sg,mean_pop,mean_cpm,size_sg,size_pop,size_cpm
+R0,(PATH_N_STAGE={'N1b'}),complement,0.999304,0.000696,12.951220,24.102410,25.673540,41,332,291
+R1,(TUMOR_STATUS={'TUMOR FREE'}),complement,1.000000,0.000000,25.065292,24.102410,17.268293,291,332,41
+R2,(LOWPASS={'No'}) & (METHYLATION_CLUSTER={'classical 2'}) & (ARM_SCNA_CLUSTER={'Quiet'}) & (WGS_STATUS={'No'}),complement,0.995225,0.004775,30.875000,24.102410,19.852941,128,332,204

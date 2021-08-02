@@ -1,0 +1,5 @@
+id,sg,baseline,fitness,pvalue,mean_sg,mean_pop,mean_cpm,size_sg,size_pop,size_cpm
+R0,(condition=2.0),complement,1.000000,0.000000,322.279070,561.259067,629.766667,43,193,150
+R1,(t-staging=4),complement,0.997980,0.002020,425.742424,561.259067,631.685039,66,193,127
+R2,(condition=1.0),complement,1.000000,0.000000,653.105634,561.259067,305.529412,142,193,51
+R3,(site=1) & (treatment=test) & (n-staging=3),complement,0.990230,0.009770,308.384615,561.259067,579.522222,13,193,180

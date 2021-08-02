@@ -1,0 +1,12 @@
+DISCOVERED SUBGROUPS
+
+R0: (MRNA_CLUSTER={'5.0'}) [size=71/332]
+[SM] R1: (RISK_GROUP={'Intermediate'}) [size=190/332; jaccard-c=0.29; jaccard-d=0.00]
+
+R2: (RISK_GROUP={'Low'}) [size=127/332]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

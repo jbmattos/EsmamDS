@@ -1,0 +1,21 @@
+DISCOVERED SUBGROUPS
+
+R0: (TUMOR_STATUS=WITH TUMOR) [size=25/332]
+[SM] R1: (MRNA_CLUSTER=5.0) & (MIRNA_CLUSTER=6.0) & (EXTRATHYROIDAL_EXTENSION=None) [size=23/332; jaccard-c=0.04; jaccard-d=0.00]
+[SM] R2: (PATH_N_STAGE=N1b) [size=41/332; jaccard-c=0.10; jaccard-d=0.00]
+[SM] R4: (PATH_N_STAGE=N1b) & (WGS_STATUS=No) [size=39/332; jaccard-c=0.08; jaccard-d=0.00]
+[SM] R7: (RISK_GROUP=Intermediate) & (PATH_N_STAGE=N1b) [size=36/332; jaccard-c=0.11; jaccard-d=0.00]
+[SM] R9: (HISTOLOGICAL_TYPE=Classical) & (PATH_N_STAGE=N1b) [size=31/332; jaccard-c=0.12; jaccard-d=0.00]
+
+R3: (TUMOR_STATUS=TUMOR FREE) [size=291/332]
+
+R5: (MIRNA_CLUSTER=6.0) & (MRNA_CLUSTER=5.0) [size=58/332]
+[SM] R6: (RISK_GROUP=Intermediate) [size=190/332; jaccard-c=0.25; jaccard-d=0.00]
+[SM] R8: (MRNA_CLUSTER=5.0) [size=71/332; jaccard-c=0.82; jaccard-d=0.50]
+[SM] R10: (SEX=Male) [size=91/332; jaccard-c=0.07; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

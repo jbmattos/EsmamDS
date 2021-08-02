@@ -1,0 +1,14 @@
+DISCOVERED SUBGROUPS
+
+R0: (sgot=[167.00,457.00]) & (sb=[2.00,4.00]) & (uc=[152.00,588.00]) [size=15/276]
+[SM] R2: (ascites=yes) [size=19/276; jaccard-c=0.17; jaccard-d=0.00]
+[SM] R3: (edema=1.0) [size=17/276; jaccard-c=0.14; jaccard-d=0.00]
+[SM] R4: (hist-stage=4) & (albumin=[1.00,3.00)) [size=16/276; jaccard-c=0.15; jaccard-d=0.00]
+
+R1: (sb=[2.00,4.00]) [size=62/276]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

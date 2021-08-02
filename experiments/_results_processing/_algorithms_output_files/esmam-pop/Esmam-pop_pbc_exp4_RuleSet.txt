@@ -1,0 +1,20 @@
+DISCOVERED SUBGROUPS
+
+R0: (sb=[2.00,4.00]) [size=62/276]
+[SM] R1: (sb=[2.00,4.00]) & (ptb=[10.00,10.00]) [size=36/276; jaccard-c=0.58; jaccard-d=0.50]
+[SM] R2: (sb=[2.00,4.00]) & (hp=yes) [size=49/276; jaccard-c=0.79; jaccard-d=0.50]
+[SM] R3: (hist-stage=4) & (age=[21483.00,28650.00]) [size=29/276; jaccard-c=0.17; jaccard-d=0.00]
+[SM] R4: (sb=[2.00,4.00]) & (hist-stage=4) [size=34/276; jaccard-c=0.55; jaccard-d=0.50]
+[SM] R6: (uc=[152.00,588.00]) & (hist-stage=4) [size=28/276; jaccard-c=0.23; jaccard-d=0.00]
+[SM] R8: (uc=[152.00,588.00]) [size=57/276; jaccard-c=0.37; jaccard-d=0.00]
+[SM] R9: (age=[21483.00,28650.00]) & (ptb=[10.00,10.00]) [size=29/276; jaccard-c=0.15; jaccard-d=0.00]
+[SM] R10: (sgot=[167.00,457.00]) & (hp=yes) [size=34/276; jaccard-c=0.30; jaccard-d=0.00]
+
+R5: (spiders=yes) [size=80/276]
+[SM] R7: (hist-stage=4) [size=94/276; jaccard-c=0.34; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

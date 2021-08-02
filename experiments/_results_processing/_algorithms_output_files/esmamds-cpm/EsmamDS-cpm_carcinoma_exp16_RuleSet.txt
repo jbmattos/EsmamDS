@@ -1,0 +1,16 @@
+DISCOVERED SUBGROUPS
+
+R0: (condition={'2.0'}) [size=43/193]
+[SM] R1: (t-staging={'4'}) [size=66/193; jaccard-c=0.16; jaccard-d=0.00]
+
+R2: (n-staging={'3'}) [size=89/193]
+[SM] R3: (treatment={'test'}) & (grade={'2.0'}) [size=58/193; jaccard-c=0.20; jaccard-d=0.00]
+
+R4: (grade={'3.0'}) [size=35/193]
+[SM] R5: (condition={'1.0'}) [size=142/193; jaccard-c=0.19; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

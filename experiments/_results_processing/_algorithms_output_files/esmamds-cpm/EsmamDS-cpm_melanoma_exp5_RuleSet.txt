@@ -1,0 +1,13 @@
+DISCOVERED SUBGROUPS
+
+R0: (op-year={'[1972.00,1977.00]'}) [size=74/205]
+[SM] R2: (tumor-th={'[0.00,1.00)'}) [size=53/205; jaccard-c=0.26; jaccard-d=0.00]
+[SM] R3: (ulceration={'0'}) [size=115/205; jaccard-c=0.34; jaccard-d=0.00]
+
+R1: (ulceration={'1'}) [size=90/205]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

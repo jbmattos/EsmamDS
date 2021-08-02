@@ -1,0 +1,29 @@
+DISCOVERED SUBGROUPS
+
+R0: (er=positive) & (size=[1.00,2.00)) [size=44/196]
+[SM] R1: (size=[1.00,2.00)) [size=58/196; jaccard-c=0.76; jaccard-d=0.50]
+[SM] R2: (X219588_s_at=[7.00,8.00)) & (X211762_s_at=[10.00,10.00)) [size=33/196; jaccard-c=0.17; jaccard-d=0.00]
+[SM] R3: (X202240_at=[6.00,7.00)) [size=46/196; jaccard-c=0.23; jaccard-d=0.00]
+[SM] R4: (X217019_at=[7.00,7.00]) & (X202240_at=[6.00,7.00)) [size=37/196; jaccard-c=0.25; jaccard-d=0.00]
+[SM] R6: (X200965_s_at=[10.00,11.00]) & (X218478_s_at=[9.00,9.00]) [size=22/196; jaccard-c=0.06; jaccard-d=0.00]
+[SM] R7: (X202240_at=[6.00,7.00)) & (er=positive) [size=41/196; jaccard-c=0.25; jaccard-d=0.33]
+[SM] R8: (X217771_at=[10.00,11.00]) & (X201664_at=[9.00,9.00)) [size=24/196; jaccard-c=0.19; jaccard-d=0.00]
+[SM] R9: (X201664_at=[9.00,9.00)) & (X202418_at=[10.00,10.00)) [size=43/196; jaccard-c=0.24; jaccard-d=0.00]
+[SM] R10: (X201664_at=[9.00,9.00)) & (X203306_s_at=[9.00,10.00]) [size=40/196; jaccard-c=0.20; jaccard-d=0.00]
+[SM] R13: (X202240_at=[6.00,7.00)) & (X201091_s_at=[9.00,10.00]) [size=24/196; jaccard-c=0.17; jaccard-d=0.00]
+[SM] R14: (X203391_at=[10.00,10.00]) & (size=[1.00,2.00)) [size=48/196; jaccard-c=0.64; jaccard-d=0.33]
+[SM] R15: (X215633_x_at=[8.00,8.00)) & (X203306_s_at=[9.00,10.00]) [size=42/196; jaccard-c=0.15; jaccard-d=0.00]
+[SM] R16: (X217019_at=[7.00,7.00]) & (size=[1.00,2.00)) [size=42/196; jaccard-c=0.65; jaccard-d=0.33]
+[SM] R17: (X211762_s_at=[10.00,10.00)) & (X201664_at=[9.00,9.00)) [size=34/196; jaccard-c=0.18; jaccard-d=0.00]
+[SM] R18: (X202240_at=[6.00,7.00)) & (X209862_s_at=[8.00,8.00]) [size=37/196; jaccard-c=0.19; jaccard-d=0.00]
+[SM] R19: (X202240_at=[6.00,7.00)) & (X217471_at=[6.00,6.00)) [size=26/196; jaccard-c=0.19; jaccard-d=0.00]
+
+R5: (X204015_s_at=[7.00,8.00)) [size=27/196]
+[SM] R11: (X208180_s_at=[7.00,8.00]) & (X201288_at=[12.00,12.00]) [size=39/196; jaccard-c=0.06; jaccard-d=0.00]
+[SM] R12: (X217815_at=[10.00,10.00]) & (X204015_s_at=[7.00,8.00)) [size=22/196; jaccard-c=0.81; jaccard-d=0.50]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

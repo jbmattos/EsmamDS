@@ -1,0 +1,17 @@
+DISCOVERED SUBGROUPS
+
+R0: (PATH_N_STAGE={'N1b'}) [size=41/332]
+[SM] R1: (MRNA_CLUSTER={'5.0'}) [size=71/332; jaccard-c=0.13; jaccard-d=0.00]
+[SM] R5: (SEX={'Male'}) & (WGS_STATUS={'No'}) & (RISK_GROUP={'Intermediate'}) & (PRIMARY_EXOME={'Yes'}) [size=36/332; jaccard-c=0.15; jaccard-d=0.00]
+[SM] R6: (EXTRATHYROIDAL_EXTENSION={'None'}) & (RISK_GROUP={'Intermediate'}) & (WGS_STATUS={'No'}) & (PATH_M_STAGE={'M0'}) & (LOWPASS={'No'}) [size=35/332; jaccard-c=0.10; jaccard-d=0.00]
+
+R2: (SEX={'Female'}) & (PATH_N_STAGE={'N0'}) [size=119/332]
+[SM] R3: (RISK_GROUP={'Low'}) & (SEX={'Female'}) [size=102/332; jaccard-c=0.60; jaccard-d=0.33]
+[SM] R4: (PATH_N_STAGE={'N0'}) & (TUMOR_STATUS={'TUMOR FREE'}) [size=141/332; jaccard-c=0.72; jaccard-d=0.33]
+[SM] R7: (METHYLATION_CLUSTER={'classical 2'}) & (WGS_STATUS={'No'}) & (TUMOR_STATUS={'TUMOR FREE'}) & (LOWPASS={'No'}) & (ARM_SCNA_CLUSTER={'Quiet'}) [size=116/332; jaccard-c=0.17; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

@@ -1,0 +1,13 @@
+DISCOVERED SUBGROUPS
+
+R0: (age={'[74.00,87.00]'}) [size=39/176]
+
+R1: (age={'[34.00,53.00)'}) [size=30/176]
+
+R2: (age={'[66.00,74.00)'}) [size=38/176]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

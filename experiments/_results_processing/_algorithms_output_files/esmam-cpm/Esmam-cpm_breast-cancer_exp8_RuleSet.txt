@@ -1,0 +1,25 @@
+DISCOVERED SUBGROUPS
+
+R0: (X211762_s_at=[10.00,10.00)) [size=79/196]
+[SM] R1: (size=[1.00,2.00)) [size=58/196; jaccard-c=0.26; jaccard-d=0.00]
+[SM] R2: (X211762_s_at=[10.00,10.00)) & (X202239_at=[10.00,10.00]) [size=51/196; jaccard-c=0.65; jaccard-d=0.50]
+[SM] R3: (X202240_at=[6.00,7.00)) [size=46/196; jaccard-c=0.36; jaccard-d=0.00]
+[SM] R5: (X202418_at=[10.00,10.00)) & (X217102_at=[6.00,6.00)) [size=59/196; jaccard-c=0.25; jaccard-d=0.00]
+[SM] R7: (X211762_s_at=[10.00,10.00)) & (X217404_s_at=[3.00,5.00)) [size=32/196; jaccard-c=0.41; jaccard-d=0.50]
+[SM] R8: (X200726_at=[11.00,11.00)) & (er=positive) [size=96/196; jaccard-c=0.45; jaccard-d=0.00]
+[SM] R9: (X203306_s_at=[9.00,10.00]) [size=98/196; jaccard-c=0.35; jaccard-d=0.00]
+[SM] R10: (X203391_at=[10.00,10.00]) & (X202418_at=[10.00,10.00)) [size=100/196; jaccard-c=0.36; jaccard-d=0.00]
+[SM] R11: (X202240_at=[6.00,7.00)) & (X217019_at=[7.00,7.00]) [size=37/196; jaccard-c=0.29; jaccard-d=0.00]
+[SM] R12: (er=positive) & (X203306_s_at=[9.00,10.00]) [size=68/196; jaccard-c=0.36; jaccard-d=0.00]
+
+R4: (X208180_s_at=[7.00,8.00]) & (age=[53.00,60.00]) [size=17/196]
+[SM] R6: (X204015_s_at=[7.00,8.00)) & (X219724_s_at=[6.00,6.00]) [size=18/196; jaccard-c=0.06; jaccard-d=0.00]
+[SM] R13: (X204015_s_at=[7.00,8.00)) [size=27/196; jaccard-c=0.05; jaccard-d=0.00]
+[SM] R14: (size=[2.00,2.00]) [size=129/196; jaccard-c=0.11; jaccard-d=0.00]
+[SM] R15: (X208180_s_at=[7.00,8.00]) [size=68/196; jaccard-c=0.25; jaccard-d=0.50]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

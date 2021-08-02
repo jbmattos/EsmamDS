@@ -1,0 +1,6 @@
+id,sg,baseline,fitness,pvalue,mean_sg,mean_pop,mean_cpm,size_sg,size_pop,size_cpm
+R0,"(karno=[10.00,40.00))",complement,1.000000,0.000000,28.318182,121.627737,139.478261,22,137,115
+R1,(cell-type=adeno),complement,0.995792,0.004208,64.111111,121.627737,135.745455,27,137,110
+R2,(cell-type=small) & (treat=test),complement,0.999262,0.000738,47.166667,121.627737,132.890756,18,137,119
+R3,"(karno=[40.00,60.00)) & (cell-type=adeno)",complement,0.999972,0.000028,27.555556,121.627737,128.242188,9,137,128
+R4,(cell-type=small),complement,0.998598,0.001402,71.666667,121.627737,148.573034,48,137,89

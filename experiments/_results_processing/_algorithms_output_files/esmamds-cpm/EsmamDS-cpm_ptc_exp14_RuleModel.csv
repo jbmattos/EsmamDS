@@ -1,0 +1,5 @@
+id,sg,baseline,fitness,pvalue,mean_sg,mean_pop,mean_cpm,size_sg,size_pop,size_cpm
+R0,(PATH_N_STAGE={'N1b'}) & (HISTOLOGICAL_TYPE={'Classical'}),complement,0.999987,0.000013,12.483871,24.102410,25.299003,31,332,301
+R1,(TUMOR_STATUS={'TUMOR FREE'}),complement,1.000000,0.000000,25.065292,24.102410,17.268293,291,332,41
+R2,(PATH_N_STAGE={'N0'}) & (LOWPASS={'No'}) & (SEX={'Female'}),complement,0.997845,0.002155,25.108911,24.102410,23.662338,101,332,231
+R3,(HISTOLOGICAL_TYPE={'Classical'}) & (RISK_GROUP={'Intermediate'}),complement,0.998581,0.001419,28.304348,24.102410,21.113402,138,332,194

@@ -1,0 +1,8 @@
+Rules:
+r1: IF condition = {1.0} THEN survival_status = {NaN}(p=142.0, n=0.0, P=193.0, N=0.0, weight=0.9999999997212689)
+r2: IF condition = {2.0} THEN survival_status = {NaN}(p=43.0, n=0.0, P=193.0, N=0.0, weight=0.9999999145381454)
+r3: IF condition = {3.0} THEN survival_status = {NaN}(p=6.0, n=0.0, P=193.0, N=0.0, weight=0.979720952727417)
+General information:
+voting: true
+
+Estimator:

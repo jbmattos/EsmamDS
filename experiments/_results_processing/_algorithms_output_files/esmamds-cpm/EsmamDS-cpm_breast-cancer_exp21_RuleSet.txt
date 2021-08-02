@@ -1,0 +1,18 @@
+DISCOVERED SUBGROUPS
+
+R0: (X221816_s_at={'[10.00,10.00)'}) [size=100/196]
+[SM] R2: (X204015_s_at={'[7.00,8.00)'}) [size=27/196; jaccard-c=0.10; jaccard-d=0.00]
+[SM] R3: (X202418_at={'[10.00,10.00]'}) [size=58/196; jaccard-c=0.31; jaccard-d=0.00]
+[SM] R4: (er={'negative'}) [size=64/196; jaccard-c=0.28; jaccard-d=0.00]
+[SM] R5: (X205034_at={'[8.00,8.00]'}) & (X212014_x_at={'[9.00,10.00)'}) [size=17/196; jaccard-c=0.08; jaccard-d=0.00]
+
+R1: (X202240_at={'[6.00,7.00)'}) [size=46/196]
+[SM] R7: (X203306_s_at={'[9.00,10.00]'}) [size=98/196; jaccard-c=0.26; jaccard-d=0.00]
+
+R6: (X204631_at={'[5.00,5.00)'}) & (X216693_x_at={'[9.00,9.00]'}) & (X220886_at={'[6.00,6.00)'}) [size=22/196]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

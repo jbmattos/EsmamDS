@@ -1,0 +1,4 @@
+id,sg,baseline,fitness,pvalue,mean_sg,mean_pop,mean_cpm,size_sg,size_pop,size_cpm
+R0,(TUMOR_STATUS={'WITH TUMOR'}),complement,1.000000,0.000000,20.520000,24.102410,24.394137,25,332,307
+R1,"(AGE={'[60.00,85.00]'}) & (RISK_GROUP={'Intermediate'}) & (HISTOLOGICAL_TYPE={'Classical'})",complement,0.999692,0.000308,25.222222,24.102410,24.003279,27,332,305
+R2,(TUMOR_STATUS={'TUMOR FREE'}),complement,1.000000,0.000000,25.065292,24.102410,17.268293,291,332,41

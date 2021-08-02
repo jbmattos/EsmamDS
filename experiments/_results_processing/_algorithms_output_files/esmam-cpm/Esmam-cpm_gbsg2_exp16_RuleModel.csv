@@ -1,0 +1,2 @@
+id,sg,baseline,fitness,pvalue,mean_sg,mean_pop,mean_cpm,size_sg,size_pop,size_cpm
+R0,"(pnodes=[4.00,8.00])",complement,1.000000,0.000000,834.720280,1124.489796,1200.801105,143,686,543

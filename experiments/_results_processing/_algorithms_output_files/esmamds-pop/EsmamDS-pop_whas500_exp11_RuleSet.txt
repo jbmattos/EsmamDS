@@ -1,0 +1,15 @@
+DISCOVERED SUBGROUPS
+
+R0: (chf={'1'}) [size=155/500]
+
+R1: (hr={'[35.00,66.00)'}) [size=97/500]
+[SM] R2: (mitype={'1'}) & (los={'[5.00,9.00)'}) [size=53/500; jaccard-c=0.11; jaccard-d=0.00]
+[SM] R4: (chf={'0'}) [size=345/500; jaccard-c=0.20; jaccard-d=0.00]
+
+R3: (age={'[30.00,56.00)'}) [size=94/500]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

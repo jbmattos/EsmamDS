@@ -1,0 +1,31 @@
+DISCOVERED SUBGROUPS
+
+R0: (size=[1.00,2.00)) [size=58/196]
+[SM] R1: (X202240_at=[6.00,7.00)) [size=46/196; jaccard-c=0.20; jaccard-d=0.00]
+[SM] R2: (X203306_s_at=[9.00,10.00]) [size=98/196; jaccard-c=0.29; jaccard-d=0.00]
+[SM] R3: (size=[1.00,2.00)) & (er=positive) [size=44/196; jaccard-c=0.76; jaccard-d=0.50]
+[SM] R4: (X202418_at=[10.00,10.00)) & (X201664_at=[9.00,9.00)) [size=43/196; jaccard-c=0.20; jaccard-d=0.00]
+[SM] R6: (X202418_at=[10.00,10.00)) & (X203306_s_at=[9.00,10.00]) [size=68/196; jaccard-c=0.29; jaccard-d=0.00]
+[SM] R9: (X215633_x_at=[8.00,8.00)) & (X221928_at=[6.00,7.00]) [size=50/196; jaccard-c=0.23; jaccard-d=0.00]
+[SM] R10: (X202240_at=[6.00,7.00)) & (X209862_s_at=[8.00,8.00]) [size=37/196; jaccard-c=0.16; jaccard-d=0.00]
+[SM] R12: (X221928_at=[6.00,7.00]) [size=110/196; jaccard-c=0.32; jaccard-d=0.00]
+[SM] R13: (X211762_s_at=[10.00,10.00)) [size=79/196; jaccard-c=0.26; jaccard-d=0.00]
+[SM] R15: (X200965_s_at=[10.00,11.00]) [size=56/196; jaccard-c=0.21; jaccard-d=0.00]
+[SM] R16: (X202239_at=[10.00,10.00]) & (X211762_s_at=[10.00,10.00)) [size=51/196; jaccard-c=0.20; jaccard-d=0.00]
+[SM] R17: (X201663_s_at=[8.00,9.00)) [size=47/196; jaccard-c=0.21; jaccard-d=0.00]
+[SM] R18: (X202240_at=[6.00,7.00)) & (X217019_at=[7.00,7.00]) [size=37/196; jaccard-c=0.20; jaccard-d=0.00]
+
+R5: (X204015_s_at=[7.00,8.00)) [size=27/196]
+[SM] R8: (X219724_s_at=[6.00,6.00]) & (X204015_s_at=[7.00,8.00)) [size=18/196; jaccard-c=0.67; jaccard-d=0.50]
+[SM] R11: (X208180_s_at=[7.00,8.00]) [size=68/196; jaccard-c=0.12; jaccard-d=0.00]
+[SM] R14: (X221816_s_at=[10.00,10.00)) & (X207118_s_at=[2.00,3.00)) [size=47/196; jaccard-c=0.09; jaccard-d=0.00]
+[SM] R19: (X204014_at=[7.00,9.00)) & (X218430_s_at=[6.00,6.00]) [size=48/196; jaccard-c=0.27; jaccard-d=0.00]
+[SM] R20: (X221916_at=[5.00,6.00)) & (X204015_s_at=[7.00,8.00)) [size=10/196; jaccard-c=0.37; jaccard-d=0.50]
+
+R7: (er=positive) [size=132/196]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

@@ -1,0 +1,14 @@
+DISCOVERED SUBGROUPS
+
+R0: (los=[3.00,34.80)) [size=115/575]
+[SM] R3: (treatment=0) & (ndrugtx=[4.00,7.00)) & (race=0) [size=55/575; jaccard-c=0.10; jaccard-d=0.00]
+
+R1: (los=[173.00,400.00]) [size=116/575]
+
+R2: (los=[34.80,76.00)) [size=113/575]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

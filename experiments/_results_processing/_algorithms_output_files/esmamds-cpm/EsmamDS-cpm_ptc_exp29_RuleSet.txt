@@ -1,0 +1,12 @@
+DISCOVERED SUBGROUPS
+
+R0: (PATH_N_STAGE={'N1b'}) [size=41/332]
+
+R1: (TUMOR_STATUS={'TUMOR FREE'}) [size=291/332]
+[SM] R2: (METHYLATION_CLUSTER={'classical 2'}) & (ARM_SCNA_CLUSTER={'Quiet'}) & (WGS_STATUS={'No'}) & (LOWPASS={'No'}) [size=128/332; jaccard-c=0.38; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

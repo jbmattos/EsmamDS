@@ -1,0 +1,11 @@
+DISCOVERED SUBGROUPS
+
+R0: (chf={'1'}) [size=155/500]
+
+R1: (chf={'0'}) [size=345/500]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

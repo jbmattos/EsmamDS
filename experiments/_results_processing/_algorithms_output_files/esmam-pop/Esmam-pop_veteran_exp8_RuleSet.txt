@@ -1,0 +1,14 @@
+DISCOVERED SUBGROUPS
+
+R0: (cell-type=adeno) [size=27/137]
+[SM] R2: (cell-type=small) & (treat=test) [size=18/137; jaccard-c=0.00; jaccard-d=0.00]
+[SM] R3: (cell-type=small) [size=48/137; jaccard-c=0.00; jaccard-d=0.00]
+[SM] R4: (mfd=[1.00,3.00)) & (cell-type=small) [size=14/137; jaccard-c=0.00; jaccard-d=0.00]
+
+R1: (karno=[10.00,40.00)) [size=22/137]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

@@ -1,0 +1,13 @@
+DISCOVERED SUBGROUPS
+
+R0: (TUMOR_STATUS={'TUMOR FREE'}) [size=291/332]
+[SM] R3: (ARM_SCNA_CLUSTER={'Quiet'}) & (WGS_STATUS={'No'}) & (METHYLATION_CLUSTER={'classical 2'}) & (LOWPASS={'No'}) [size=128/332; jaccard-c=0.38; jaccard-d=0.00]
+
+R1: (SEX={'Male'}) & (PATH_T_STAGE={'T3'}) & (METHYLATION_CLUSTER={'classical 2'}) & (WGS_STATUS={'No'}) & (PATH_M_STAGE={'M0'}) [size=19/332]
+[SM] R2: (PRIMARY_EXOME={'Yes'}) & (WGS_STATUS={'No'}) & (PATH_M_STAGE={'M0'}) & (RISK_GROUP={'Intermediate'}) & (LOWPASS={'No'}) & (EXTRATHYROIDAL_EXTENSION={'None'}) [size=20/332; jaccard-c=0.00; jaccard-d=0.22]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

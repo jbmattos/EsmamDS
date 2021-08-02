@@ -4,3 +4,8 @@
 .idea/
 __pycache__/
 venv/
+
+# large files (greater than 100MB)
+*Esmam-pop_breast-cancer_exp20_log.json
+*Esmam-pop_breast-cancer_exp28_log.json
+*Esmam-pop_breast-cancer_exp29_log.json

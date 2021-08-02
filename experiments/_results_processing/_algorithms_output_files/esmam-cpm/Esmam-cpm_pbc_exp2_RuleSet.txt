@@ -1,0 +1,12 @@
+DISCOVERED SUBGROUPS
+
+R0: (sb=[2.00,4.00]) [size=62/276]
+
+R1: (edema=1.0) [size=17/276]
+[SM] R2: (ascites=yes) [size=19/276; jaccard-c=0.50; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

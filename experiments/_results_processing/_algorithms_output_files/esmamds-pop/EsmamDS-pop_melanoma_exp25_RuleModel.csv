@@ -1,0 +1,4 @@
+id,sg,baseline,fitness,pvalue,mean_sg,mean_pop,mean_cpm,size_sg,size_pop,size_cpm
+R0,(ulceration={'1'}),population,0.998865,0.001135,1817.811111,2152.800000,2414.965217,90,205,115
+R1,"(tumor-th={'[0.00,0.00)'})",population,0.991277,0.008723,2380.250000,2152.800000,2067.315436,56,205,149
+R2,(ulceration={'0'}) & (sex={'woman'}),population,0.998398,0.001602,2437.202532,2152.800000,1974.484127,79,205,126

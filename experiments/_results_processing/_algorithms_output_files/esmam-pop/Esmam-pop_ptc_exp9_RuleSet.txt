@@ -1,0 +1,26 @@
+DISCOVERED SUBGROUPS
+
+R0: (SEX=Male) & (RISK_GROUP=Intermediate) & (EXOME=1) & (WGS_STATUS=No) [size=36/332]
+[SM] R1: (PATH_N_STAGE=N1b) [size=41/332; jaccard-c=0.15; jaccard-d=0.00]
+[SM] R2: (RISK_GROUP=Intermediate) & (PATH_N_STAGE=N1b) [size=36/332; jaccard-c=0.16; jaccard-d=0.20]
+[SM] R3: (PATH_N_STAGE=N1b) & (WGS_STATUS=No) [size=39/332; jaccard-c=0.15; jaccard-d=0.20]
+[SM] R5: (PATH_N_STAGE=N1b) & (WGS_STATUS=No) & (RISK_GROUP=Intermediate) [size=34/332; jaccard-c=0.17; jaccard-d=0.40]
+[SM] R6: (MRNA_CLUSTER=5.0) [size=71/332; jaccard-c=0.10; jaccard-d=0.00]
+[SM] R7: (MRNA_CLUSTER=5.0) & (MIRNA_CLUSTER=6.0) [size=58/332; jaccard-c=0.08; jaccard-d=0.00]
+[SM] R8: (AGE=[60.00,85.00]) & (RISK_GROUP=Intermediate) [size=40/332; jaccard-c=0.13; jaccard-d=0.20]
+[SM] R9: (WGS_STATUS=No) & (MRNA_CLUSTER=5.0) [size=59/332; jaccard-c=0.12; jaccard-d=0.20]
+[SM] R10: (MRNA_CLUSTER=5.0) & (MIRNA_CLUSTER=6.0) & (RISK_GROUP=Intermediate) [size=49/332; jaccard-c=0.09; jaccard-d=0.17]
+[SM] R12: (SEX=Male) & (PATH_T_STAGE=T3) & (RISK_GROUP=Intermediate) [size=36/332; jaccard-c=0.44; jaccard-d=0.40]
+[SM] R14: (AGE=[60.00,85.00]) & (HISTOLOGICAL_TYPE=Classical) [size=44/332; jaccard-c=0.08; jaccard-d=0.00]
+[SM] R15: (MRNA_CLUSTER=5.0) & (HISTOLOGICAL_TYPE=Classical) [size=49/332; jaccard-c=0.09; jaccard-d=0.00]
+[SM] R16: (MRNA_CLUSTER=5.0) & (WGS_STATUS=No) & (PRIMARY_EXOME=Yes) [size=45/332; jaccard-c=0.14; jaccard-d=0.17]
+
+R4: (SEX=Female) & (PATH_N_STAGE=N0) [size=119/332]
+[SM] R11: (RISK_GROUP=Low) & (SEX=Female) [size=102/332; jaccard-c=0.60; jaccard-d=0.33]
+[SM] R13: (PATH_N_STAGE=N0) & (TUMOR_STATUS=TUMOR FREE) [size=141/332; jaccard-c=0.72; jaccard-d=0.33]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

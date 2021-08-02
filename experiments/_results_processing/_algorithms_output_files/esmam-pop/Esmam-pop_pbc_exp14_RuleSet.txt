@@ -1,0 +1,17 @@
+DISCOVERED SUBGROUPS
+
+R0: (ptb=[10.00,10.00]) & (sb=[2.00,4.00]) [size=36/276]
+[SM] R2: (sb=[2.00,4.00]) & (hist-stage=4) [size=34/276; jaccard-c=0.56; jaccard-d=0.33]
+[SM] R3: (sb=[2.00,4.00]) [size=62/276; jaccard-c=0.58; jaccard-d=0.50]
+[SM] R4: (hist-stage=4) & (uc=[152.00,588.00]) [size=28/276; jaccard-c=0.25; jaccard-d=0.00]
+[SM] R6: (hp=yes) & (sb=[2.00,4.00]) & (sex=female) [size=41/276; jaccard-c=0.57; jaccard-d=0.25]
+[SM] R7: (sb=[2.00,4.00]) & (hp=yes) [size=49/276; jaccard-c=0.60; jaccard-d=0.33]
+
+R1: (uc=[152.00,588.00]) [size=57/276]
+[SM] R5: (hist-stage=4) & (spiders=yes) [size=44/276; jaccard-c=0.23; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

@@ -1,0 +1,13 @@
+DISCOVERED SUBGROUPS
+
+R0: (sb={'[2.00,4.00]'}) [size=62/276]
+[SM] R1: (sb={'[1.00,2.00)'}) & (age={'[21483.00,28650.00]'}) [size=14/276; jaccard-c=0.00; jaccard-d=0.00]
+[SM] R2: (uc={'[152.00,588.00]'}) [size=57/276; jaccard-c=0.37; jaccard-d=0.00]
+
+R3: (edema={'0.0'}) [size=234/276]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

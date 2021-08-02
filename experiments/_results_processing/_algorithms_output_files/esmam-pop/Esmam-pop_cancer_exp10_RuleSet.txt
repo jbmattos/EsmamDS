@@ -1,0 +1,14 @@
+DISCOVERED SUBGROUPS
+
+R0: (pat-karno=[30.00,70.00)) [size=30/168]
+[SM] R1: (pat-karno=[30.00,70.00)) & (sex=1) [size=19/168; jaccard-c=0.63; jaccard-d=0.50]
+[SM] R2: (ph-karno=[70.00,80.00)) & (ph-ecog=2.0) [size=20/168; jaccard-c=0.25; jaccard-d=0.00]
+[SM] R3: (ph-ecog=2.0) & (age=[71.00,82.00]) [size=20/168; jaccard-c=0.25; jaccard-d=0.00]
+[SM] R4: (sex=1) & (ph-ecog=2.0) [size=23/168; jaccard-c=0.26; jaccard-d=0.00]
+[SM] R5: (sex=1) & (ph-karno=[70.00,80.00)) [size=17/168; jaccard-c=0.21; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description
