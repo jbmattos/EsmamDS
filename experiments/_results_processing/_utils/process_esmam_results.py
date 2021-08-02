@@ -5,9 +5,11 @@ SCRIPT TO PROCESS THE ESMAM(-DS) ALGORITHM _LOG.JSON FILE OF STATISTICAL (REPEAT
 '''
 
 import json
+import os
 import pandas as pd
 import pathlib
 import statsmodels.api as sm
+import zipfile
 
 from collections import Counter
 from itertools import chain, combinations_with_replacement
@@ -262,8 +264,16 @@ def __generate_log_results(version, version_folder, metric, func, save_path, **k
         for exp in range(RUNS):
             
             log_file = version_folder + LOG_FILE_NAME.format(version, db, exp)
-            with open(log_file, 'r') as f:
-                version_log = json.load(f)
+            if os.path.exists(log_file): # exists a .json file
+                with open(log_file, 'r') as f:
+                    version_log = json.load(f)
+            else: # dont exist a .json file >> read (.json).zip file
+                zip_path = log_file.split('.')[0] + '.zip'
+                with zipfile.ZipFile(zip_path) as z:
+                    for filename in z.namelist():
+                        with z.open(filename) as f:  
+                            data = f.read()  
+                            dic_exp = json.loads(data)
             
             dic_exp[exp] = func(version_log, db, exp, **kwargs)
 
