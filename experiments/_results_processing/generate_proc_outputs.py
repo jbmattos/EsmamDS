@@ -26,12 +26,24 @@ ROOT = "EsmamDS"
 ROOT_PATH = str(pathlib.Path(__file__).parent.absolute()).split(ROOT)[0] + ROOT + '/'
 SAVE_FOLDER = ROOT_PATH + 'experiments/_results_processing/_processed_output_files/'
 SAVE_PATH = ROOT_PATH + 'experiments/_results_processing/_processed_output_files/{}/'
-FOLDER_PATH = ROOT_PATH + 'experiments/_results_processing/_algorithms_output_files/{}.zip/'
+FOLDER_PATH = ROOT_PATH + 'experiments/_results_processing/_algorithms_output_files/{}/'
 
 DB_NAMES = ['actg320','breast-cancer','cancer','carcinoma','gbsg2','lung','melanoma','mgus2','mgus','pbc','ptc','uis','veteran','whas500']
 ALGORITHMS = ['esmamds-pop', 'esmamds-cpm', 'esmam-pop', 'esmam-cpm',
               'bs-emm-pop', 'bs-emm-cpm', 'bs-sd-pop', 'bs-sd-cpm',
               'lr-rules', 'dssd-cbss']
+
+
+def __get_save_path(alg):
+    save_path = SAVE_PATH.format(alg)
+    # creates directory for saving results and logs
+    if not os.path.exists(os.path.dirname(save_path)):
+        try:
+            os.makedirs(os.path.dirname(save_path))
+        except OSError as exc:  # Guard against race condition
+            if exc.errno != errno.EEXIST:
+                raise
+    return save_path
 
 def __write_info(file, _direc, _base):
     
@@ -66,7 +78,7 @@ def __write_info(file, _direc, _base):
     return
 
 def __append_info(file, algs, _direc, _base):
-    with open(file, 'a+') as f: # check a+ type
+    with open(file, 'a') as f: # check a+ type
         f.write("\n\n================================")
         f.write("\n APPENDED INFO {}".format(datetime.now().strftime('%Y%m%d %H:%M:%S')))
         f.write("\n================================")
@@ -76,7 +88,7 @@ def __append_info(file, algs, _direc, _base):
         f.write("\n   (folders) {}".format(algs))
     return
 
-def __save_log_folder(algs=ALGORITHMS):
+def __save_log_folder(algs):
     '''
     ADJUST FUNCTION:
         If the log file exists in the folder:
@@ -87,19 +99,19 @@ def __save_log_folder(algs=ALGORITHMS):
     direc = str(os.path.dirname(__file__))
     
     log_file = SAVE_FOLDER+'_info.txt'
+    exists = os.path.exists(log_file)
     
-    # test if the log_file exists in SAVE_FOLDER
-    exists = None
     if not exists:
         __write_info(log_file, direc, base)
+        __append_info(log_file, algs, direc, base)
     else:
         __append_info(log_file, algs, direc, base)
     return
 
 def __run(alg):
     
-    folder = None
-    save_path = None
+    folder = FOLDER_PATH.format(alg)
+    save_path = __get_save_path(alg)
     
     if alg in ['esmamds-pop', 'esmamds-cpm', 'esmam-pop', 'esmam-cpm']:
         esmam_class.run(alg, folder, save_path)
