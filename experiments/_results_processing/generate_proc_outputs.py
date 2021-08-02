@@ -8,7 +8,6 @@ It runs the algorithm-specific processing script from the _utils folder
 
 import argparse
 import errno
-import json
 import os
 import pathlib
 

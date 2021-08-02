@@ -213,8 +213,10 @@ def __get_metrics_exp(version_log, db, exp):
     '''
     
     metrics_exp = version_log['metrics'].copy()  # read a dictionary
-    for k in metrics_exp.keys():
+    for k in [k for k in metrics_exp.keys()]:
+        print(k)
         if k not in METRICS:
+            print(metrics_exp[k])
             del metrics_exp[k]
     metrics_exp['cr'] = None
 
@@ -354,12 +356,12 @@ def run(algorithm, folder, save_path):
     if algorithm[-3:] == 'cpm':
         baseline = 'complement'
     
-    __generate_log_results(algorithm, folder, metric='metrics', func=__get_metrics_exp)
-    __generate_log_results(algorithm, folder, metric='jaccard_c', func=__get_jaccard, **{'baseline':'cover'})
-    __generate_log_results(algorithm, folder, metric='jaccard_d', func=__get_jaccard, **{'baseline':'descrpt'})
-    __generate_log_results(algorithm, folder, metric='pval_r', func=__get_pval_rules, **{'baseline':baseline})
-    __generate_log_results(algorithm, folder, metric='pval_m', func=__get_pval_matrix)
-    __generate_log_results(algorithm, folder, metric='surv_model', func=__get_survmodels_matrix)
+    __generate_log_results(algorithm, folder, metric='metrics', func=__get_metrics_exp, save_path=save_path)
+    __generate_log_results(algorithm, folder, metric='jaccard_c', func=__get_jaccard, save_path=save_path, **{'baseline':'cover'})
+    __generate_log_results(algorithm, folder, metric='jaccard_d', func=__get_jaccard, save_path=save_path, **{'baseline':'descrpt'})
+    __generate_log_results(algorithm, folder, metric='pval_r', func=__get_pval_rules, save_path=save_path, **{'baseline':baseline})
+    __generate_log_results(algorithm, folder, metric='pval_m', func=__get_pval_matrix, save_path=save_path)
+    __generate_log_results(algorithm, folder, metric='surv_model', func=__get_survmodels_matrix, save_path=save_path)
     return
 
 
