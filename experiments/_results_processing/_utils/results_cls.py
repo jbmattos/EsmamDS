@@ -12,6 +12,10 @@ import pathlib
 
 
 class Results():
+    '''
+    Parent class for defining the general structure of the repository 
+    and the empirical evaluation procedure
+    '''
     def __init__(self):
         self.ROOT = "EsmamDS"
         self.ROOT_PATH = str(pathlib.Path(__file__).parent.absolute()).split(self.ROOT)[0].replace('\\','/') + self.ROOT + '/'
@@ -51,6 +55,9 @@ class Results():
         
 
 class Table(Results):
+    '''
+    Class for generating the Table results of empirical evaluation
+    '''
     def __init__(self):
         super().__init__()
         self.SAVE_PATH = self.ROOT_PATH + 'experiments/metrics results (tables and statistics)//'
@@ -61,7 +68,15 @@ class Table(Results):
         self.__baseline = None
     
     def __adjust_tbls(self):
-        
+        '''
+        Adjusts the metrics and redundancy tables, realocating the CR metric
+        from the first to the second.
+
+        Returns
+        -------
+        None.
+
+        '''
         # adjust redundancy
         red_names = ['description redundancy', 'cover redundancy', 'CR', 'model redundancy']
         df_red = pd.concat([self.__tbl_redundancy['description redundancy'],
@@ -76,11 +91,18 @@ class Table(Results):
         self.__tbl_metrics = self.__tbl_metrics[met_names].copy()
         return
     
-    def __set_tbl_metrics(self, baseline):
+    def __set_tbl_metrics(self):        
         '''
         Generates a dataframe with the performance of all analysed algorithms in the following metrics:
-            >> #sg, length, sgCov, setCov, CR            
+            - #sg, length, sgCov, setCov, CR  
+
+        Returns
+        -------
+        None.
+
         '''
+        
+        baseline = self.__baseline
         log_file = 'metrics'        
         def __read_log(alg):
             if alg in self.ESMAM_VARS:
@@ -107,13 +129,18 @@ class Table(Results):
             self.__adjust_tbls()
         return
     
-    def __set_tbl_redundancy(self, baseline):
+    def __set_tbl_redundancy(self):
         '''
-        RE WRITE
-        Generates a dataframe with the average jaccard (cover/descript) and pvalue performance of each algorithm [models]
-        > metrics: jaccard-cover, jaccard-descript, pval-matrix
-        [for a proper csv-importing use >> pd.read_csv('metrics_table.csv', header=0, index_col=[0,1])]
+        Generates a dataframe with the performance of all analysed algorithms in the following metrics:
+            - description redundancy, coverage redundancy and model redundancy
+
+        Returns
+        -------
+        None.
+
         '''
+        
+        baseline = self.__baseline
         
         def __read_matrix(alg, dataset, metric, exp):
             with open(self.PROC_PATH + self.ALG_FILE[alg].format(self.LOG_FILE[metric]), 'r') as f:
@@ -158,7 +185,18 @@ class Table(Results):
             self.__adjust_tbls()
         return
     
-    def __set_tbl_exceptionality(self, baseline):
+    def __set_tbl_exceptionality(self):
+        '''
+        Generates a dataframe with the performance of all analysed algorithms in the following metrics:
+            - exceptionality
+
+        Returns
+        -------
+        None.
+
+        '''
+        
+        baseline = self.__baseline
         
         res_except = {}.fromkeys(self.ALGORITHMS[baseline], None)
         res = {}.fromkeys(self.DATASETS, None)
@@ -193,11 +231,36 @@ class Table(Results):
         return 
     
     def set_table(self, baseline):
+        '''
+        Generates the results' dataframe for the empirical evaluation performed 
+        over 14 data sets (with 30 runs each).
+        The dataframe contains the performance of all analysed algorithms in the following metrics:
+            - exceptionality
+            - #sg
+            - length
+            - sgCov
+            - setCov  
+            - description redundancy
+            - coverage redundancy
+            - CR 
+            - model redundancy
+
+        Parameters
+        ----------
+        baseline : string
+            options=[population, baseline]
+            The baseline family of algorithms to generate the results
+
+        Returns
+        -------
+        None.
+
+        '''
         
         self.__baseline = baseline
-        self.__set_tbl_metrics(baseline)
-        self.__set_tbl_redundancy(baseline)
-        self.__set_tbl_exceptionality(baseline)
+        self.__set_tbl_metrics()
+        self.__set_tbl_redundancy()
+        self.__set_tbl_exceptionality()
         
         tbl = self.__tbl_exceptionality.join(self.__tbl_metrics, how='outer').join(self.__tbl_redundancy, how='outer')
         tbl.columns.names = ('Metrics', 'Algorithms')
@@ -205,20 +268,28 @@ class Table(Results):
         return
     
     def get_table(self):
+        '''
+        Access to the final results' dataframe.
+
+        Returns
+        -------
+        pandas.DataFrame
+
+        '''
         return self.__final_tbl
     
     def save(self):
+        '''
+        To save the final results' dataframe in its specif location inside 
+        EsmamDS repository.
+
+        Returns
+        -------
+        None.
+
+        '''
+        
         file_name = self.SAVE_PATH+'metrics_baseline-{}.csv'.format(self.__baseline)
         self.__final_tbl.to_csv(file_name)
         print(".saved: {}".format(file_name))
         return
-    
-    
-if __name__ == '__main__':
-    tbl = Table()
-    print(tbl._LOG_PATH)
-        
-        
-        
-        
-        
