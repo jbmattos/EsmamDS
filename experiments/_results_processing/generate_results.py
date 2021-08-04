@@ -3,6 +3,7 @@
 
 """
 import argparse
+import warnings
 #import errno
 #import json
 #import os
@@ -12,10 +13,12 @@ import argparse
 #from datetime import datetime
 from _utils.results_cls import Table
 
+warnings.filterwarnings("ignore")
 
 def __table(baseline):
     # table
-    tbl = Table().set_table(baseline)
+    tbl = Table()
+    tbl.set_table(baseline)
     tbl.save()
     return
 
@@ -31,6 +34,7 @@ def __set_redundancy(baseline):
 def __pipeline(baselines, results):
     
     for base in baselines:
+        print('\n...processing baseline={}'.format(base))
         
         if results in ['all', 'tbl']:
             __table(base)
@@ -72,5 +76,9 @@ if __name__ == '__main__':
         baselines = ['population', 'complement']
     else:
         baselines = [args.base]
+    
+    if args.res == 'all': res=["tbl", "surv", "setsim", "setred"]
+    else: res=[args.res] 
+    print('\n>> Generate resuls={} for baselines={}'.format(res, baselines))
     
     __pipeline(baselines, args.res)

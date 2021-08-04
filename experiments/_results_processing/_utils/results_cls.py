@@ -152,6 +152,7 @@ class Table(Results):
         
         df_unif = pd.concat(dfs.values(), axis=1, keys=['description redundancy', 'cover redundancy', 'model redundancy'], names=['Metrics', 'Algorithms'])
         df_unif.index.names = ('Data sets', 'Exp')
+        df_unif.index.set_levels(df_unif.index.levels[1].astype(int), level=1, inplace=True)
         self.__tbl_redundancy = df_unif.copy()
         if isinstance(self.__tbl_metrics, pd.DataFrame):
             self.__adjust_tbls()
@@ -207,7 +208,9 @@ class Table(Results):
         return self.__final_tbl
     
     def save(self):
-        self.__final_tbl.to_csv(self.SAVE_PATH+'metrics_baseline-{}.csv'.format(self.__baseline))
+        file_name = self.SAVE_PATH+'metrics_baseline-{}.csv'.format(self.__baseline)
+        self.__final_tbl.to_csv(file_name)
+        print(".saved: {}".format(file_name))
         return
     
     
