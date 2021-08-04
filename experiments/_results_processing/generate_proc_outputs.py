@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 THIS SCRIPT GENERATES THE PROCESSED LOG-FILES FOR ALL ALGORITHMS COMPARED IN 
 THE EMPIRICAL EVALUATION
@@ -17,10 +16,6 @@ from _utils import process_esmam_results as esmam_class
 from _utils import process_lrrules_results as lr_rules
 from _utils import process_pysg_results as bs_class
 
-
-'''
-ADJUST PATHS
-'''
 ROOT = "EsmamDS"
 ROOT_PATH = str(pathlib.Path(__file__).parent.absolute()).split(ROOT)[0] + ROOT + '/'
 SAVE_FOLDER = ROOT_PATH + 'experiments/_results_processing/_processed_output_files/'
