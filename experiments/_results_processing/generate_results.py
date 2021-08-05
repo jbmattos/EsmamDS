@@ -34,7 +34,7 @@ def __set_redundancy(baseline):
 def __pipeline(baselines, results):
     
     for base in baselines:
-        print('\n...processing baseline={}'.format(base))
+        print('\n...processing baseline={}\n'.format(base))
         
         if results in ['all', 'tbl']:
             __table(base)

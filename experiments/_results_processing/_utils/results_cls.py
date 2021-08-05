@@ -1,14 +1,20 @@
-# -*- coding: utf-8 -*-
 """
-Created on Tue Aug  3 10:30:23 2021
+EMPIRICAL EVALUATION RESULTS CLASS
 
-@author: jubma
+    This file contains the classes for generating the final results of 
+    EsmamDS empirical evaluation
 """
 
+import itertools
 import json
+import matplotlib.backends.backend_pdf
 import numpy as np
 import pandas as pd
 import pathlib
+
+from matplotlib import pyplot as plt
+from matplotlib.pylab import rcParams
+
 
 
 class Results():
@@ -24,7 +30,7 @@ class Results():
         self.SAVE_FILE = '{}_{}'
         
         self.ALGORITHMS = {'population': ['EsmamDS-pop', 'Esmam-pop', 'BS-EMM-pop', 'BS-SD-pop', 'DSSD-CBSS'],
-                           'complement': ['Esmam-cpm', 'EsmamDS-cpm', 'BS-EMM-cpm', 'BS-SD-cpm','LR-Rules']}
+                           'complement': ['EsmamDS-cpm', 'Esmam-cpm', 'BS-EMM-cpm', 'BS-SD-cpm', 'LR-Rules']}
         self.ESMAM_VARS = ["Esmam-cpm","Esmam-pop","EsmamDS-cpm","EsmamDS-pop"]
         self.ALG_FILE = {'Esmam-pop': 'esmam-pop/esmam-pop_{}',
                         'Esmam-cpm': 'esmam-cpm/esmam-cpm_{}',
@@ -60,7 +66,7 @@ class Table(Results):
     '''
     def __init__(self):
         super().__init__()
-        self.SAVE_PATH = self.ROOT_PATH + 'experiments/metrics results (tables and statistics)//'
+        self.SAVE_PATH = self.ROOT_PATH + 'experiments/metrics results (tables and statistics)/'
         self.__tbl_metrics = None
         self.__tbl_redundancy = None
         self.__tbl_exceptionality = None
@@ -256,6 +262,7 @@ class Table(Results):
         None.
 
         '''
+        print('> Call to Table().set_table()')
         
         self.__baseline = baseline
         self.__set_tbl_metrics()
@@ -291,5 +298,174 @@ class Table(Results):
         
         file_name = self.SAVE_PATH+'metrics_baseline-{}.csv'.format(self.__baseline)
         self.__final_tbl.to_csv(file_name)
-        print(".saved: {}".format(file_name))
+        print(".saved: {}\n".format(file_name))
         return
+
+
+class Survival(Results):
+    '''
+    Class for generating the Survival Plots results of the empirical evaluation
+    '''
+    def __init__(self):
+        super().__init__()
+        self.SAVE_PATH = self.ROOT_PATH + 'experiments/survival models/'
+        self.COLORS = ['#67001f','#b2182b','#d6604d','#92c5de','#4393c3','#2166ac']
+        rcParams["font.family"] = "Times New Roman"
+    
+    
+    def __plot_single_run(self, db, exp, dic_matrix, ALGS, metric, baseline, save_path, save):
+        '''
+        ADJUST ACCORDINGLY TO JUPYTER NOTEBOOK OF ARTICLE RESULTS
+
+        '''
+        save_name = save_path+'survivalModels_baseline-{}_{}-exp{}.pdf'.format(baseline, db, exp)
+        
+        # set figure
+        rcParams["font.size"] = 32
+        rows = 1
+        cols = len(ALGS)
+        rcParams['figure.figsize'] = 10*cols, 6*rows
+        fig, axes = plt.subplots(nrows=rows, ncols=cols, num=db, clear=True, sharex=True, sharey=True)
+        
+    
+        for col_id, alg in enumerate(ALGS):
+            
+            color_it = itertools.cycle(self.COLORS)
+    
+            #load km-estimates file
+            if alg in self.ESMAM_VARS:
+                kmModels = pd.DataFrame(dic_matrix[alg][db][str(exp)])
+            else:
+                kmModels = pd.DataFrame(dic_matrix[alg][db])
+            
+            x = kmModels.times.values
+            columns = list(kmModels.columns)
+            columns.remove('times')
+            
+            ax = axes[col_id]
+            for column in columns:
+                if column == "population":
+                    ax.plot(x, kmModels[column], color='k', label='{}'.format(column), linestyle=':')
+                else:
+                    ax.plot(x, kmModels[column], label='{}'.format(column), color=next(color_it))
+    
+            ax.set_title('{}'.format(alg))
+            if col_id==0:
+                ax.set_xlabel('Time')
+                ax.set_ylabel('Survival probability')
+            else:
+                ax.set_xlabel('')
+                ax.set_ylabel('')
+            ax.set_ylim([0, 1])
+            ax.set_xlim([0, x[-1]+3])
+            ax.spines['top'].set_visible(False)
+            ax.spines['right'].set_visible(False)
+            ax.legend().set_visible(False)
+            plt.xticks([])
+        
+        if save:
+            plt.savefig(save_name, bbox_inches='tight')  
+            print('..saved: {}'.format(save_name))
+        else: 
+            plt.show()
+        return
+    
+    def __plot_full_report(self, dic_matrix, ALGS, metric, baseline):
+          
+        # set figure
+        rcParams.update({'font.size': 16})
+        rows = self.RUNS
+        cols = len(ALGS)
+        rcParams['figure.figsize'] = 12*cols, 8*rows
+        
+        # initialize pdf
+        file_name = 'survivalModels_baseline-{}.pdf'.format(baseline)
+        save_name = self.SAVE_PATH + file_name
+        pdf = matplotlib.backends.backend_pdf.PdfPages(save_name)
+        
+        for db in self.DATASETS:
+            print('...generating page results for {}'.format(db))
+            fig, axes = plt.subplots(nrows=rows, ncols=cols, num=db, clear=True, sharex=True, sharey=True)
+                        
+            for col_id, alg in enumerate(ALGS):
+    
+                for exp in range(self.RUNS):
+                    
+                    #load km-estimates file
+                    if alg in self.ESMAM_VARS:
+                        kmModels = pd.DataFrame(dic_matrix[alg][db][str(exp)])
+                    else:
+                        kmModels = pd.DataFrame(dic_matrix[alg][db])
+                    
+                    color_it = itertools.cycle(self.COLORS)
+                    x = kmModels.times.values
+                    columns = list(kmModels.columns)
+                    columns.remove('times')
+                    
+                    ax = axes[exp, col_id]
+                    for column in columns:
+                        if column == "population":
+                            ax.plot(x, kmModels[column], color='k', label='{}'.format(column), linestyle=':')
+                        else:
+                            ax.plot(x, kmModels[column], label='{}'.format(column), color=next(color_it))
+                    
+                    ax.set_title('{}'.format(alg))
+                    if col_id==0:
+                        ax.set_xlabel('Time')
+                        ax.set_ylabel('Survival probability')
+                    else:
+                        ax.set_xlabel('')
+                        ax.set_ylabel('')
+                    ax.set_ylim([0, 1])
+                    ax.set_xlim([0, x[-1]+3])
+                    ax.spines['top'].set_visible(False)
+                    ax.spines['right'].set_visible(False)
+                    ax.legend().set_visible(False)
+                    plt.xticks([])
+                
+            fig.suptitle('{} Discovered Subgroups Survival Models'.format(db.upper()), fontsize=32)
+            pdf.savefig(fig, bbox_inches='tight')
+            plt.close(fig)
+        pdf.close()
+        print('..saved: {}'.format(save_name))
+        return
+        
+    def full_report(self, baseline):
+        
+        print('> Call to Survival().full_report()')
+        metric = 'surv_models'
+        
+        def __read_logs(alg, log_file):
+            with open(self.PROC_PATH + self.ALG_FILE[alg].format(self.LOG_FILE[log_file]), 'r') as f:
+                log = json.load(f)
+            return log
+        
+        algs = self.ALGORITHMS[baseline]
+        dic_matrix = {}.fromkeys(algs)
+        for alg in algs:
+            dic_matrix[alg] = __read_logs(alg, metric)
+        
+        self.__plot_full_report(dic_matrix, algs, metric, baseline)
+        return
+    
+    def single_run_plot(self, baseline, db_name, exp,  save=True):
+        '''
+        ADJUST ACCORDINGLY TO JUPYTER NOTEBOOK OF ARTICLE RESULTS
+
+        '''
+        print('>> generating plot of single-run:\n...{}-baseline, data set: {}, experiment #{}'.format(baseline, db_name, exp))
+        metric = 'surv_models'
+        
+        def __read_logs(alg, log_file):
+            with open(self.PROC_PATH + self.ALG_FILE[alg].format(self.LOG_FILE[log_file]), 'r') as f:
+                log = json.load(f)
+            return log
+        
+        # read matrixes for all algorithms
+        dic_matrix = {}.fromkeys(self.ALGORITHMS[baseline])
+        for alg in self.ALGORITHMS[baseline]:
+            dic_matrix[alg] = __read_logs(alg, metric)
+                
+        self.__plot_single_run(db_name, exp, dic_matrix, self.ALGORITHMS[baseline], metric, baseline, self.SAVE_PATH, save)
+        
+        return  
