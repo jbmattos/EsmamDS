@@ -15,6 +15,7 @@ from _utils import process_cortana_results as dssd_cbss
 from _utils import process_esmam_results as esmam_class
 from _utils import process_lrrules_results as lr_rules
 from _utils import process_pysg_results as bs_class
+from _utils import generate_interset_logs as interset
 
 ROOT = "EsmamDS"
 ROOT_PATH = str(pathlib.Path(__file__).parent.absolute()).split(ROOT)[0] + ROOT + '/'
@@ -156,13 +157,28 @@ if __name__ == '__main__':
                                  'bs-emm-pop', 'bs-emm-cpm', 'bs-sd-pop', 'bs-sd-cpm',
                                  'lr-rules', 'dssd-cbss'],
                         help="Algorithm name to single process the results.")
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("--set", action='store_true',
+                        help="Generates the log files for inter-set similarity analysis.")
+    group.add_argument("--setOnly", action='store_true',
+                        help="Executes only the generation of log files for inter-set similarity analysis (do not process the algorithms' results).")
     args = parser.parse_args()
     
-    if args.alg:
-        algs = [args.alg]
-    else:
-        algs = ALGORITHMS
+    if args.setOnly:
+        interset.run()
+        __save_log_folder(['_inter-set_similarity'])
     
-    print("\n\nThis script will generate six output files in the following algorithms paths:")
-    run(algs)
-    __save_log_folder(algs)
+    else:
+    
+        if args.alg:
+            algs = [args.alg]
+        else:
+            algs = ALGORITHMS
+        
+        print("\n\nThis script will generate six output files in the following algorithms paths:")
+        run(algs)
+        __save_log_folder(algs)
+        
+        if args.set:
+            interset.run()
+            __save_log_folder(['_inter-set_similarity'])

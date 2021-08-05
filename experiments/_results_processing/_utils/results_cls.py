@@ -547,4 +547,190 @@ class SurvivalPlots(Results):
                 
         self.__plot_single_run(db_name, exp, dic_matrix, baseline, self.ALGORITHMS[baseline], save)
         
-        return  
+        return
+
+
+class Heatmaps(Results):
+    '''
+    Class for generating the Survival Plots results of the empirical evaluation
+    '''
+    def __init__(self):
+        super().__init__()
+        #self.SAVE_PATH = self.ROOT_PATH + 'experiments/survival models/'
+        self.__color_map = 'RdYlBu'
+        rcParams["font.family"] = "Times New Roman"
+    
+    def __generate_heatmap(dic_matrix, ALGS, metric, baseline, boolean=False, square=False, transpose=False):
+        # figure settings
+        plt.rcParams.update({'font.size': 10})
+        rows = RUNS                     # number of experiments
+        cols = len(ALGS)                # number of algorithms
+        rcParams['figure.figsize'] = 5*cols, 4*rows
+        
+        # pdf file
+        file = LOG_FILE[metric].split('.')[0]+'.pdf'
+        save_name = SAVE_PATH+SAVE_FILE.format(baseline, file)
+        pdf_jaccard = matplotlib.backends.backend_pdf.PdfPages(save_name)
+    
+        for db in DATASETS:
+            print('...generating page results for {}-{}-{}'.format(db, baseline, metric))
+            
+            fig_jaccard, axes_jaccard = plt.subplots(nrows=rows, ncols=cols, num='jaccard_{}'.format(db), clear=True)
+            
+            for col, alg in enumerate(ALGS):    # iterates over subplots COLUMNS
+                
+                for row in range(RUNS):         # iterates over subplots ROWS
+                    
+                    if alg in ESMAM_VARS:
+                        matrix = pd.DataFrame(dic_matrix[alg][db][str(row)])
+                    else:
+                        matrix = pd.DataFrame(dic_matrix[alg][db])
+                    
+                    if transpose:
+                        matrix = matrix.T
+                    if boolean:
+                        matrix = matrix >= ALPHA
+                        matrix = matrix.astype(int)
+                    
+                    # jaccard plot
+                    plt.figure(num='jaccard_{}'.format(db))
+                    ax = axes_jaccard[row, col]
+                    mask = np.zeros_like(matrix)
+                    mask[np.triu_indices_from(matrix)] = True
+                    with sns.axes_style("white"):
+                        if square:
+                            ax = sns.heatmap(matrix, square=True, cmap='jet', ax=ax, vmin=0, vmax=1)
+                        else:
+                            ax = sns.heatmap(matrix, mask=mask, square=True, cmap='jet', ax=ax, vmin=0, vmax=1)
+                    ax.title.set_text(alg)
+            
+            # page titles
+            fig_jaccard.suptitle('{} DATASET (Experiments x Algorithms)'.format(db.upper()), fontsize=22) 
+            # saving on pdf
+            pdf_jaccard.savefig(fig_jaccard,bbox_inches='tight')
+            plt.close(fig_jaccard)
+            
+        pdf_jaccard.close()
+        print('..saved: {}'.format(save_name))
+        return
+    
+    def get_logrank_heatmaps():
+        print('>> call to < get_logrank_heatmaps >')
+        metric = 'pval_m'
+        for baseline, ALGS in ALGORITHMS.items(): # iterates over different baselines
+                
+            # read matrixes for all algorithms
+            dic_matrix = {}.fromkeys(ALGS)
+            for alg in ALGS:
+                dic_matrix[alg] = __read_logs(alg, metric)
+            
+            __generate_heatmap(dic_matrix, ALGS, metric, baseline, boolean=True)
+        return
+    
+    def get_jaccard_heatmaps():
+        print('>> call to < get_jaccard_heatmaps >')
+        metrics = ['jaccard_c', 'jaccard_d']
+        for baseline, ALGS in ALGORITHMS.items(): # iterates over different baselines
+            for metric in metrics:              # iterates for jaccard-cover and jaccard-descript
+                
+                # read matrixes for all algorithms
+                dic_matrix = {}.fromkeys(ALGS)
+                for alg in ALGS:
+                    dic_matrix[alg] = __read_logs(alg, metric)
+                
+                __generate_heatmap(dic_matrix, ALGS, metric, baseline)
+        return
+#######################################
+  
+    def single_interset(self, baseline, db_name, exp, save=True):    
+        base = 'rulesetComp'
+        metrics = {'description': 'jaccard-descript',
+                   'coverage': 'jaccard-cover',
+                   'model': 'logrank-pval'}
+        
+        # read logs for db_name/exp
+        log_dic = {}.fromkeys(metrics.keys())
+        max_x, max_y = 0,0
+        for m_name, metric in metrics.items():
+    
+            file = RULESET_PATH+'{}_{}_{}.json'.format(baseline, base, metric)
+            with open(file, 'r') as f:
+                log = json.load(f)
+            
+            log_dic[m_name] = {}.fromkeys(log[db_name].keys())
+            for alg in log_dic[m_name].keys():
+                log_dic[m_name][alg] = pd.DataFrame(log[db_name][alg][str(exp)])
+                if log_dic[m_name][alg].shape[0] > max_x: max_x = log_dic[m_name][alg].shape[0]
+                if log_dic[m_name][alg].shape[1] > max_x: max_x = log_dic[m_name][alg].shape[1]
+        
+        # generate plots
+        self.__generate_single_interset(baseline, log_dic, max_x, max_y, db_name, save)
+        return 
+    
+    def __generate_single_interset(self, baseline, dic_matrix, max_x, max_y, db, save):
+        
+        def create_subtitle(fig: plt.Figure, grid: SubplotSpec, title: str):
+            row = fig.add_subplot(grid)
+            # the '\n' is important
+            row.set_title(f'{title}\n', fontweight='semibold')
+            # hide subplot
+            row.set_frame_on(False)
+            row.axis('off')
+    
+        # set figure
+        rcParams["font.size"] = 36
+        rows = 3
+        cols = 4
+        rcParams['figure.figsize'] = 6*cols, 6*rows
+        sns.set_palette("deep")
+        
+        fig, axes = plt.subplots(nrows=rows, ncols=cols, num=db, clear=True, sharex=True, sharey=True)
+        grid = plt.GridSpec(rows, cols)
+        
+        for row, metric in enumerate(dic_matrix.keys()):             # rows: iterates over metrics (descript, cover, model)
+            
+            for col, alg in enumerate(dic_matrix[metric].keys()):    # cols: iterates over algorithms results
+                            
+                matrix = dic_matrix[metric][alg]
+                if metric=='model' and not matrix.shape[0]==0:       # adjust for boolean plot
+                    matrix = matrix >= ALPHA
+                    matrix = matrix.astype(int)
+                # square-ration: insert Nan rows at top of dataframe for matrix with less that max_x
+                if matrix.shape[0]<max_x:
+                    delta = max_x - matrix.shape[0]
+                    delta_m = pd.DataFrame(data=np.nan, index=range(delta), columns=matrix.columns)
+                    matrix = pd.concat([matrix,delta_m], axis=0).reset_index(drop = True)
+                
+                # plot
+                ax = axes[row, col]
+                with sns.axes_style("white"):
+                    if col==3:
+                        ax = sns.heatmap(matrix.T, square=True, cmap=self.__color_map, ax=ax, vmin=0, vmax=1)
+                    else:
+                        ax = sns.heatmap(matrix.T, square=True, cmap=self.__color_map, ax=ax, vmin=0, vmax=1, cbar=False)
+    
+                if row==2: 
+                    ax.set_xlabel(alg)
+                else:
+                    ax.set_xlabel('')
+                    
+                if baseline=='population': alg_base = 'EsmamDS-pop'
+                else: alg_base = 'EsmamDS-cpm'
+                if col==0: ax.set_ylabel('{}'.format(alg_base))
+                else: ax.set_ylabel('')
+                ax.set_yticks([])
+                ax.set_xticks([])
+                
+            # generate row title
+            create_subtitle(fig, grid[row, ::], '{} Similarity'.format(metric.capitalize()))
+        
+        fig.tight_layout()
+        
+        if save:
+            save_name = self.SAVE_PATH +'heatmaps_{}-{}-exp{}.pdf'.format(baseline, db_name, exp)
+            plt.savefig(save_name, bbox_inches='tight') 
+        else:
+            plt.show()
+            
+        return
+    
