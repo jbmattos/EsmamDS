@@ -421,7 +421,7 @@ class SurvivalPlots(Results):
         rcParams['figure.figsize'] = 12*cols, 8*rows
         
         # initialize pdf
-        file_name = 'TsurvivalModels_baseline-{}.pdf'.format(baseline)
+        file_name = 'survivalModels_baseline-{}.pdf'.format(baseline)
         save_name = self.SAVE_PATH + file_name
         pdf = matplotlib.backends.backend_pdf.PdfPages(save_name)
         

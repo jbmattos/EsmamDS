@@ -81,6 +81,6 @@ if __name__ == '__main__':
     
     if args.res == 'all': res=["tbl", "surv", "setsim", "setred"]
     else: res=[args.res] 
-    print('\n>> Generate resuls={} for baselines={}'.format(res, baselines))
+    print('\n>> Generate results={} for baselines={}'.format(res, baselines))
     
     __pipeline(baselines, args.res)
