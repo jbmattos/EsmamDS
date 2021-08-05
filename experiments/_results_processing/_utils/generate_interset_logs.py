@@ -3,9 +3,11 @@ SCRIPT TO GENERATE THE RESULTS OF RULE-SET COMPARISON BETWEEN APPROACHED ALGORIT
 """
 
 import json
+import os
 import pandas as pd
 import pathlib
 import re
+import zipfile
 
 from lifelines.statistics import logrank_test
 
@@ -202,21 +204,30 @@ def __load_model(db_name, alg, exp=None):
         model_terms = model.apply(lambda x: __get_terms(x))
         return model_terms.rename(alg)
 
-    elif alg=='DSSD-CB':
+    elif alg=='DSSD-CBSS':
         file = ALG_FILE['DSSD-CB'].format(db_name)
         db_results = pd.read_csv(file, sep='\t', index_col=0)
         model = db_results['Conditions'].apply(lambda x: x.replace("'","")).apply(lambda x: x.split(' AND ')).apply(lambda x: __get_antecedent(x, alg))
         model_terms = model.apply(lambda x: __get_terms(x))
         return model_terms.rename(alg)
     
-    '''
-    TREAT ZIP FILE
-    '''
     elif alg in ["Esmam-cpm","Esmam-pop","EsmamDS-cpm","EsmamDS-pop"]:
         if exp is None:
             raise ValueError('Exp number missing')
-        with open(ALG_FILE[alg].format(db_name, exp), 'r') as f:
-            log = json.load(f)
+        
+        file_name = ALG_FILE[alg].format(db_name, exp)
+        
+        if os.path.exists(file_name): # exists a .json file
+            with open(file_name, 'r') as f:
+                log = json.load(f)
+        else: # dont exist a .json file >> read (.json).zip file
+            zip_path = file_name.split('.')[0] + '.zip'
+            with zipfile.ZipFile(zip_path) as z:
+                for filename in z.namelist():
+                    with z.open(filename) as f:  
+                        data = f.read()
+                        log = json.loads(data)
+            
         model = pd.Series(map(lambda dic: dic['antecedent'], log['model'].values()))
         model_terms = model.apply(lambda x: __get_terms(x))    
         return model_terms.rename(alg)
