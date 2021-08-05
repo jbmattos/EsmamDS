@@ -302,7 +302,7 @@ class Table(Results):
         return
 
 
-class Survival(Results):
+class SurvivalPlots(Results):
     '''
     Class for generating the Survival Plots results of the empirical evaluation
     '''
@@ -313,12 +313,33 @@ class Survival(Results):
         rcParams["font.family"] = "Times New Roman"
     
     
-    def __plot_single_run(self, db, exp, dic_matrix, ALGS, metric, baseline, save_path, save):
+    def __plot_single_run(self, db, exp, dic_matrix, baseline, ALGS, save):
         '''
-        ADJUST ACCORDINGLY TO JUPYTER NOTEBOOK OF ARTICLE RESULTS
+        This function is responsible for generating the plot result 
+        of a single run.
+
+        Parameters
+        ----------
+        db : string
+            Name of the data set related to the results to be plotted
+        exp : int
+            Index of the data set experiment (run) to plot the results
+        dic_matrix : dictionary {alg: info}
+            For each algorithm, it contains the info to generate a dataframe of 
+            the KM estimates to be plotted.
+        baseline : string
+            options=[population, baseline]
+            The baseline family of algorithms to generate the results
+        ALGS : list
+            List of compared algorithms (for a given baseline).
+        save : bool
+            Whether to save the plot as pdf file or not (just show).
+
+        Returns
+        -------
+        None.
 
         '''
-        save_name = save_path+'survivalModels_baseline-{}_{}-exp{}.pdf'.format(baseline, db, exp)
         
         # set figure
         rcParams["font.size"] = 32
@@ -364,13 +385,34 @@ class Survival(Results):
             plt.xticks([])
         
         if save:
+            save_name = self.SAVE_PATH +'survivalModels_baseline-{}_{}-exp{}.pdf'.format(baseline, db, exp)
             plt.savefig(save_name, bbox_inches='tight')  
             print('..saved: {}'.format(save_name))
         else: 
             plt.show()
         return
     
-    def __plot_full_report(self, dic_matrix, ALGS, metric, baseline):
+    def __plot_full_report(self, dic_matrix, baseline, ALGS):
+        '''
+        This function is responsible for generating the pdf file of the 
+        full report.
+
+        Parameters
+        ----------
+        dic_matrix : dictionary {alg: info}
+            For each algorithm, it contains the info to generate a dataframe of 
+            the KM estimates to be plotted.
+        baseline : string
+            options=[population, baseline]
+            The baseline family of algorithms to generate the results
+        ALGS : list
+            List of compared algorithms (for a given baseline).
+
+        Returns
+        -------
+        None.
+
+        '''
           
         # set figure
         rcParams.update({'font.size': 16})
@@ -379,7 +421,7 @@ class Survival(Results):
         rcParams['figure.figsize'] = 12*cols, 8*rows
         
         # initialize pdf
-        file_name = 'survivalModels_baseline-{}.pdf'.format(baseline)
+        file_name = 'TsurvivalModels_baseline-{}.pdf'.format(baseline)
         save_name = self.SAVE_PATH + file_name
         pdf = matplotlib.backends.backend_pdf.PdfPages(save_name)
         
@@ -431,6 +473,25 @@ class Survival(Results):
         return
         
     def full_report(self, baseline):
+        '''
+        Generates the full empirical evaluation report of the Survival Models 
+        associated with the subgroups discovered by each compared algorithm.
+        This function generates a pdf file where each page presents the results
+        regarding one data set.
+        In the page, the rows are the experiment runs, and the columns are the
+        results of different algorithms.
+
+        Parameters
+        ----------
+        baseline : string
+            options=[population, baseline]
+            The baseline family of algorithms to generate the results
+
+        Returns
+        -------
+        None.
+
+        '''
         
         print('> Call to Survival().full_report()')
         metric = 'surv_models'
@@ -445,15 +506,33 @@ class Survival(Results):
         for alg in algs:
             dic_matrix[alg] = __read_logs(alg, metric)
         
-        self.__plot_full_report(dic_matrix, algs, metric, baseline)
+        self.__plot_full_report(dic_matrix, baseline, algs)
         return
     
     def single_run_plot(self, baseline, db_name, exp,  save=True):
         '''
-        ADJUST ACCORDINGLY TO JUPYTER NOTEBOOK OF ARTICLE RESULTS
+        Generates a plot with the survival model of the discovered subgroups 
+        delivered by each compared algorithm.
+
+        Parameters
+        ----------
+        baseline : string
+            options=[population, baseline]
+            The baseline family of algorithms to generate the results
+        db_name : string
+            Name of the data set related to the results to be plotted
+        exp : int
+            Index of the data set experiment (run) to plot the results
+        save : bool, optional
+            Whether to save the plot as pdf file or not (just show). 
+            The default is True.
+
+        Returns
+        -------
+        None.
 
         '''
-        print('>> generating plot of single-run:\n...{}-baseline, data set: {}, experiment #{}'.format(baseline, db_name, exp))
+        print('> Call to Survival().single_run_plot(baseline={}, db_name={}, exp={}, save={})'.format(baseline, db_name, exp, save))
         metric = 'surv_models'
         
         def __read_logs(alg, log_file):
@@ -466,6 +545,6 @@ class Survival(Results):
         for alg in self.ALGORITHMS[baseline]:
             dic_matrix[alg] = __read_logs(alg, metric)
                 
-        self.__plot_single_run(db_name, exp, dic_matrix, self.ALGORITHMS[baseline], metric, baseline, self.SAVE_PATH, save)
+        self.__plot_single_run(db_name, exp, dic_matrix, baseline, self.ALGORITHMS[baseline], save)
         
         return  

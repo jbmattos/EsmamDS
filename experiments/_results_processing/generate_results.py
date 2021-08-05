@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 
 """
@@ -11,19 +10,22 @@ import warnings
 #import pathlib
 
 #from datetime import datetime
-from _utils.results_cls import Table
+from _utils.results_cls import Table, SurvivalPlots
 
 warnings.filterwarnings("ignore")
 
 def __table(baseline):
-    # table
+    
     tbl = Table()
     tbl.set_table(baseline)
     tbl.save()
     return
 
 def __survival_models(baseline):
-    pass
+    
+    surv = SurvivalPlots()
+    surv.full_report(baseline)
+    return
 
 def __set_similarity(baseline):
     pass
