@@ -474,11 +474,12 @@ class SurvivalPlots(Results):
         
     def full_report(self, baseline):
         '''
-        Generates the full empirical evaluation report of the Survival Models 
-        associated with the subgroups discovered by each compared algorithm.
-        This function generates a pdf file where each page presents the results
-        regarding one data set.
-        In the page, the rows are the experiment runs, and the columns are the
+        Analysis of the Survival Models associated with the subgroups 
+        discovered by each compared algorithm.
+         
+        This function generates a report of the full empirical evaluation in a 
+        pdf file where each page presents the results regarding one data set.
+        In each page, the rows are the experiment runs, and the columns are the
         results of different algorithms.
 
         Parameters
@@ -552,7 +553,7 @@ class SurvivalPlots(Results):
 
 class Heatmaps(Results):
     '''
-    Class for generating the Survival Plots results of the empirical evaluation
+    Class for generating the Heatmap results of the empirical evaluation
     '''
     def __init__(self):
         super().__init__()
@@ -560,7 +561,7 @@ class Heatmaps(Results):
                           'red': self.ROOT_PATH + 'experiments/set redundancy (heatmap matrix)/'}
         self.__LOG_PATH =  self.ROOT_PATH + 'experiments/_results_processing/_processed_output_files/_inter-set_similarity/'
         self.__color_map_singlerun = 'RdYlBu'
-        self.__color_map = None
+        self.__color_map = 'RdYlGn'
         self.__ALGORITHMS = {'population': ['Esmam-pop', 'BS-EMM-pop', 'BS-SD-pop', 'DSSD-CB'],
                               'complement': ['Esmam-cpm', 'BS-EMM-cpm', 'BS-SD-cpm','LR-Rules']
                              }
@@ -568,6 +569,37 @@ class Heatmaps(Results):
  
     
     def __generate_single_interset(self, baseline, dic_matrix, max_x, max_y, db, exp, save):
+        '''
+        Generate the pdf file that comprises the < single_run_interset >.
+        
+        Parameters
+        ----------
+        baseline : string
+            options=['population', 'baseline']
+            The baseline family of algorithms to generate the results.
+        dic_matrix : dictionary
+            Is the '{baseline}_interset_*Similarity.json' files.
+        metric : string
+            options=['jaccard_c', 'jaccard_d', 'pval_m']
+            (Log file) Information considered to be plotted
+        max_x : int
+            Maximum value of the x-axis for all considered plots. 
+            Used for adjustment on the aspect ratio of the plots.
+        max_y : int
+            Maximum value of the y-axis for all considered plots. 
+            Used for adjustment on the aspect ratio of the plots.
+        db : string
+            Name of the data set related to the results to be plotted
+        exp : int
+            Index of the data set experiment (run) to plot the results
+        save : bool, optional
+            Whether to save the plot as pdf file or not (just show). 
+            The default is True.
+
+        Returns
+        -------
+        None.
+        '''
         
         def create_subtitle(fig: plt.Figure, grid: SubplotSpec, title: str):
             row = fig.add_subplot(grid)
@@ -595,7 +627,7 @@ class Heatmaps(Results):
                 if metric=='model' and not matrix.shape[0]==0:       # adjust for boolean plot
                     matrix = matrix >= self.ALPHA
                     matrix = matrix.astype(int)
-                # square-ration: insert Nan rows at top of dataframe for matrix with less that max_x
+                # square-ratio: insert Nan rows at top of dataframe for matrix with less that max_x
                 if matrix.shape[0]<max_x:
                     delta = max_x - matrix.shape[0]
                     delta_m = pd.DataFrame(data=np.nan, index=range(delta), columns=matrix.columns)
@@ -635,6 +667,31 @@ class Heatmaps(Results):
         return
     
     def __generate_redundancy_heatmap(self, dic_matrix, ALGS, metric, baseline, boolean=False):
+        '''
+        Generate the pdf file that comprises the < redundancy_full_report >.
+        
+        Parameters
+        ----------
+        dic_matrix : dictionary
+            For each compared algorithm(keys), the dictionary value is its 
+            respective < _results_processing/_processed_output_files > log file
+            related to the metric attribute
+        metric : string
+            options=['jaccard_c', 'jaccard_d', 'pval_m']
+            (Log file) Information considered to be plotted
+        baseline : string
+            options=['population', 'baseline']
+            The baseline family of algorithms to generate the results.
+        boolean : bool, optional
+            Whether to consider a boolean plot (transform a float matrix into 
+                                                boolean according to the
+                                                self.ALPHA threshold).
+            The default is False.
+
+        Returns
+        -------
+        None.
+        '''
 
         # figure settings
         plt.rcParams.update({'font.size': 10})
@@ -686,11 +743,35 @@ class Heatmaps(Results):
             pdf.savefig(fig,bbox_inches='tight')
             plt.close(fig)
             
-        pdf_jaccard.close()
+        pdf.close()
         print('..saved: {}'.format(save_name))
         return
        
     def __generate_similarity_heatmap(self, dic_matrix, metric, baseline, boolean=False):
+        '''
+        Generate the pdf file that comprises the < similarity_full_report >.
+        
+        Parameters
+        ----------
+        dic_matrix : dictionary
+            Is the '{baseline}_interset_*Similarity.json' files.
+        metric : string
+            options=['descrSimilarity', 'coverSimilarity', 'modelSimilarity']
+            The type of similarity measures to compute the results.
+        baseline : string
+            options=['population', 'baseline']
+            The baseline family of algorithms to generate the results.
+        boolean : bool, optional
+            Whether to consider a boolean plot (transform a float matrix into 
+                                                boolean according to the
+                                                self.ALPHA threshold).
+            The default is False.
+
+        Returns
+        -------
+        None.
+
+        '''
         
         save_name = self.SAVE_PATH['sim'] + '{}_{}.pdf'.format(baseline, metric)
         pdf_jaccard = matplotlib.backends.backend_pdf.PdfPages(save_name)
@@ -746,6 +827,29 @@ class Heatmaps(Results):
         return
     
     def similarity_full_report(self, baseline):
+        '''
+        Analysis of the similarity between the EsmamDS sets of subgroups and 
+        the set of subgroups discovered by the compared algorithm.
+        
+        This function generates a report of the full empirical evaluation 
+        where each page presents the results regarding one data set.
+        In each page, the rows are the experiment runs, and the columns are the
+        comparison of EsmamDS with the different algorithms.
+        
+        In the heatmaps, each row represents a subgroup discovered by the EsmamDS,
+        and each column is a subgroup discovered by the compared algorithm.
+        
+        Parameters
+        ----------
+        baseline : string
+            options=[population, baseline]
+            The baseline family of algorithms to generate the results
+
+        Returns
+        -------
+        None.
+
+        '''
         
         metrics = ['descrSimilarity', 'coverSimilarity', 'modelSimilarity']
         
@@ -761,6 +865,32 @@ class Heatmaps(Results):
         return 
 
     def redundancy_full_report(self, baseline):
+        '''
+        Analysis of the similarity between the subgroups comprising the final 
+        sets of subgroups discovered by each compared approach. 
+        In other words, analysis of (set) redundancy.
+        
+        This function generates a report of the full empirical evaluation in a 
+        pdf file where each page presents the results regarding one data set.
+        In each page, the rows are the experiment runs, and the columns are the
+        results of different algorithms.
+        
+        
+        In the heatmaps, the rows and columns are the subgroups in a set, 
+        and the values plotted (in color) are the similarity between the pairs
+        of subgroups.
+
+        Parameters
+        ----------
+        baseline : string
+            options=[population, baseline]
+            The baseline family of algorithms to generate the results
+
+        Returns
+        -------
+        None.
+
+        '''
         metrics = ['jaccard_c', 'jaccard_d', 'pval_m']
         
         def __read_logs(alg, log_file):
@@ -784,6 +914,33 @@ class Heatmaps(Results):
         return
 
     def single_run_interset(self, baseline, db_name, exp, save=True):
+        '''
+        Generates a plot for inter-set (description, coverage and model) similarity
+        between the EsmamDS sets of subgroups and the set of subgroups discovered 
+        by the compared algorithm.
+        
+        Each type of similarity between pairs of subgroups is displayed in a row, 
+        where the plots in a row are the comparison between EsmamDS and the different algorithms.
+
+        Parameters
+        ----------
+        baseline : string
+            options=[population, baseline]
+            The baseline family of algorithms to generate the results
+        db_name : string
+            Name of the data set related to the results to be plotted
+        exp : int
+            Index of the data set experiment (run) to plot the results
+        save : bool, optional
+            Whether to save the plot as pdf file or not (just show). 
+            The default is True.
+
+        Returns
+        -------
+        None.
+        
+
+        '''
         metrics = {'description': 'descrSimilarity',
                    'coverage': 'coverSimilarity',
                    'model': 'modelSimilarity'}
@@ -806,3 +963,8 @@ class Heatmaps(Results):
         # generate plots
         self.__generate_single_interset(baseline, log_dic, max_x, max_y, db_name, exp, save)
         return 
+
+if __name__ == '__main__':
+    
+    maps = Heatmaps()
+    maps.single_run_inteset("population", "actg320", 0)
