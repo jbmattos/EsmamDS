@@ -559,8 +559,7 @@ class Heatmaps(Results):
         super().__init__()
         self.SAVE_PATH = {'sim': self.ROOT_PATH + 'experiments/sets similarities (heatmap matrix)/',
                           'red': self.ROOT_PATH + 'experiments/set redundancy (heatmap matrix)/'}
-        self.__LOG_PATH =  self.ROOT_PATH + 'experiments/_results_processing/_processed_output_files/_inter-set_similarity/'
-        self.__color_map_singlerun = 'RdYlBu'
+        self.__LOG_PATH = self.ROOT_PATH + 'experiments/_results_processing/_processed_output_files/_inter-set_similarity/'
         self.__color_map = 'RdYlGn'
         self.__ALGORITHMS = {'population': ['Esmam-pop', 'BS-EMM-pop', 'BS-SD-pop', 'DSSD-CB'],
                               'complement': ['Esmam-cpm', 'BS-EMM-cpm', 'BS-SD-cpm','LR-Rules']
@@ -627,19 +626,19 @@ class Heatmaps(Results):
                 if metric=='model' and not matrix.shape[0]==0:       # adjust for boolean plot
                     matrix = matrix >= self.ALPHA
                     matrix = matrix.astype(int)
-                # square-ratio: insert Nan rows at top of dataframe for matrix with less that max_x
-                if matrix.shape[0]<max_x:
-                    delta = max_x - matrix.shape[0]
-                    delta_m = pd.DataFrame(data=np.nan, index=range(delta), columns=matrix.columns)
-                    matrix = pd.concat([matrix,delta_m], axis=0).reset_index(drop = True)
+                # square-ratio: insert Nan rows at top of dataframe for matrix with less that max_y
+                if matrix.shape[1]<max_y:
+                    delta = max_y - matrix.shape[1]
+                    delta_m = pd.DataFrame(data=np.nan, index=matrix.index, columns=range(delta))
+                    matrix = pd.concat([matrix,delta_m], axis=1).reset_index(drop = True)
                 
                 # plot
                 ax = axes[row, col]
                 with sns.axes_style("white"):
                     if col==3:
-                        ax = sns.heatmap(matrix, square=True, cmap=self.__color_map_singlerun, ax=ax, vmin=0, vmax=1)
+                        ax = sns.heatmap(matrix, square=True, cmap=sns.diverging_palette(240, 10, n=100, l=30), ax=ax, vmin=0, vmax=1)
                     else:
-                        ax = sns.heatmap(matrix, square=True, cmap=self.__color_map_singlerun, ax=ax, vmin=0, vmax=1, cbar=False)
+                        ax = sns.heatmap(matrix, square=True, cmap=sns.diverging_palette(240, 10, n=100, l=30), ax=ax, vmin=0, vmax=1, cbar=False)
     
                 if row==2: 
                     ax.set_xlabel(alg)
@@ -659,7 +658,7 @@ class Heatmaps(Results):
         fig.tight_layout()
         
         if save:
-            save_name = self.SAVE_PATH +'intersetSimilarity_baseline-{}_{}-exp{}.pdf'.format(baseline, db, exp)
+            save_name = self.SAVE_PATH['sim'] +'intersetSimilarity_baseline-{}_{}-exp{}.pdf'.format(baseline, db, exp)
             plt.savefig(save_name, bbox_inches='tight') 
         else:
             plt.show()
@@ -948,7 +947,7 @@ class Heatmaps(Results):
         # read logs for db_name/exp
         log_dic = {}.fromkeys(metrics.keys())
         max_x, max_y = 0,0
-        for m_name, metric in metrics.items():
+        for m_name, metric in metrics.items():  
     
             file = self.__LOG_PATH +'{}_interset_{}.json'.format(baseline, metric)
             with open(file, 'r') as f:
@@ -958,7 +957,7 @@ class Heatmaps(Results):
             for alg in log_dic[m_name].keys():
                 log_dic[m_name][alg] = pd.DataFrame(log[db_name][alg][str(exp)])
                 if log_dic[m_name][alg].shape[0] > max_x: max_x = log_dic[m_name][alg].shape[0]
-                if log_dic[m_name][alg].shape[1] > max_x: max_x = log_dic[m_name][alg].shape[1]
+                if log_dic[m_name][alg].shape[1] > max_y: max_y = log_dic[m_name][alg].shape[1]
         
         # generate plots
         self.__generate_single_interset(baseline, log_dic, max_x, max_y, db_name, exp, save)
@@ -967,4 +966,4 @@ class Heatmaps(Results):
 if __name__ == '__main__':
     
     maps = Heatmaps()
-    maps.single_run_inteset("population", "actg320", 0)
+    maps.single_run_interset("population", "mgus", 0)
