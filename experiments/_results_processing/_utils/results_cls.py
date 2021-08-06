@@ -11,10 +11,11 @@ import matplotlib.backends.backend_pdf
 import numpy as np
 import pandas as pd
 import pathlib
+import seaborn as sns
 
 from matplotlib import pyplot as plt
+from matplotlib.gridspec import SubplotSpec
 from matplotlib.pylab import rcParams
-
 
 
 class Results():
@@ -45,7 +46,6 @@ class Results():
         self.LOG_FILE = {'metrics': 'metrics.csv',
                         'jaccard_c': 'jaccard-cover.json',
                         'jaccard_d': 'jaccard-descript.json',
-                        'pval_r': 'rules-pval.json',
                         'pval_m': 'pval-matrix.json',
                         'surv_models': 'survival-models.json'
                        }
@@ -556,118 +556,18 @@ class Heatmaps(Results):
     '''
     def __init__(self):
         super().__init__()
-        #self.SAVE_PATH = self.ROOT_PATH + 'experiments/survival models/'
-        self.__color_map = 'RdYlBu'
+        self.SAVE_PATH = {'sim': self.ROOT_PATH + 'experiments/sets similarities (heatmap matrix)/',
+                          'red': self.ROOT_PATH + 'experiments/set redundancy (heatmap matrix)/'}
+        self.__LOG_PATH =  self.ROOT_PATH + 'experiments/_results_processing/_processed_output_files/_inter-set_similarity/'
+        self.__color_map_singlerun = 'RdYlBu'
+        self.__color_map = None
+        self.__ALGORITHMS = {'population': ['Esmam-pop', 'BS-EMM-pop', 'BS-SD-pop', 'DSSD-CB'],
+                              'complement': ['Esmam-cpm', 'BS-EMM-cpm', 'BS-SD-cpm','LR-Rules']
+                             }
         rcParams["font.family"] = "Times New Roman"
+ 
     
-    def __generate_heatmap(dic_matrix, ALGS, metric, baseline, boolean=False, square=False, transpose=False):
-        # figure settings
-        plt.rcParams.update({'font.size': 10})
-        rows = RUNS                     # number of experiments
-        cols = len(ALGS)                # number of algorithms
-        rcParams['figure.figsize'] = 5*cols, 4*rows
-        
-        # pdf file
-        file = LOG_FILE[metric].split('.')[0]+'.pdf'
-        save_name = SAVE_PATH+SAVE_FILE.format(baseline, file)
-        pdf_jaccard = matplotlib.backends.backend_pdf.PdfPages(save_name)
-    
-        for db in DATASETS:
-            print('...generating page results for {}-{}-{}'.format(db, baseline, metric))
-            
-            fig_jaccard, axes_jaccard = plt.subplots(nrows=rows, ncols=cols, num='jaccard_{}'.format(db), clear=True)
-            
-            for col, alg in enumerate(ALGS):    # iterates over subplots COLUMNS
-                
-                for row in range(RUNS):         # iterates over subplots ROWS
-                    
-                    if alg in ESMAM_VARS:
-                        matrix = pd.DataFrame(dic_matrix[alg][db][str(row)])
-                    else:
-                        matrix = pd.DataFrame(dic_matrix[alg][db])
-                    
-                    if transpose:
-                        matrix = matrix.T
-                    if boolean:
-                        matrix = matrix >= ALPHA
-                        matrix = matrix.astype(int)
-                    
-                    # jaccard plot
-                    plt.figure(num='jaccard_{}'.format(db))
-                    ax = axes_jaccard[row, col]
-                    mask = np.zeros_like(matrix)
-                    mask[np.triu_indices_from(matrix)] = True
-                    with sns.axes_style("white"):
-                        if square:
-                            ax = sns.heatmap(matrix, square=True, cmap='jet', ax=ax, vmin=0, vmax=1)
-                        else:
-                            ax = sns.heatmap(matrix, mask=mask, square=True, cmap='jet', ax=ax, vmin=0, vmax=1)
-                    ax.title.set_text(alg)
-            
-            # page titles
-            fig_jaccard.suptitle('{} DATASET (Experiments x Algorithms)'.format(db.upper()), fontsize=22) 
-            # saving on pdf
-            pdf_jaccard.savefig(fig_jaccard,bbox_inches='tight')
-            plt.close(fig_jaccard)
-            
-        pdf_jaccard.close()
-        print('..saved: {}'.format(save_name))
-        return
-    
-    def get_logrank_heatmaps():
-        print('>> call to < get_logrank_heatmaps >')
-        metric = 'pval_m'
-        for baseline, ALGS in ALGORITHMS.items(): # iterates over different baselines
-                
-            # read matrixes for all algorithms
-            dic_matrix = {}.fromkeys(ALGS)
-            for alg in ALGS:
-                dic_matrix[alg] = __read_logs(alg, metric)
-            
-            __generate_heatmap(dic_matrix, ALGS, metric, baseline, boolean=True)
-        return
-    
-    def get_jaccard_heatmaps():
-        print('>> call to < get_jaccard_heatmaps >')
-        metrics = ['jaccard_c', 'jaccard_d']
-        for baseline, ALGS in ALGORITHMS.items(): # iterates over different baselines
-            for metric in metrics:              # iterates for jaccard-cover and jaccard-descript
-                
-                # read matrixes for all algorithms
-                dic_matrix = {}.fromkeys(ALGS)
-                for alg in ALGS:
-                    dic_matrix[alg] = __read_logs(alg, metric)
-                
-                __generate_heatmap(dic_matrix, ALGS, metric, baseline)
-        return
-#######################################
-  
-    def single_interset(self, baseline, db_name, exp, save=True):    
-        base = 'rulesetComp'
-        metrics = {'description': 'jaccard-descript',
-                   'coverage': 'jaccard-cover',
-                   'model': 'logrank-pval'}
-        
-        # read logs for db_name/exp
-        log_dic = {}.fromkeys(metrics.keys())
-        max_x, max_y = 0,0
-        for m_name, metric in metrics.items():
-    
-            file = RULESET_PATH+'{}_{}_{}.json'.format(baseline, base, metric)
-            with open(file, 'r') as f:
-                log = json.load(f)
-            
-            log_dic[m_name] = {}.fromkeys(log[db_name].keys())
-            for alg in log_dic[m_name].keys():
-                log_dic[m_name][alg] = pd.DataFrame(log[db_name][alg][str(exp)])
-                if log_dic[m_name][alg].shape[0] > max_x: max_x = log_dic[m_name][alg].shape[0]
-                if log_dic[m_name][alg].shape[1] > max_x: max_x = log_dic[m_name][alg].shape[1]
-        
-        # generate plots
-        self.__generate_single_interset(baseline, log_dic, max_x, max_y, db_name, save)
-        return 
-    
-    def __generate_single_interset(self, baseline, dic_matrix, max_x, max_y, db, save):
+    def __generate_single_interset(self, baseline, dic_matrix, max_x, max_y, db, exp, save):
         
         def create_subtitle(fig: plt.Figure, grid: SubplotSpec, title: str):
             row = fig.add_subplot(grid)
@@ -693,7 +593,7 @@ class Heatmaps(Results):
                             
                 matrix = dic_matrix[metric][alg]
                 if metric=='model' and not matrix.shape[0]==0:       # adjust for boolean plot
-                    matrix = matrix >= ALPHA
+                    matrix = matrix >= self.ALPHA
                     matrix = matrix.astype(int)
                 # square-ration: insert Nan rows at top of dataframe for matrix with less that max_x
                 if matrix.shape[0]<max_x:
@@ -705,9 +605,9 @@ class Heatmaps(Results):
                 ax = axes[row, col]
                 with sns.axes_style("white"):
                     if col==3:
-                        ax = sns.heatmap(matrix.T, square=True, cmap=self.__color_map, ax=ax, vmin=0, vmax=1)
+                        ax = sns.heatmap(matrix, square=True, cmap=self.__color_map_singlerun, ax=ax, vmin=0, vmax=1)
                     else:
-                        ax = sns.heatmap(matrix.T, square=True, cmap=self.__color_map, ax=ax, vmin=0, vmax=1, cbar=False)
+                        ax = sns.heatmap(matrix, square=True, cmap=self.__color_map_singlerun, ax=ax, vmin=0, vmax=1, cbar=False)
     
                 if row==2: 
                     ax.set_xlabel(alg)
@@ -727,10 +627,182 @@ class Heatmaps(Results):
         fig.tight_layout()
         
         if save:
-            save_name = self.SAVE_PATH +'heatmaps_{}-{}-exp{}.pdf'.format(baseline, db_name, exp)
+            save_name = self.SAVE_PATH +'intersetSimilarity_baseline-{}_{}-exp{}.pdf'.format(baseline, db, exp)
             plt.savefig(save_name, bbox_inches='tight') 
         else:
             plt.show()
             
         return
     
+    def __generate_redundancy_heatmap(self, dic_matrix, ALGS, metric, baseline, boolean=False):
+
+        # figure settings
+        plt.rcParams.update({'font.size': 10})
+        rows = self.RUNS    # number of experiments
+        cols = len(ALGS)    # number of algorithms
+        rcParams['figure.figsize'] = 5*cols, 4*rows
+        
+        # pdf file
+        file = self.LOG_FILE[metric].split('.')[0]+'.pdf'
+        save_name = self.SAVE_PATH['red'] + self.SAVE_FILE.format(baseline, file)
+        pdf = matplotlib.backends.backend_pdf.PdfPages(save_name)
+    
+        for db in self.DATASETS:
+            print('...generating page results for {}-{}-{}'.format(db, baseline, metric))
+            
+            fig, axes = plt.subplots(nrows=rows, ncols=cols, num='plt_{}'.format(db), clear=True)
+            
+            for col, alg in enumerate(ALGS):    # iterates over subplots COLUMNS
+                
+                for row in range(self.RUNS):         # iterates over subplots ROWS
+                    
+                    if alg in self.ESMAM_VARS:
+                        matrix = pd.DataFrame(dic_matrix[alg][db][str(row)])
+                    else:
+                        matrix = pd.DataFrame(dic_matrix[alg][db])
+                    
+                    if boolean:
+                        matrix = matrix >= self.ALPHA
+                        matrix = matrix.astype(int)
+                    
+                    # jaccard plot
+                    plt.figure(num='plt_{}'.format(db))
+                    ax = axes[row, col]
+                    
+                    if col==len(cols)-1: cbar = True
+                    else: cbar = False
+                    
+                    with sns.axes_style("white"):
+                        mask = np.zeros_like(matrix)
+                        mask[np.triu_indices_from(matrix)] = True
+                        ax = sns.heatmap(matrix, mask=mask, square=True, cmap=self.__color_map, ax=ax, vmin=0, vmax=1, cbar=cbar)
+                    ax.title.set_text(alg)
+                    ax.set_yticks([])
+                    ax.set_xticks([])
+            
+            # page titles
+            fig.suptitle('{} DATASET (Experiments x Algorithms)'.format(db.upper()), fontsize=22) 
+            # saving on pdf
+            pdf.savefig(fig,bbox_inches='tight')
+            plt.close(fig)
+            
+        pdf_jaccard.close()
+        print('..saved: {}'.format(save_name))
+        return
+       
+    def __generate_similarity_heatmap(self, dic_matrix, metric, baseline, boolean=False):
+        
+        save_name = self.SAVE_PATH['sim'] + '{}_{}.pdf'.format(baseline, metric)
+        pdf_jaccard = matplotlib.backends.backend_pdf.PdfPages(save_name)
+        
+        # figure settings
+        plt.rcParams.update({'font.size': 10})
+        rows = self.RUNS                            # number of experiments
+        cols = len(self.__ALGORITHMS[baseline])     # number of algorithms
+        rcParams['figure.figsize'] = 5*cols, 4*rows
+        
+        for db in self.DATASETS:
+            print('...generating page results for {}-{}-{}'.format(db, baseline, metric))
+            
+            fig_jaccard, axes_jaccard = plt.subplots(nrows=rows, ncols=cols, num='jaccard_{}'.format(db), clear=True)
+            
+            for col, alg in enumerate(self.__ALGORITHMS[baseline]):    # iterates over subplots COLUMNS
+                
+                for row in range(self.RUNS):                         # iterates over subplots ROWS
+                    
+                    matrix = pd.DataFrame(dic_matrix[db][alg][str(row)])
+                    if boolean and not matrix.shape[0]==0:
+                        matrix = matrix >= self.ALPHA
+                        matrix = matrix.astype(int)
+                    if matrix.shape[0]==0:
+                        matrix = pd.DataFrame(data=np.nan, index=matrix.columns, columns=matrix.columns)
+                    
+                    # jaccard plot
+                    plt.figure(num='jaccard_{}'.format(db))
+                    ax = axes_jaccard[row, col]
+                    
+                    if col==len(cols)-1: cbar = True
+                    else: cbar = False
+                    
+                    with sns.axes_style("white"):
+                        ax = sns.heatmap(matrix, square=True, cmap=self.__color_map, ax=ax, vmin=0, vmax=1, cbar=cbar)
+                    
+                    if baseline=='population': alg_base = 'EsmamDS-pop'
+                    else: alg_base = 'EsmamDS-cpm'
+                    if col==0: ax.set_ylabel('{}'.format(alg_base))
+                    else: ax.set_ylabel('')
+                    ax.set_xlabel(alg)
+                    ax.set_yticks([])
+                    ax.set_xticks([])
+                    
+            # page titles
+            fig_jaccard.suptitle('{} DATASET (Experiments x Algorithms)'.format(db.upper()), fontsize=22) 
+            # saving on pdf
+            pdf_jaccard.savefig(fig_jaccard,bbox_inches='tight')
+            plt.close(fig_jaccard)
+            
+        pdf_jaccard.close()
+        print('..saved: {}'.format(save_name))
+        return
+    
+    def similarity_full_report(self, baseline):
+        
+        metrics = ['descrSimilarity', 'coverSimilarity', 'modelSimilarity']
+        
+        for metric in metrics:
+            boolean = False                
+            if metric=='modelSimilarity': boolean = True
+            
+            file = self.__LOG_PATH +'{}_interset_{}.json'.format(baseline, metric)
+            with open(file, 'r') as f:
+                log_dic = json.load(f)             
+            
+            self.__generate_similarity_heatmap(log_dic, metric, baseline, boolean=boolean)
+        return 
+
+    def redundancy_full_report(self, baseline):
+        metrics = ['jaccard_c', 'jaccard_d', 'pval_m']
+        
+        def __read_logs(alg, log_file):
+            with open(self.PROC_PATH + self.ALG_FILE[alg].format(self.LOG_FILE[log_file]), 'r') as f:
+                log = json.load(f)
+            return log
+        
+        # read matrixes for all algorithms
+        algs = self.ALGORITHMS[baseline]
+        dic_matrix = {}.fromkeys(algs)
+        for metric in metrics:
+                
+            for alg in algs:
+                dic_matrix[alg] = __read_logs(alg, metric)
+            
+            if metric == 'pval_m':
+                self.__generate_heatmap(dic_matrix, algs, metric, baseline, square=False, boolean=True)
+            else:
+                self.__generate_heatmap(dic_matrix, algs, metric, baseline, square=False, boolean=False)
+        
+        return
+
+    def single_run_interset(self, baseline, db_name, exp, save=True):
+        metrics = {'description': 'descrSimilarity',
+                   'coverage': 'coverSimilarity',
+                   'model': 'modelSimilarity'}
+        
+        # read logs for db_name/exp
+        log_dic = {}.fromkeys(metrics.keys())
+        max_x, max_y = 0,0
+        for m_name, metric in metrics.items():
+    
+            file = self.__LOG_PATH +'{}_interset_{}.json'.format(baseline, metric)
+            with open(file, 'r') as f:
+                log = json.load(f)
+            
+            log_dic[m_name] = {}.fromkeys(log[db_name].keys())
+            for alg in log_dic[m_name].keys():
+                log_dic[m_name][alg] = pd.DataFrame(log[db_name][alg][str(exp)])
+                if log_dic[m_name][alg].shape[0] > max_x: max_x = log_dic[m_name][alg].shape[0]
+                if log_dic[m_name][alg].shape[1] > max_x: max_x = log_dic[m_name][alg].shape[1]
+        
+        # generate plots
+        self.__generate_single_interset(baseline, log_dic, max_x, max_y, db_name, exp, save)
+        return 

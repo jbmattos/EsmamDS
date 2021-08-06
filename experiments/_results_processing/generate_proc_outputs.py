@@ -84,12 +84,6 @@ def __append_info(file, algs, _direc, _base):
     return
 
 def __save_log_folder(algs):
-    '''
-    ADJUST FUNCTION:
-        If the log file exists in the folder:
-            - [false] print all information on the containing files
-            - [true] append information on new generated files 
-    '''
     base = str(os.path.basename(__file__))
     direc = str(os.path.dirname(__file__))
     
