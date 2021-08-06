@@ -196,7 +196,7 @@ def __load_model(db_name, alg, exp=None):
         return model_terms.rename(alg)
 
     elif alg=='LR-Rules':
-        file = ALG_FILE['LR-Rules'].format(db_name)
+        file = ALG_FILE[alg].format(db_name)
         db_results = pd.read_table(file, squeeze=True)
         final_idx = db_results[db_results == 'General information:'].index[0]
         db_results = db_results.iloc[:final_idx]
@@ -205,7 +205,7 @@ def __load_model(db_name, alg, exp=None):
         return model_terms.rename(alg)
 
     elif alg=='DSSD-CBSS':
-        file = ALG_FILE['DSSD-CB'].format(db_name)
+        file = ALG_FILE[alg].format(db_name)
         db_results = pd.read_csv(file, sep='\t', index_col=0)
         model = db_results['Conditions'].apply(lambda x: x.replace("'","")).apply(lambda x: x.split(' AND ')).apply(lambda x: __get_antecedent(x, alg))
         model_terms = model.apply(lambda x: __get_terms(x))
@@ -246,12 +246,12 @@ def __get_interset_matrix(my_model, other_model, db_name, index=None):
         raise ValueError('Define a metric for computing <__get_jaccard_matrix_rulesets>')
     
     def jaccard(set1, set2, small=True):
-        union = set1.union(set2)
+        intersection = set1.intersection(set2)
         if small:
             minor = min([len(set1),len(set2)])
             return len(intersection)/minor
         else:
-            intersection = set1.intersection(set2)
+            union = set1.union(set2)
             return len(intersection)/len(union) 
     
     def pval(cases1, cases2):
@@ -277,11 +277,11 @@ def __get_interset_matrix(my_model, other_model, db_name, index=None):
     for row in my_ruleset.ruleset.index:
         for col in other_ruleset.ruleset.index:            
             if index=='cover':
-                matrix.loc[row,col] = jaccard(other_ruleset.cases.loc[row], my_ruleset.cases.loc[col])
+                matrix.loc[row,col] = jaccard(other_ruleset.cases.loc[col], my_ruleset.cases.loc[row])
             elif index=='descr':
-                matrix.loc[row,col] = jaccard(other_ruleset.ruleset.loc[row], my_ruleset.ruleset.loc[col])
+                matrix.loc[row,col] = jaccard(other_ruleset.ruleset.loc[col], my_ruleset.ruleset.loc[row])
             elif index=='model':
-                matrix.loc[row,col] = pval(other_ruleset.cases.loc[row], my_ruleset.cases.loc[col])
+                matrix.loc[row,col] = pval(other_ruleset.cases.loc[col], my_ruleset.cases.loc[row])
     
     return matrix.astype(dict.fromkeys(matrix.columns, 'float64')).to_dict()
 
@@ -315,6 +315,8 @@ def generate_logs(metric, baseline):
 
 def run(metric='all', baseline=['population', 'complement']):
     
+    print('\n\n>> Inter-Set Similarity Logs')
+    print('... executing for metrics={} and baseline={}'.format(metric, baseline))
     for base in baseline:
         
         if metric in ['descr', 'all']:
