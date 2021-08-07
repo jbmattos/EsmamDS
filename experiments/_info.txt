@@ -1,0 +1,8 @@
+This file was automatically created by the execution of
+D:\GitRepositories\EsmamDS\experiments\_results_processing/generate_results.py 20210807 00:52:53
+
+=================================
+ APPENDED INFO 20210807 00:52:53
+=================================
+.. exe D:\GitRepositories\EsmamDS\experiments\_results_processing/generate_results.py
+.. call to: baseline=['population', 'complement'] and results=['setsim']

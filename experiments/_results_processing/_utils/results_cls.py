@@ -560,8 +560,8 @@ class Heatmaps(Results):
         self.SAVE_PATH = {'sim': self.ROOT_PATH + 'experiments/sets similarities (heatmap matrix)/',
                           'red': self.ROOT_PATH + 'experiments/set redundancy (heatmap matrix)/'}
         self.__LOG_PATH = self.ROOT_PATH + 'experiments/_results_processing/_processed_output_files/_inter-set_similarity/'
-        self.__color_map = 'RdYlGn'
-        self.__ALGORITHMS = {'population': ['Esmam-pop', 'BS-EMM-pop', 'BS-SD-pop', 'DSSD-CB'],
+        self.__color_map = sns.diverging_palette(240, 10, n=100, l=30)
+        self.__ALGORITHMS = {'population': ['Esmam-pop', 'BS-EMM-pop', 'BS-SD-pop', 'DSSD-CBSS'],
                               'complement': ['Esmam-cpm', 'BS-EMM-cpm', 'BS-SD-cpm','LR-Rules']
                              }
         rcParams["font.family"] = "Times New Roman"
@@ -636,9 +636,9 @@ class Heatmaps(Results):
                 ax = axes[row, col]
                 with sns.axes_style("white"):
                     if col==3:
-                        ax = sns.heatmap(matrix, square=True, cmap=sns.diverging_palette(240, 10, n=100, l=30), ax=ax, vmin=0, vmax=1)
+                        ax = sns.heatmap(matrix, square=True, cmap=self.__color_map, ax=ax, vmin=0, vmax=1)
                     else:
-                        ax = sns.heatmap(matrix, square=True, cmap=sns.diverging_palette(240, 10, n=100, l=30), ax=ax, vmin=0, vmax=1, cbar=False)
+                        ax = sns.heatmap(matrix, square=True, cmap=self.__color_map, ax=ax, vmin=0, vmax=1, cbar=False)
     
                 if row==2: 
                     ax.set_xlabel(alg)
@@ -782,7 +782,7 @@ class Heatmaps(Results):
         rcParams['figure.figsize'] = 5*cols, 4*rows
         
         for db in self.DATASETS:
-            print('...generating page results for {}-{}-{}'.format(db, baseline, metric))
+            print('...generating page results for {}'.format(db))
             
             fig_jaccard, axes_jaccard = plt.subplots(nrows=rows, ncols=cols, num='jaccard_{}'.format(db), clear=True)
             
@@ -801,7 +801,7 @@ class Heatmaps(Results):
                     plt.figure(num='jaccard_{}'.format(db))
                     ax = axes_jaccard[row, col]
                     
-                    if col==len(cols)-1: cbar = True
+                    if col==cols-1: cbar = True
                     else: cbar = False
                     
                     with sns.axes_style("white"):
@@ -830,8 +830,10 @@ class Heatmaps(Results):
         Analysis of the similarity between the EsmamDS sets of subgroups and 
         the set of subgroups discovered by the compared algorithm.
         
-        This function generates a report of the full empirical evaluation 
-        where each page presents the results regarding one data set.
+        This function generates a report of the full empirical evaluation in 
+        three pdf files, one for each similarity measure: descrition, coverage
+        and model.
+        In the pdf files, each page presents the results regarding one data set.
         In each page, the rows are the experiment runs, and the columns are the
         comparison of EsmamDS with the different algorithms.
         
@@ -849,10 +851,11 @@ class Heatmaps(Results):
         None.
 
         '''
-        
+        print('> Call to Heatmaps().similarity_full_report(baseline={})'.format(baseline))
         metrics = ['descrSimilarity', 'coverSimilarity', 'modelSimilarity']
         
         for metric in metrics:
+            print(".processing {} result pdf file".format(metric))
             boolean = False                
             if metric=='modelSimilarity': boolean = True
             
@@ -890,6 +893,7 @@ class Heatmaps(Results):
         None.
 
         '''
+        print('> Call to Heatmaps().redundancy_full_report(baseline={})'.format(baseline))
         metrics = ['jaccard_c', 'jaccard_d', 'pval_m']
         
         def __read_logs(alg, log_file):
@@ -906,9 +910,9 @@ class Heatmaps(Results):
                 dic_matrix[alg] = __read_logs(alg, metric)
             
             if metric == 'pval_m':
-                self.__generate_heatmap(dic_matrix, algs, metric, baseline, square=False, boolean=True)
+                self.__generate_redundancy_heatmap(dic_matrix, algs, metric, baseline, square=False, boolean=True)
             else:
-                self.__generate_heatmap(dic_matrix, algs, metric, baseline, square=False, boolean=False)
+                self.__generate_redundancy_heatmap(dic_matrix, algs, metric, baseline, square=False, boolean=False)
         
         return
 
@@ -940,6 +944,7 @@ class Heatmaps(Results):
         
 
         '''
+        print('> Call to Heatmaps().single_run_interset(baseline={}, db_name={}, exp={}, save={})'.format(baseline, db_name, exp, save))
         metrics = {'description': 'descrSimilarity',
                    'coverage': 'coverSimilarity',
                    'model': 'modelSimilarity'}
@@ -963,7 +968,7 @@ class Heatmaps(Results):
         self.__generate_single_interset(baseline, log_dic, max_x, max_y, db_name, exp, save)
         return 
 
-if __name__ == '__main__':
-    
-    maps = Heatmaps()
-    maps.single_run_interset("population", "mgus", 0)
+#if __name__ == '__main__':
+#    
+#    m = Heatmaps()
+#    m.single_run_interset('population', 'mgus', 0)
