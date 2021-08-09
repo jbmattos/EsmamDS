@@ -39,7 +39,7 @@ The EsmamDS algorithm was implemented to mine exceptional subgroups considering 
 Such configuration is defined by the _baseline_ parameter. In the empirical evaluation, both configurations are considered separately.
 
 For each baseline, the EsmamDS was performed 30 times over each data set.  
-The [script](https://github.com/jbmattos/EsmamDS/blob/icde2022/code/statistical_evaluation.py) to run the statistical evaluation procedure is provided in the [code folder](https://github.com/jbmattos/EsmamDS/tree/icde2022/code).
+The [statistical_evaluation.py](https://github.com/jbmattos/EsmamDS/blob/icde2022/code/statistical_evaluation.py) script to run the statistical evaluation procedure is provided in the [code folder](https://github.com/jbmattos/EsmamDS/tree/icde2022/code).
 
 ## EsmamDS hyper-parameters selection
 
@@ -52,7 +52,7 @@ The following hyper-parameters were defined with a randomised search considering
 - _W_ = 0.9; and
 - _alpha_ = 0.05  
 
-The EsmamDS was executed on _actg320_, _breast-cancer_ and _ptc_ data sets for (a sample of) 10\% of the total number of parameters' combinations. The [script](https://github.com/jbmattos/EsmamDS/blob/icde2022/code/random_search.py) for running the randomised search is provided in the [code folder](https://github.com/jbmattos/EsmamDS/tree/icde2022/code).
+The EsmamDS was executed on _actg320_, _breast-cancer_ and _ptc_ data sets for (a sample of) 10\% of the total number of parameters' combinations. The [random_search.py](https://github.com/jbmattos/EsmamDS/blob/icde2022/code/random_search.py) script for running the randomised search is provided in the [code folder](https://github.com/jbmattos/EsmamDS/tree/icde2022/code).
 
 The algorithm configurations were chosen by ordering all samples according to their average performance considering the following metrics' order: description redundancy; coverage redundancy; CR; model redundancy; subgroup (average) coverage; data set coverage; subgroup (average) description size; and number of discovered subgroups.  
 
@@ -66,13 +66,15 @@ The following three parameters were adjusted as follows:
 - (_bs_) _Beam-size_ (or maximum number of discovered subgroups): given by the average number of subgroups discovered by the EsmamDS in the 30 experiments;
 - (_maxDepth_) _Rule-depth_ (or refinement/search depth): given by the average of the the maximum description size achieved during the EsmamDS execution in the 30 experiments.
 
-The values used for the above parameters, for each data set and both baselines, are presented in the `_paramsConfig.csv` file.
+The values used for the above parameters, for each data set, are presented in the two `_paramsConfig.csv` file (according to a baseline).
 
 
 ## Results
 
 The results and statistical analysis of the EsmamDS (and confronted approaches) performance for the _exceptionality_, _interpretability_, _generality_ and _redundancy_ metrics are presented in `metrics results (tables and statistics)` folder.
 
-The `sets similarities (heatmap matrix)` folder presents the results for the analysis of the _similarity_ metrics.
+The `set redundancy (heatmap matrix)` folder is a visual analysis of the _redundancy_ metrics. It provides the similarity between the subgroups comprising a discovered set.
+
+The `sets similarities (heatmap matrix)` folder presents the results for the analysis of the _similarity_ metrics, for the comparison between the EsmamDS discovered set of subgroups and the sets of subgroups provided by the other approahes.
 
 The `survival models` folder present the analysis of the survival models related to the EsmamDS (and confronted approaches) discovered subgroups. 
