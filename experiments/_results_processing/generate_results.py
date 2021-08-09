@@ -101,7 +101,7 @@ if __name__ == '__main__':
     parser.add_argument("--res", type=str,
                         choices=["all", "tbl", "surv", "setsim", "setred"],
                         default="all",
-                        help="Baseline for generating the results.")
+                        help="The results to be generated.")
     args = parser.parse_args()
     
     if args.base == 'all':
@@ -113,5 +113,5 @@ if __name__ == '__main__':
     else: res=[args.res] 
     print('\n>> Generate results={} for baselines={}'.format(res, baselines))
     
-    __pipeline(baselines, args.res)
+    #__pipeline(baselines, args.res)
     __save_log_folder((baselines,res))

@@ -560,7 +560,8 @@ class Heatmaps(Results):
         self.SAVE_PATH = {'sim': self.ROOT_PATH + 'experiments/sets similarities (heatmap matrix)/',
                           'red': self.ROOT_PATH + 'experiments/set redundancy (heatmap matrix)/'}
         self.__LOG_PATH = self.ROOT_PATH + 'experiments/_results_processing/_processed_output_files/_inter-set_similarity/'
-        self.__color_map = sns.diverging_palette(240, 10, n=100, l=30)
+        self.__color_map_singlerun = sns.diverging_palette(240, 10, n=100, l=30)
+        self.__color_map = 'RdYlGn_r'
         self.__ALGORITHMS = {'population': ['Esmam-pop', 'BS-EMM-pop', 'BS-SD-pop', 'DSSD-CBSS'],
                               'complement': ['Esmam-cpm', 'BS-EMM-cpm', 'BS-SD-cpm','LR-Rules']
                              }
@@ -636,9 +637,9 @@ class Heatmaps(Results):
                 ax = axes[row, col]
                 with sns.axes_style("white"):
                     if col==3:
-                        ax = sns.heatmap(matrix, square=True, cmap=self.__color_map, ax=ax, vmin=0, vmax=1)
+                        ax = sns.heatmap(matrix, square=True, cmap=self.__color_map_singlerun, ax=ax, vmin=0, vmax=1)
                     else:
-                        ax = sns.heatmap(matrix, square=True, cmap=self.__color_map, ax=ax, vmin=0, vmax=1, cbar=False)
+                        ax = sns.heatmap(matrix, square=True, cmap=self.__color_map_singlerun, ax=ax, vmin=0, vmax=1, cbar=False)
     
                 if row==2: 
                     ax.set_xlabel(alg)
@@ -699,12 +700,14 @@ class Heatmaps(Results):
         rcParams['figure.figsize'] = 5*cols, 4*rows
         
         # pdf file
-        file = self.LOG_FILE[metric].split('.')[0]+'.pdf'
-        save_name = self.SAVE_PATH['red'] + self.SAVE_FILE.format(baseline, file)
+        _m_dic = {'jaccard_d': 'descrRedundacy', 
+                  'jaccard_c': 'coverRedundacy', 
+                  'pval_m': 'modelRedundacy'}
+        save_name = self.SAVE_PATH['red'] + '{}_{}.pdf'.format(baseline, _m_dic[metric])
         pdf = matplotlib.backends.backend_pdf.PdfPages(save_name)
-    
+        
         for db in self.DATASETS:
-            print('...generating page results for {}-{}-{}'.format(db, baseline, metric))
+            print('...generating page results for {}'.format(db))
             
             fig, axes = plt.subplots(nrows=rows, ncols=cols, num='plt_{}'.format(db), clear=True)
             
@@ -725,7 +728,7 @@ class Heatmaps(Results):
                     plt.figure(num='plt_{}'.format(db))
                     ax = axes[row, col]
                     
-                    if col==len(cols)-1: cbar = True
+                    if col==cols-1: cbar = True
                     else: cbar = False
                     
                     with sns.axes_style("white"):
@@ -895,6 +898,9 @@ class Heatmaps(Results):
         '''
         print('> Call to Heatmaps().redundancy_full_report(baseline={})'.format(baseline))
         metrics = ['jaccard_c', 'jaccard_d', 'pval_m']
+        _metric_dic = {'jaccard_d': 'descrRedundancy',
+                       'jaccard_c': 'coverRedundancy',
+                       'pval_m': 'modelRedundancy'}
         
         def __read_logs(alg, log_file):
             with open(self.PROC_PATH + self.ALG_FILE[alg].format(self.LOG_FILE[log_file]), 'r') as f:
@@ -905,14 +911,15 @@ class Heatmaps(Results):
         algs = self.ALGORITHMS[baseline]
         dic_matrix = {}.fromkeys(algs)
         for metric in metrics:
-                
+            print(".processing {} result pdf file".format(_metric_dic[metric]))
+            
             for alg in algs:
                 dic_matrix[alg] = __read_logs(alg, metric)
             
             if metric == 'pval_m':
-                self.__generate_redundancy_heatmap(dic_matrix, algs, metric, baseline, square=False, boolean=True)
+                self.__generate_redundancy_heatmap(dic_matrix, algs, metric, baseline, boolean=True)
             else:
-                self.__generate_redundancy_heatmap(dic_matrix, algs, metric, baseline, square=False, boolean=False)
+                self.__generate_redundancy_heatmap(dic_matrix, algs, metric, baseline, boolean=False)
         
         return
 
