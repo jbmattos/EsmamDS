@@ -6,3 +6,17 @@ D:\GitRepositories\EsmamDS\experiments\_results_processing/generate_results.py 2
 =================================
 .. exe D:\GitRepositories\EsmamDS\experiments\_results_processing/generate_results.py
 .. call to: baseline=['population', 'complement'] and results=['tbl', 'surv', 'setsim', 'setred']
+
+=================================
+ APPENDED INFO 20210809 11:10:13
+=================================
+.. exe D:\GitRepositories\EsmamDS\experiments\_results_processing/params_random_search.py
+.. call to: baseline=pop
+.. esmamds results read from: D:\GitRepositories\EsmamDS/experiments/_results_processing/_algorithms_output_files/esmamds-pop/
+
+=================================
+ APPENDED INFO 20210809 11:12:34
+=================================
+.. exe D:\GitRepositories\EsmamDS\experiments\_results_processing/params_random_search.py
+.. call to: baseline=cpm
+.. esmamds results read from: D:\GitRepositories\EsmamDS\experiments\_results_processing\_algorithms_output_files\esmamds-cpm
