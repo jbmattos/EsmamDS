@@ -342,10 +342,10 @@ class SurvivalPlots(Results):
         '''
         
         # set figure
-        rcParams["font.size"] = 32
+        rcParams["font.size"] = 40
         rows = 1
         cols = len(ALGS)
-        rcParams['figure.figsize'] = 10*cols, 6*rows
+        rcParams['figure.figsize'] = 9*cols, 6*rows
         fig, axes = plt.subplots(nrows=rows, ncols=cols, num=db, clear=True, sharex=True, sharey=True)
         
     
@@ -378,11 +378,13 @@ class SurvivalPlots(Results):
                 ax.set_xlabel('')
                 ax.set_ylabel('')
             ax.set_ylim([0, 1])
+            ax.set_yticks([0.5,1])
             ax.set_xlim([0, x[-1]+3])
             ax.spines['top'].set_visible(False)
             ax.spines['right'].set_visible(False)
             ax.legend().set_visible(False)
             plt.xticks([])
+            plt.subplots_adjust(wspace=0.05)
         
         if save:
             save_name = self.SAVE_PATH +'survivalModels_baseline-{}_{}-exp{}.pdf'.format(baseline, db, exp)
@@ -610,13 +612,15 @@ class Heatmaps(Results):
             row.axis('off')
     
         # set figure
-        rcParams["font.size"] = 36
+        rcParams["font.family"] = "Times New Roman"
+        rcParams["font.size"] = 52
         rows = 3
         cols = 4
-        rcParams['figure.figsize'] = 6*cols, 6*rows
+        rcParams['figure.figsize'] = 8*cols, 8*rows
         sns.set_palette("deep")
         
         fig, axes = plt.subplots(nrows=rows, ncols=cols, num=db, clear=True, sharex=True, sharey=True)
+        plt.subplots_adjust(wspace=0.05)
         grid = plt.GridSpec(rows, cols)
         
         for row, metric in enumerate(dic_matrix.keys()):             # rows: iterates over metrics (descript, cover, model)
@@ -975,7 +979,10 @@ class Heatmaps(Results):
         self.__generate_single_interset(baseline, log_dic, max_x, max_y, db_name, exp, save)
         return 
 
-#if __name__ == '__main__':
-#    
-#    m = Heatmaps()
-#    m.single_run_interset('population', 'mgus', 0)
+if __name__ == '__main__':
+    
+    #m = SurvivalPlots()
+    #m.single_run_plot('population', 'pbc', 0)
+    
+    m = Heatmaps()
+    m.single_run_interset('population', 'mgus', 0)

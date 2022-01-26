@@ -7,15 +7,16 @@ import argparse
 import math
 import numpy as np
 import pandas as pd
+import pathlib
 import warnings
 from autorank import autorank, plot_stats
 from matplotlib import pyplot as plt
 
 warnings.filterwarnings("ignore")
 
-ALPHA = 0.05
-TBL_POP_FILE = 'metrics_baseline-population.csv'
-TBL_CPM_FILE = 'metrics_baseline-complement.csv'
+THIS_PATH = str(pathlib.Path(__file__).parent.absolute())
+TBL_POP_FILE = THIS_PATH+'\\metrics_baseline-population.csv'
+TBL_CPM_FILE = THIS_PATH+'\\metrics_baseline-complement.csv'
 METRICS = ['#sg', 'length', 'sgCov', 'setCov', 
            'description redundancy', 'cover redundancy',
            'CR', 'model redundancy']
@@ -27,6 +28,7 @@ STAT_ORDER = {'#sg': 'ascending',
               'cover redundancy': 'ascending',
               'CR': 'ascending',
               'model redundancy': 'ascending'}
+ALPHA = 0.05
 
 '''
 Functions from autorank package
@@ -205,7 +207,7 @@ def plot_stats(result, reverse=False, allow_insignificant=False, ax=None, width=
 '''
 REPORT
 '''
-def report(file):
+def report(file, _save, _ext, _base):
     
     df = pd.read_csv(file, header=[0,1], index_col=[0,1])
     
@@ -217,20 +219,27 @@ def report(file):
         print("p-value: {}".format(stat.pvalue))
         print("Post-hoc test: {}".format(stat.posthoc))
         plot_stats(stat)
+        
+        if isinstance(_save, str):
+            plt.savefig(_save +'\\_esmamds_CDplots_{}_{}.{}'.format(metric, _base, _ext), bbox_inches='tight') 
         plt.show()
 
 if __name__ == '__main__':
 
     # ARG PARSE SETTINGS
     parser = argparse.ArgumentParser(description="Script to generate report on the statistical test performed over evaluation metrics")
+    parser.add_argument("--save_path", type=str, default=None,
+                        help="Path to save the CD plots.")
+    parser.add_argument("--ext", type=str, default='pdf',
+                        help="Extension to save the CD plots.")
+        
     group = parser.add_mutually_exclusive_group(required=True)
-
     group.add_argument('--pop', action='store_true', help="Report for baseline-population algorithms")
     group.add_argument('--cpm', action='store_true', help="Report for baseline-complement algorithms")
     
     args = parser.parse_args()
     
     if args.pop:
-        report(TBL_POP_FILE)
+        report(TBL_POP_FILE, args.save_path, args.ext, 'pop')
     if args.cpm:
-        report(TBL_CPM_FILE)
+        report(TBL_CPM_FILE, args.save_path, args.ext, 'cpm')
