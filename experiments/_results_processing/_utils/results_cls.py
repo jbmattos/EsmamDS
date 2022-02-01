@@ -16,6 +16,7 @@ import seaborn as sns
 from matplotlib import pyplot as plt
 from matplotlib.gridspec import SubplotSpec
 from matplotlib.pylab import rcParams
+from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 
 class Results():
@@ -572,7 +573,7 @@ class Heatmaps(Results):
     
     def __generate_single_interset(self, baseline, dic_matrix, max_x, max_y, db, exp, save):
         '''
-        Generate the pdf file that comprises the < single_run_interset >.
+        Generate the pdf file that comprises the < single_run_interset_similarity >.
         
         Parameters
         ----------
@@ -668,6 +669,82 @@ class Heatmaps(Results):
         else:
             plt.show()
             
+        return
+    
+    def __generate_single_intraset(self, dic_matrix, metric, baseline, db, exp, save, boolean=False):
+        '''
+        Generate the results' file that comprises the < single_run_intraset_redundancy >.
+        
+        Parameters
+        ----------
+        dic_matrix : dictionary
+            For each compared algorithm(keys), the dictionary value is its 
+            respective < _results_processing/_processed_output_files > log file
+            related to the metric attribute
+        metric : string
+            options=['jaccard_c', 'jaccard_d', 'pval_m']
+            (Log file) Information considered to be plotted
+        baseline : string
+            options=['population', 'baseline']
+            The baseline family of algorithms to generate the results.
+        boolean : bool, optional
+            Whether to consider a boolean plot (transform a float matrix into 
+                                                boolean according to the
+                                                self.ALPHA threshold).
+            The default is False.
+
+        Returns
+        -------
+        None.
+        '''
+
+        # figure settings
+        plt.rcParams.update({'font.size': 16})
+        cols = len(self.ALGORITHMS[baseline])     # number of algorithms
+        rcParams['figure.figsize'] = 5*cols, 4
+        
+        fig, axes = plt.subplots(nrows=1, ncols=cols, num='plt_{}'.format(db), clear=True)
+        plt.subplots_adjust(wspace=0.005)
+        
+        for col, alg in enumerate(self.ALGORITHMS[baseline]):    # iterates over subplots COLUMNS
+            
+            if alg in self.ESMAM_VARS:
+                matrix = pd.DataFrame(dic_matrix[alg][db][str(exp)])
+            else:
+                matrix = pd.DataFrame(dic_matrix[alg][db])
+            
+            if boolean:
+                matrix = matrix >= self.ALPHA
+                matrix = matrix.astype(int)
+            
+            plt.figure(num='plt_{}'.format(db))
+            ax = axes[col]  
+            
+            with sns.axes_style("white"):
+                mask = np.zeros_like(matrix)
+                mask[np.triu_indices_from(matrix)] = True
+                ax = sns.heatmap(matrix, mask=mask, square=True, cmap=self.__color_map, ax=ax, vmin=0, vmax=1, cbar=False)
+            if col==cols-1: 
+                divider = make_axes_locatable(ax)
+                cax = divider.append_axes('right', size='5%', pad=0.05)
+                plt.colorbar(ax.collections[0], ax=ax, cax=cax)
+            
+            ax.set_yticks([])
+            ax.set_xticks([])
+            if col==0: 
+                ax.set_ylabel('Subgroups')
+                ax.set_xlabel('Subgroups')
+            else: 
+                ax.set_ylabel('')
+                ax.set_xlabel('')
+            if metric=='descrRedundancy': ax.set_title(alg, {'fontweight':'bold'})
+        
+        if save:
+            save_name = self.SAVE_PATH['red'] +'intrasetRedundancy_baseline-{}_{}-exp{}_{}.pdf'.format(baseline, db, exp, metric)
+            plt.savefig(save_name, bbox_inches='tight') 
+            print('..saved: {}'.format(save_name))
+        else:
+            plt.show()
         return
     
     def __generate_redundancy_heatmap(self, dic_matrix, ALGS, metric, baseline, boolean=False):
@@ -927,7 +1004,7 @@ class Heatmaps(Results):
         
         return
 
-    def single_run_interset(self, baseline, db_name, exp, save=True):
+    def single_run_interset_similarity(self, baseline, db_name, exp, save=True):
         '''
         Generates a plot for inter-set (description, coverage and model) similarity
         between the EsmamDS sets of subgroups and the set of subgroups discovered 
@@ -955,7 +1032,7 @@ class Heatmaps(Results):
         
 
         '''
-        print('> Call to Heatmaps().single_run_interset(baseline={}, db_name={}, exp={}, save={})'.format(baseline, db_name, exp, save))
+        print('> Call to Heatmaps().single_run_interset_similarity(baseline={}, db_name={}, exp={}, save={})'.format(baseline, db_name, exp, save))
         metrics = {'description': 'descrSimilarity',
                    'coverage': 'coverSimilarity',
                    'model': 'modelSimilarity'}
@@ -979,10 +1056,77 @@ class Heatmaps(Results):
         self.__generate_single_interset(baseline, log_dic, max_x, max_y, db_name, exp, save)
         return 
 
+    def single_run_intraset_redundancy(self, baseline, db_name, exp, save=True):
+        '''
+        Generates a plot for intra-set (description, coverage and model) redundancy
+        between the subgroups discovered by the EsmamDS and all the compared approaches.
+        
+        The plots are triangular matrixes < subgroup x subgroup >, 
+        i.e. both x and y-axis are the discovered subgroups.
+        The plots display the metrics of similarity between pairs of subgroups
+        for each subgroup compared to all others in the set.
+        
+        Each similarity metric is plotted in a different pdf file. 
+        The 3 pdf files (for description, cover and model similarities) are 
+        formatted so they are displayed vertically in such an order. 
+
+        Parameters
+        ----------
+        baseline : string
+            options=[population, baseline]
+            The baseline family of algorithms to generate the results
+        db_name : string
+            Name of the data set related to the results to be plotted
+        exp : int
+            Index of the data set experiment (run) to plot the results
+        save : bool, optional
+            Whether to save the plot as pdf file or not (just show). 
+            The default is True.
+
+        Returns
+        -------
+        None.
+        
+
+        '''
+        print('> Call to Heatmaps().single_run_intraset_redundancy(baseline={}, db_name={}, exp={}, save={})'.format(baseline, db_name, exp, save))
+        metrics = ['jaccard_c', 'jaccard_d', 'pval_m']
+        _metric_dic = {'jaccard_d': 'descrRedundancy',
+                       'jaccard_c': 'coverRedundancy',
+                       'pval_m': 'modelRedundancy'}
+        
+        def __read_logs(alg, log_file):
+            with open(self.PROC_PATH + self.ALG_FILE[alg].format(self.LOG_FILE[log_file]), 'r') as f:
+                log = json.load(f)
+            return log
+        
+        # dictionary of matrix (for all algorithms)
+        algs = self.ALGORITHMS[baseline]
+        dic_matrix = {}.fromkeys(algs)
+        
+        for metric in metrics:
+            
+            # read matrixes for all algorithms
+            for alg in algs:
+                dic_matrix[alg] = __read_logs(alg, metric)
+            
+            # call function to plot 
+            if metric == 'pval_m':
+                self.__generate_single_intraset(dic_matrix, _metric_dic[metric], baseline, db_name, exp, save, boolean=True)
+            else:
+                self.__generate_single_intraset(dic_matrix, _metric_dic[metric], baseline, db_name, exp, save, boolean=False)
+        
+        return
+
 if __name__ == '__main__':
     
     #m = SurvivalPlots()
     #m.single_run_plot('population', 'pbc', 0)
     
+    ## Plot inter-set similarities for single run comparison
+    #m = Heatmaps()
+    #m.single_run_interset_similarity('population', 'mgus', 0)
+    
+    ## Plot intra-set redundancy for single run comparison
     m = Heatmaps()
-    m.single_run_interset('population', 'mgus', 0)
+    m.single_run_intraset_redundancy('population', 'breast-cancer', 0)
