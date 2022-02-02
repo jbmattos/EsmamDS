@@ -238,8 +238,8 @@ def __load_model(db_name, alg, exp=None):
 def __get_interset_matrix(my_model, other_model, db_name, index=None):
     '''
     Returns a table of either a jaccard index (for cover or description) or the logrank p-value for Rule-to-Rule comparison (rows vs columns)
-    Row locations are ruleset (all rules) of the other model
-    Column locations are all rules in the my model
+    Row locations are ruleset (all rules) discovered by the EsmamDS algorithm
+    Column locations are all rules discovered by the compared approach
     return: pd.DataFrame.to_dict()
     '''
     if index is None:

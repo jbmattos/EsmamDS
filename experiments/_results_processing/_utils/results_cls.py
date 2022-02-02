@@ -571,7 +571,7 @@ class Heatmaps(Results):
         rcParams["font.family"] = "Times New Roman"
  
     
-    def __generate_single_interset(self, baseline, dic_matrix, max_x, max_y, db, exp, save):
+    def __generate_single_interset(self, baseline, dic_matrix, max_x, max_y, db, exp, save, _metrics):
         '''
         Generate the pdf file that comprises the < single_run_interset_similarity >.
         
@@ -604,71 +604,64 @@ class Heatmaps(Results):
         None.
         '''
         
-        def create_subtitle(fig: plt.Figure, grid: SubplotSpec, title: str):
-            row = fig.add_subplot(grid)
-            # the '\n' is important
-            row.set_title(f'{title}\n', fontweight='semibold')
-            # hide subplot
-            row.set_frame_on(False)
-            row.axis('off')
-    
+        # set the EsmamDS variant as baseline algorithm
+        if baseline=='population': alg_base = 'EsmamDS-pop'
+        else: alg_base = 'EsmamDS-cpm'
+        
         # set figure
         rcParams["font.family"] = "Times New Roman"
-        rcParams["font.size"] = 52
-        rows = 3
-        cols = 4
-        rcParams['figure.figsize'] = 8*cols, 8*rows
+        rcParams["font.size"] = 22
+        rows = 1
+        cols = len(self.__ALGORITHMS[baseline])
+        rcParams['figure.figsize'] = 5*cols, 4*rows
         sns.set_palette("deep")
         
-        fig, axes = plt.subplots(nrows=rows, ncols=cols, num=db, clear=True, sharex=True, sharey=True)
-        plt.subplots_adjust(wspace=0.05)
-        grid = plt.GridSpec(rows, cols)
         
-        for row, metric in enumerate(dic_matrix.keys()):             # rows: iterates over metrics (descript, cover, model)
-            
-            for col, alg in enumerate(dic_matrix[metric].keys()):    # cols: iterates over algorithms results
+        for metric in _metrics:                                     # rows: iterates over metrics (descript, cover, model)
+        
+            fig, axes = plt.subplots(nrows=rows, ncols=cols, num=metric, clear=True, sharey=True, sharex=False)
+            plt.subplots_adjust(wspace=0.3)
+        
+            for col, alg in enumerate(dic_matrix[metric].keys()):   # cols: iterates over algorithms results
                             
                 matrix = dic_matrix[metric][alg]
-                if metric=='model' and not matrix.shape[0]==0:       # adjust for boolean plot
+                # adjust for boolean plot
+                if metric=='modelSimilarity' and not matrix.shape[0]==0:      
                     matrix = matrix >= self.ALPHA
                     matrix = matrix.astype(int)
-                # square-ratio: insert Nan rows at top of dataframe for matrix with less that max_y
-                if matrix.shape[1]<max_y:
-                    delta = max_y - matrix.shape[1]
-                    delta_m = pd.DataFrame(data=np.nan, index=matrix.index, columns=range(delta))
-                    matrix = pd.concat([matrix,delta_m], axis=1).reset_index(drop = True)
+                # square-ratio: insert Nan rows at the right of dataframe for matrix with less that max_y
+                # if matrix.shape[1]<max_y:
+                #     delta = max_y - matrix.shape[1]
+                #     delta_m = pd.DataFrame(data=np.nan, index=matrix.index, columns=range(delta))
+                #     matrix = pd.concat([matrix,delta_m], axis=1).reset_index(drop = True)
                 
-                # plot
-                ax = axes[row, col]
+                ### plot
+                ax = axes[col]
                 with sns.axes_style("white"):
-                    if col==3:
-                        ax = sns.heatmap(matrix, square=True, cmap=self.__color_map_singlerun, ax=ax, vmin=0, vmax=1)
-                    else:
-                        ax = sns.heatmap(matrix, square=True, cmap=self.__color_map_singlerun, ax=ax, vmin=0, vmax=1, cbar=False)
-    
-                if row==2: 
-                    ax.set_xlabel(alg)
-                else:
-                    ax.set_xlabel('')
+                    ax = sns.heatmap(matrix, cmap=self.__color_map, ax=ax, vmin=0, vmax=1, cbar=False)
+                # insert colorbar on the right plot
+                if col==cols-1: 
+                    divider = make_axes_locatable(ax)
+                    cax = divider.append_axes('right', size='5%', pad=0.3)
+                    plt.colorbar(ax.collections[0], cax=cax)
                     
-                if baseline=='population': alg_base = 'EsmamDS-pop'
-                else: alg_base = 'EsmamDS-cpm'
-                if col==0: ax.set_ylabel('{}'.format(alg_base))
-                else: ax.set_ylabel('')
                 ax.set_yticks([])
                 ax.set_xticks([])
+                # title
+                if metric=='descrSimilarity': ax.set_title(alg, {'fontweight':'bold'})
+                # x-labels (on bottom plots)
+                if metric=='modelSimilarity' and col==0: ax.set_xlabel('Subgroups')
+                else: ax.set_xlabel('')
+                # y-labels (on left plots)
+                if col==0: ax.set_ylabel('{}'.format(alg_base), {'fontweight':'bold'})
+                else: ax.set_ylabel('')
                 
-            # generate row title
-            create_subtitle(fig, grid[row, ::], '{} Similarity'.format(metric.capitalize()))
-        
-        fig.tight_layout()
-        
-        if save:
-            save_name = self.SAVE_PATH['sim'] +'intersetSimilarity_baseline-{}_{}-exp{}.pdf'.format(baseline, db, exp)
-            plt.savefig(save_name, bbox_inches='tight') 
-        else:
-            plt.show()
-            
+            if save:
+                save_name = self.SAVE_PATH['sim'] +'_intersetSimilarity_baseline-{}_{}-exp{}_{}.pdf'.format(baseline, db, exp, metric)
+                plt.savefig(save_name, bbox_inches='tight') 
+                print('..saved: {}'.format(save_name))
+            else:
+                plt.show()
         return
     
     def __generate_single_intraset(self, dic_matrix, metric, baseline, db, exp, save, boolean=False):
@@ -687,6 +680,13 @@ class Heatmaps(Results):
         baseline : string
             options=['population', 'baseline']
             The baseline family of algorithms to generate the results.
+        db : string
+            Name of the data set related to the results to be plotted
+        exp : int
+            Index of the data set experiment (run) to plot the results
+        save : bool, optional
+            Whether to save the plot as pdf file or not (just show). 
+            The default is True.
         boolean : bool, optional
             Whether to consider a boolean plot (transform a float matrix into 
                                                 boolean according to the
@@ -699,11 +699,12 @@ class Heatmaps(Results):
         '''
 
         # figure settings
-        plt.rcParams.update({'font.size': 16})
+        plt.rcParams.update({'font.size': 22})
+        rows = 1
         cols = len(self.ALGORITHMS[baseline])     # number of algorithms
-        rcParams['figure.figsize'] = 5*cols, 4
+        rcParams['figure.figsize'] = 5*cols, 4*rows
         
-        fig, axes = plt.subplots(nrows=1, ncols=cols, num='plt_{}'.format(db), clear=True)
+        fig, axes = plt.subplots(nrows=rows, ncols=cols, num='plt_{}'.format(db), clear=True)
         plt.subplots_adjust(wspace=0.005)
         
         for col, alg in enumerate(self.ALGORITHMS[baseline]):    # iterates over subplots COLUMNS
@@ -731,7 +732,7 @@ class Heatmaps(Results):
             
             ax.set_yticks([])
             ax.set_xticks([])
-            if col==0: 
+            if metric=='modelRedundancy' and col==0: 
                 ax.set_ylabel('Subgroups')
                 ax.set_xlabel('Subgroups')
             else: 
@@ -740,7 +741,7 @@ class Heatmaps(Results):
             if metric=='descrRedundancy': ax.set_title(alg, {'fontweight':'bold'})
         
         if save:
-            save_name = self.SAVE_PATH['red'] +'intrasetRedundancy_baseline-{}_{}-exp{}_{}.pdf'.format(baseline, db, exp, metric)
+            save_name = self.SAVE_PATH['red'] +'_intrasetRedundancy_baseline-{}_{}-exp{}_{}.pdf'.format(baseline, db, exp, metric)
             plt.savefig(save_name, bbox_inches='tight') 
             print('..saved: {}'.format(save_name))
         else:
@@ -1033,27 +1034,26 @@ class Heatmaps(Results):
 
         '''
         print('> Call to Heatmaps().single_run_interset_similarity(baseline={}, db_name={}, exp={}, save={})'.format(baseline, db_name, exp, save))
-        metrics = {'description': 'descrSimilarity',
-                   'coverage': 'coverSimilarity',
-                   'model': 'modelSimilarity'}
+        _metrics = ['descrSimilarity', 'coverSimilarity', 'modelSimilarity']
         
         # read logs for db_name/exp
-        log_dic = {}.fromkeys(metrics.keys())
+        log_dic = {}.fromkeys(_metrics)
         max_x, max_y = 0,0
-        for m_name, metric in metrics.items():  
+        
+        for metric in _metrics:  
     
             file = self.__LOG_PATH +'{}_interset_{}.json'.format(baseline, metric)
             with open(file, 'r') as f:
                 log = json.load(f)
             
-            log_dic[m_name] = {}.fromkeys(log[db_name].keys())
-            for alg in log_dic[m_name].keys():
-                log_dic[m_name][alg] = pd.DataFrame(log[db_name][alg][str(exp)])
-                if log_dic[m_name][alg].shape[0] > max_x: max_x = log_dic[m_name][alg].shape[0]
-                if log_dic[m_name][alg].shape[1] > max_y: max_y = log_dic[m_name][alg].shape[1]
+            log_dic[metric] = {}.fromkeys(log[db_name].keys())
+            for alg in log_dic[metric].keys():
+                log_dic[metric][alg] = pd.DataFrame(log[db_name][alg][str(exp)])
+                if log_dic[metric][alg].shape[0] > max_x: max_x = log_dic[metric][alg].shape[0]
+                if log_dic[metric][alg].shape[1] > max_y: max_y = log_dic[metric][alg].shape[1]
         
         # generate plots
-        self.__generate_single_interset(baseline, log_dic, max_x, max_y, db_name, exp, save)
+        self.__generate_single_interset(baseline, log_dic, max_x, max_y, db_name, exp, save, _metrics)
         return 
 
     def single_run_intraset_redundancy(self, baseline, db_name, exp, save=True):
@@ -1123,10 +1123,16 @@ if __name__ == '__main__':
     #m = SurvivalPlots()
     #m.single_run_plot('population', 'pbc', 0)
     
+    #########################################################
     ## Plot inter-set similarities for single run comparison
-    #m = Heatmaps()
-    #m.single_run_interset_similarity('population', 'mgus', 0)
-    
-    ## Plot intra-set redundancy for single run comparison
+    #########################################################
+    #
     m = Heatmaps()
-    m.single_run_intraset_redundancy('population', 'breast-cancer', 0)
+    m.single_run_interset_similarity('population', 'pbc', 0)
+    
+    #########################################################
+    ## Plot intra-set redundancy for single run comparison
+    #########################################################
+    #
+    m = Heatmaps()
+    m.single_run_intraset_redundancy('population', 'pbc', 0)
