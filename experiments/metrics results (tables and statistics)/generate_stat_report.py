@@ -11,6 +11,7 @@ import pathlib
 import warnings
 from autorank import autorank, plot_stats
 from matplotlib import pyplot as plt
+from matplotlib.pylab import rcParams
 
 warnings.filterwarnings("ignore")
 
@@ -210,6 +211,8 @@ REPORT
 def report(file, _save, _ext, _base):
     
     df = pd.read_csv(file, header=[0,1], index_col=[0,1])
+    rcParams["font.size"] = 16
+    rcParams["font.family"] = "Times New Roman"
     
     for metric in METRICS:
         stat = autorank(df[metric], alpha=ALPHA, order=STAT_ORDER[metric], verbose=False)
