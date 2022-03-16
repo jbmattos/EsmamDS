@@ -4,3 +4,6 @@
 .idea/
 __pycache__/
 venv/
+experiments/_results_processing/_algorithms_output_files/esmam-pop/Esmam-pop_breast-cancer_exp20_log.json
+experiments/_results_processing/_algorithms_output_files/esmam-pop/Esmam-pop_breast-cancer_exp28_log.json
+experiments/_results_processing/_algorithms_output_files/esmam-pop/Esmam-pop_breast-cancer_exp29_log.json
