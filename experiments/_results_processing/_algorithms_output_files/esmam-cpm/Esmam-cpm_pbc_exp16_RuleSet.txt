@@ -1,0 +1,16 @@
+DISCOVERED SUBGROUPS
+
+R0: (ascites=yes) [size=19/276]
+[SM] R1: (edema=1.0) [size=17/276; jaccard-c=0.50; jaccard-d=0.00]
+[SM] R4: (ptb=[10.00,10.00]) & (albumin=[1.00,3.00)) [size=15/276; jaccard-c=0.36; jaccard-d=0.00]
+[SM] R5: (hist-stage=4) & (albumin=[1.00,3.00)) [size=16/276; jaccard-c=0.35; jaccard-d=0.00]
+
+R2: (sb=[2.00,4.00]) [size=62/276]
+[SM] R3: (uc=[152.00,588.00]) & (hp=yes) [size=39/276; jaccard-c=0.35; jaccard-d=0.00]
+[SM] R6: (albumin=[1.00,3.00)) [size=25/276; jaccard-c=0.18; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

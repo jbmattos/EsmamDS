@@ -1,0 +1,21 @@
+DISCOVERED SUBGROUPS
+
+R0: (PATH_N_STAGE=N1b) & (HISTOLOGICAL_TYPE=Classical) [size=31/332]
+[SM] R1: (LOWPASS=Yes) & (PATH_T_STAGE=T3) & (WGS_STATUS=No) [size=20/332; jaccard-c=0.04; jaccard-d=0.00]
+[SM] R2: (TUMOR_STATUS=WITH TUMOR) [size=25/332; jaccard-c=0.12; jaccard-d=0.00]
+[SM] R4: (MIRNA_CLUSTER=6.0) & (DISEASE_STAGE=Stage I) & (MRNA_CLUSTER=5.0) & (LOWPASS=No) [size=23/332; jaccard-c=0.06; jaccard-d=0.00]
+[SM] R5: (PATH_N_STAGE=N1b) & (WGS_STATUS=No) [size=39/332; jaccard-c=0.75; jaccard-d=0.33]
+[SM] R6: (RISK_GROUP=Intermediate) & (AGE=[60.00,85.00]) [size=40/332; jaccard-c=0.04; jaccard-d=0.00]
+[SM] R7: (PATH_N_STAGE=N1b) [size=41/332; jaccard-c=0.76; jaccard-d=0.50]
+[SM] R8: (AGE=[60.00,85.00]) & (SEX=Male) [size=27/332; jaccard-c=0.05; jaccard-d=0.00]
+[SM] R9: (SEX=Male) & (PATH_M_STAGE=M0) & (PATH_T_STAGE=T3) [size=24/332; jaccard-c=0.10; jaccard-d=0.00]
+[SM] R10: (PATH_N_STAGE=N1b) & (RISK_GROUP=Intermediate) [size=36/332; jaccard-c=0.72; jaccard-d=0.33]
+[SM] R11: (EXTRATHYROIDAL_EXTENSION=Minimal (T3)) & (LOWPASS=Yes) [size=17/332; jaccard-c=0.02; jaccard-d=0.00]
+
+R3: (TUMOR_STATUS=TUMOR FREE) [size=291/332]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

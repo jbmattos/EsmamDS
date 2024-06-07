@@ -1,0 +1,14 @@
+DISCOVERED SUBGROUPS
+
+R0: (PATH_N_STAGE={'N1b'}) & (HISTOLOGICAL_TYPE={'Classical'}) [size=31/332]
+
+R1: (TUMOR_STATUS={'TUMOR FREE'}) [size=291/332]
+[SM] R2: (PATH_N_STAGE={'N0'}) & (LOWPASS={'No'}) & (SEX={'Female'}) [size=101/332; jaccard-c=0.31; jaccard-d=0.00]
+
+R3: (HISTOLOGICAL_TYPE={'Classical'}) & (RISK_GROUP={'Intermediate'}) [size=138/332]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

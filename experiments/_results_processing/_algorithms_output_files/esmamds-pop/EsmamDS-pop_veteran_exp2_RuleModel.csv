@@ -1,0 +1,5 @@
+id,sg,baseline,fitness,pvalue,mean_sg,mean_pop,mean_cpm,size_sg,size_pop,size_cpm
+R0,"(karno={'[10.00,40.00)'})",population,1.000000,0.000000,28.318182,121.627737,139.478261,22,137,115
+R1,"(cell-type={'adeno', 'small'})",population,0.997058,0.002942,68.946667,121.627737,185.354839,75,137,62
+R2,"(treat={'test'}) & (karno={'[80.00,99.00]'})",population,0.987692,0.012308,249.800000,121.627737,105.868852,15,137,122
+R3,(cell-type={'aquamous'}),population,0.974849,0.025151,200.200000,121.627737,94.666667,35,137,102

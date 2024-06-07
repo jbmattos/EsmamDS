@@ -1,0 +1,3 @@
+id,sg,baseline,fitness,pvalue,mean_sg,mean_pop,mean_cpm,size_sg,size_pop,size_cpm
+R0,(TUMOR_STATUS={'TUMOR FREE'}),complement,1.000000,0.000000,25.065292,24.102410,17.268293,291,332,41
+R1,(TUMOR_STATUS={'WITH TUMOR'}),complement,1.000000,0.000000,20.520000,24.102410,24.394137,25,332,307

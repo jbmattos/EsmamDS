@@ -1,0 +1,19 @@
+DISCOVERED SUBGROUPS
+
+R0: (ptime=[1.00,27.00)) [size=265/1338]
+
+R1: (ptime=[27.00,64.00)) [size=265/1338]
+
+R2: (ptime=[151.00,424.00]) [size=269/1338]
+
+R3: (ptime=[98.00,151.00)) & (pstat=0) [size=253/1338]
+[SM] R4: (ptime=[98.00,151.00)) [size=275/1338; jaccard-c=0.92; jaccard-d=0.50]
+
+R5: (age=[81.00,96.00]) [size=276/1338]
+[SM] R6: (hgb=[5.00,11.00)) [size=161/1338; jaccard-c=0.13; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

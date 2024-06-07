@@ -1,0 +1,31 @@
+DISCOVERED SUBGROUPS
+
+R0: (X202240_at=[6.00,7.00)) [size=46/196]
+[SM] R2: (er=positive) & (X202240_at=[6.00,7.00)) [size=41/196; jaccard-c=0.89; jaccard-d=0.50]
+[SM] R3: (er=positive) & (size=[1.00,2.00)) [size=44/196; jaccard-c=0.23; jaccard-d=0.00]
+[SM] R4: (size=[1.00,2.00)) [size=58/196; jaccard-c=0.20; jaccard-d=0.00]
+[SM] R5: (X202240_at=[6.00,7.00)) & (X215633_x_at=[8.00,8.00)) [size=26/196; jaccard-c=0.57; jaccard-d=0.50]
+[SM] R7: (X218478_s_at=[9.00,9.00]) & (X204014_at=[9.00,10.00]) [size=32/196; jaccard-c=0.22; jaccard-d=0.00]
+[SM] R8: (X211762_s_at=[10.00,10.00)) & (X217404_s_at=[3.00,5.00)) [size=32/196; jaccard-c=0.20; jaccard-d=0.00]
+[SM] R9: (X209500_x_at=[9.00,9.00)) & (X219588_s_at=[7.00,8.00)) [size=20/196; jaccard-c=0.08; jaccard-d=0.00]
+[SM] R10: (X217771_at=[10.00,11.00]) & (X201664_at=[9.00,9.00)) [size=24/196; jaccard-c=0.27; jaccard-d=0.00]
+[SM] R11: (X202240_at=[6.00,7.00)) & (X217019_at=[7.00,7.00]) [size=37/196; jaccard-c=0.80; jaccard-d=0.50]
+[SM] R12: (X203306_s_at=[9.00,10.00]) & (X215633_x_at=[8.00,8.00)) [size=42/196; jaccard-c=0.21; jaccard-d=0.00]
+[SM] R13: (X218883_s_at=[7.00,9.00)) & (X219588_s_at=[7.00,8.00)) [size=21/196; jaccard-c=0.18; jaccard-d=0.00]
+[SM] R14: (X201663_s_at=[8.00,9.00)) & (X201664_at=[9.00,9.00)) & (X215510_at=[6.00,6.00]) [size=22/196; jaccard-c=0.17; jaccard-d=0.00]
+[SM] R15: (X201664_at=[9.00,9.00)) & (X211762_s_at=[10.00,10.00)) [size=34/196; jaccard-c=0.33; jaccard-d=0.00]
+[SM] R16: (X202240_at=[6.00,7.00)) & (X209862_s_at=[8.00,8.00]) [size=37/196; jaccard-c=0.80; jaccard-d=0.50]
+[SM] R17: (X203306_s_at=[9.00,10.00]) & (X214806_at=[7.00,7.00)) [size=41/196; jaccard-c=0.26; jaccard-d=0.00]
+[SM] R18: (X217019_at=[7.00,7.00]) & (X202687_s_at=[10.00,11.00]) [size=28/196; jaccard-c=0.12; jaccard-d=0.00]
+[SM] R19: (er=positive) & (X219588_s_at=[7.00,8.00)) [size=40/196; jaccard-c=0.28; jaccard-d=0.00]
+[SM] R20: (X202240_at=[6.00,7.00)) & (X217471_at=[6.00,6.00)) [size=26/196; jaccard-c=0.57; jaccard-d=0.50]
+[SM] R21: (size=[1.00,2.00)) & (X217019_at=[7.00,7.00]) [size=42/196; jaccard-c=0.22; jaccard-d=0.00]
+
+R1: (X204015_s_at=[7.00,8.00)) [size=27/196]
+[SM] R6: (X204015_s_at=[7.00,8.00)) & (X200726_at=[11.00,11.00)) [size=21/196; jaccard-c=0.78; jaccard-d=0.50]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

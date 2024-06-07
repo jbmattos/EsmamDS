@@ -1,0 +1,11 @@
+DISCOVERED SUBGROUPS
+
+R0: (TUMOR_STATUS={'WITH TUMOR'}) [size=25/332]
+
+R1: (TUMOR_STATUS={'TUMOR FREE'}) [size=291/332]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

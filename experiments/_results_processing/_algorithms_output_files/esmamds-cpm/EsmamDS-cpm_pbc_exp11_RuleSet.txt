@@ -1,0 +1,20 @@
+DISCOVERED SUBGROUPS
+
+R0: (sb={'[2.00,4.00]'}) [size=62/276]
+[SM] R1: (uc={'[152.00,588.00]'}) [size=57/276; jaccard-c=0.37; jaccard-d=0.00]
+[SM] R4: (spiders={'yes'}) & (ptb={'[10.00,10.00]'}) [size=44/276; jaccard-c=0.25; jaccard-d=0.00]
+
+R2: (hist-stage={'4'}) [size=94/276]
+[SM] R3: (ptb={'[10.00,10.00]'}) [size=98/276; jaccard-c=0.40; jaccard-d=0.00]
+[SM] R5: (spiders={'yes'}) [size=80/276; jaccard-c=0.34; jaccard-d=0.00]
+[SM] R6: (hp={'yes'}) [size=142/276; jaccard-c=0.48; jaccard-d=0.00]
+
+R7: (ptb={'[9.00,9.00)'}) [size=62/276]
+[SM] R8: (age={'[9598.00,14754.00)'}) [size=55/276; jaccard-c=0.16; jaccard-d=0.00]
+[SM] R9: (ascites={'no'}) [size=257/276; jaccard-c=0.24; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

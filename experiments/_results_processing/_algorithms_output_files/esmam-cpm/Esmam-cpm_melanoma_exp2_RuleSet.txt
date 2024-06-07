@@ -1,0 +1,11 @@
+DISCOVERED SUBGROUPS
+
+R0: (ulceration=1) [size=90/205]
+
+R1: (ulceration=0) [size=115/205]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

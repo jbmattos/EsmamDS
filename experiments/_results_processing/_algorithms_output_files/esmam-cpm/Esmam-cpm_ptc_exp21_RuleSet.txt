@@ -1,0 +1,16 @@
+DISCOVERED SUBGROUPS
+
+R0: (TUMOR_STATUS=TUMOR FREE) [size=291/332]
+[SM] R4: (RISK_GROUP=Low) [size=127/332; jaccard-c=0.40; jaccard-d=0.00]
+
+R1: (TUMOR_STATUS=WITH TUMOR) [size=25/332]
+[SM] R2: (PATH_N_STAGE=N1b) & (WGS_STATUS=No) & (RISK_GROUP=Intermediate) [size=34/332; jaccard-c=0.09; jaccard-d=0.00]
+[SM] R3: (PATH_N_STAGE=N1b) [size=41/332; jaccard-c=0.10; jaccard-d=0.00]
+[SM] R5: (WGS_STATUS=No) & (PATH_N_STAGE=N1b) [size=39/332; jaccard-c=0.08; jaccard-d=0.00]
+[SM] R6: (RISK_GROUP=Intermediate) & (PATH_N_STAGE=N1b) [size=36/332; jaccard-c=0.11; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

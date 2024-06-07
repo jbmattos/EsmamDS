@@ -1,0 +1,15 @@
+DISCOVERED SUBGROUPS
+
+R0: (cd4=[0.00,17.00)) & (strat2=0) & (ivdrug=1) [size=198/1151]
+[SM] R1: (strat2=0) [size=439/1151; jaccard-c=0.45; jaccard-d=0.33]
+[SM] R2: (strat2=0) & (txgrp=1) [size=219/1151; jaccard-c=0.31; jaccard-d=0.25]
+[SM] R3: (hemophil=0) & (strat2=0) [size=423/1151; jaccard-c=0.44; jaccard-d=0.25]
+[SM] R4: (strat2=0) & (cd4=[0.00,17.00)) [size=227/1151; jaccard-c=0.87; jaccard-d=0.67]
+
+R5: (strat2=1) [size=712/1151]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

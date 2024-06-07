@@ -1,0 +1,3 @@
+id,sg,baseline,fitness,pvalue,mean_sg,mean_pop,mean_cpm,size_sg,size_pop,size_cpm
+R0,(strat2={'0'}),population,0.999925,0.000075,226.936219,230.183319,232.185393,439,1151,712
+R1,(strat2={'1'}),population,0.999538,0.000462,232.185393,230.183319,226.936219,712,1151,439

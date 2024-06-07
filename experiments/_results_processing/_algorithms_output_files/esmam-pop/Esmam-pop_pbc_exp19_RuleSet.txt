@@ -1,0 +1,21 @@
+DISCOVERED SUBGROUPS
+
+R0: (hp=yes) & (sb=[2.00,4.00]) [size=49/276]
+[SM] R1: (sb=[2.00,4.00]) & (hist-stage=4) [size=34/276; jaccard-c=0.54; jaccard-d=0.33]
+[SM] R2: (ptb=[10.00,10.00]) & (sb=[2.00,4.00]) [size=36/276; jaccard-c=0.60; jaccard-d=0.33]
+[SM] R3: (sb=[2.00,4.00]) [size=62/276; jaccard-c=0.79; jaccard-d=0.50]
+[SM] R4: (sb=[2.00,4.00]) & (sex=female) & (hist-stage=4) [size=29/276; jaccard-c=0.44; jaccard-d=0.25]
+[SM] R5: (uc=[152.00,588.00]) & (hist-stage=4) [size=28/276; jaccard-c=0.22; jaccard-d=0.00]
+[SM] R6: (hist-stage=4) & (spiders=yes) [size=44/276; jaccard-c=0.22; jaccard-d=0.00]
+[SM] R8: (uc=[152.00,588.00]) [size=57/276; jaccard-c=0.33; jaccard-d=0.00]
+[SM] R10: (sb=[2.00,4.00]) & (sex=female) [size=53/276; jaccard-c=0.67; jaccard-d=0.33]
+
+R7: (sb=[0.00,0.00)) [size=88/276]
+
+R9: (ptb=[10.00,10.00]) [size=98/276]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

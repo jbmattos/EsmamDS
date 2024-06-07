@@ -1,0 +1,17 @@
+DISCOVERED SUBGROUPS
+
+R0: (ptime={'[27.00,64.00)'}) [size=265/1338]
+
+R1: (ptime={'[151.00,424.00]'}) [size=269/1338]
+
+R2: (ptime={'[1.00,27.00)'}) [size=265/1338]
+
+R3: (ptime={'[98.00,151.00)'}) & (pstat={'0'}) [size=253/1338]
+
+R4: (ptime={'[64.00,98.00)'}) [size=264/1338]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

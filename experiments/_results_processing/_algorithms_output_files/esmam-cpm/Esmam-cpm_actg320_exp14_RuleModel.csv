@@ -1,0 +1,4 @@
+id,sg,baseline,fitness,pvalue,mean_sg,mean_pop,mean_cpm,size_sg,size_pop,size_cpm
+R0,(karnof=100),complement,0.999488,0.000512,229.888889,230.183319,230.337748,396,1151,755
+R1,(strat2=1),complement,1.000000,0.000000,232.185393,230.183319,226.936219,712,1151,439
+R2,(strat2=0),complement,1.000000,0.000000,226.936219,230.183319,232.185393,439,1151,712

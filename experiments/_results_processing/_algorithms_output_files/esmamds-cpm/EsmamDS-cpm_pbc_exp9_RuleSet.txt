@@ -1,0 +1,13 @@
+DISCOVERED SUBGROUPS
+
+R0: (ascites={'yes'}) [size=19/276]
+
+R1: (sb={'[2.00,4.00]'}) [size=62/276]
+
+R2: (ascites={'no'}) [size=257/276]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

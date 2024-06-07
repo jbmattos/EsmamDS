@@ -1,0 +1,13 @@
+DISCOVERED SUBGROUPS
+
+R0: (condition={'2.0'}) [size=43/193]
+[SM] R1: (t-staging={'4'}) & (age={'[58.00,64.00)'}) [size=15/193; jaccard-c=0.09; jaccard-d=0.00]
+[SM] R2: (site={'1'}) & (n-staging={'3'}) & (sex={'male'}) [size=20/193; jaccard-c=0.09; jaccard-d=0.00]
+
+R3: (condition={'1.0'}) [size=142/193]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

@@ -1,0 +1,13 @@
+DISCOVERED SUBGROUPS
+
+R0: (tx={'0'}) & (cd4={'[0.00,17.00)'}) [size=115/1151]
+
+R1: (strat2={'0'}) [size=439/1151]
+
+R2: (strat2={'1'}) [size=712/1151]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

@@ -1,0 +1,13 @@
+DISCOVERED SUBGROUPS
+
+R0: (X203306_s_at={'[9.00,10.00]'}) [size=98/196]
+
+R1: (X221816_s_at={'[10.00,10.00)'}) [size=100/196]
+[SM] R2: (X208180_s_at={'[7.00,8.00]'}) [size=68/196; jaccard-c=0.31; jaccard-d=0.00]
+[SM] R3: (size={'[2.00,2.00]'}) [size=129/196; jaccard-c=0.38; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

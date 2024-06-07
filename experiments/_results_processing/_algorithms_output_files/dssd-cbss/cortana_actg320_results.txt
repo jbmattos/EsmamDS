@@ -1,0 +1,5 @@
+Nr.	Depth	Coverage	Quality	Average	St. Dev.	p-Value	Conditions
+1	4	214	3.5857059955596924	250.41121495327104	82.33144066209049	NaN	tx = '1' AND sex = '1' AND karnof = '90' AND hemophil = '0'
+2	4	214	3.5857059955596924	250.41121495327104	82.33144066209049	NaN	tx = '1' AND karnof = '90' AND sex = '1' AND hemophil = '0'
+3	4	214	3.5857059955596924	250.41121495327104	82.33144066209049	NaN	txgrp = '2' AND sex = '1' AND hemophil = '0' AND karnof = '90'
+4	4	214	3.5857059955596924	250.41121495327104	82.33144066209049	NaN	txgrp = '2' AND sex = '1' AND karnof = '90' AND hemophil = '0'

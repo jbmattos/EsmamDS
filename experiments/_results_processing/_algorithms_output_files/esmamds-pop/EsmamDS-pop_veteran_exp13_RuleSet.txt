@@ -1,0 +1,14 @@
+DISCOVERED SUBGROUPS
+
+R0: (karno={'[10.00,40.00)'}) [size=22/137]
+
+R1: (cell-type={'adeno', 'small'}) [size=75/137]
+
+R2: (karno={'[80.00,99.00]'}) [size=33/137]
+[SM] R3: (cell-type={'aquamous'}) [size=35/137; jaccard-c=0.15; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

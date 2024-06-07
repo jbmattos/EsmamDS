@@ -1,0 +1,16 @@
+DISCOVERED SUBGROUPS
+
+R0: (pnodes={'[4.00,8.00]'}) [size=143/686]
+[SM] R1: (progrec={'[0.00,3.00)'}) [size=129/686; jaccard-c=0.18; jaccard-d=0.00]
+
+R2: (progrec={'[167.00,2380.00]'}) [size=139/686]
+[SM] R4: (pnodes={'[1.00,1.00)', '[1.00,2.00)'}) [size=376/686; jaccard-c=0.19; jaccard-d=0.00]
+
+R3: (tgrade={'III'}) [size=161/686]
+[SM] R5: (horTh={'no'}) [size=440/686; jaccard-c=0.23; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

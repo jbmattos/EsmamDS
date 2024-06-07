@@ -1,0 +1,15 @@
+DISCOVERED SUBGROUPS
+
+R0: (PATH_N_STAGE=N1b) [size=41/332]
+[SM] R1: (PATH_N_STAGE=N1b) & (RISK_GROUP=Intermediate) [size=36/332; jaccard-c=0.88; jaccard-d=0.50]
+[SM] R2: (MRNA_CLUSTER=5.0) [size=71/332; jaccard-c=0.13; jaccard-d=0.00]
+[SM] R3: (PATH_N_STAGE=N1b) & (WGS_STATUS=No) [size=39/332; jaccard-c=0.95; jaccard-d=0.50]
+[SM] R4: (MRNA_CLUSTER=5.0) & (RISK_GROUP=Intermediate) [size=59/332; jaccard-c=0.12; jaccard-d=0.00]
+[SM] R5: (PATH_N_STAGE=N1b) & (WGS_STATUS=No) & (RISK_GROUP=Intermediate) [size=34/332; jaccard-c=0.83; jaccard-d=0.33]
+[SM] R6: (MRNA_CLUSTER=5.0) & (MIRNA_CLUSTER=6.0) [size=58/332; jaccard-c=0.11; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

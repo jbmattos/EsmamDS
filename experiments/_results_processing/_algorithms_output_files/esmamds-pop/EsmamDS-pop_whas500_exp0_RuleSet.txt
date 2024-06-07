@@ -1,0 +1,16 @@
+DISCOVERED SUBGROUPS
+
+R0: (age={'[83.00,104.00]'}) & (chf={'1'}) [size=58/500]
+[SD] R2: (chf={'1'}) [size=155/500; jaccard-c=0.37; jaccard-d=0.50]
+
+R1: (age={'[30.00,56.00)'}) [size=94/500]
+
+R3: (bmi={'[13.00,22.00)'}) [size=92/500]
+
+R4: (chf={'0'}) [size=345/500]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

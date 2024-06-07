@@ -1,0 +1,7 @@
+id,sg,baseline,fitness,pvalue,mean_sg,mean_pop,mean_cpm,size_sg,size_pop,size_cpm
+R0,(condition=2.0),population,0.999984,0.000016,322.279070,561.259067,629.766667,43,193,150
+R1,(site=1) & (sex=male) & (n-staging=3),population,0.998743,0.001257,305.850000,561.259067,590.786127,20,193,173
+R2,(t-staging=4),population,0.971832,0.028168,425.742424,561.259067,631.685039,66,193,127
+R3,"(age=[50.00,58.00)) & (n-staging=3)",population,0.991600,0.008400,367.400000,561.259067,583.670520,20,193,173
+R4,(t-staging=4) & (n-staging=3) & (treatment=test),population,0.985087,0.014913,363.909091,561.259067,586.649123,22,193,171
+R5,(t-staging=4) & (sex=male),population,0.973631,0.026369,425.622642,561.259067,612.607143,53,193,140

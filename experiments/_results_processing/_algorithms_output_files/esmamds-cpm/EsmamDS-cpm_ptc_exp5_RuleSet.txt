@@ -1,0 +1,12 @@
+DISCOVERED SUBGROUPS
+
+R0: (RISK_GROUP={'Intermediate'}) & (PATH_N_STAGE={'N1b'}) [size=36/332]
+[SD] R2: (RISK_GROUP={'Intermediate'}) [size=190/332; jaccard-c=0.19; jaccard-d=0.50]
+
+R1: (TUMOR_STATUS={'TUMOR FREE'}) [size=291/332]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

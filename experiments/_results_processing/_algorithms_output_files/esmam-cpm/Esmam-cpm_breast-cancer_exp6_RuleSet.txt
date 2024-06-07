@@ -1,0 +1,19 @@
+DISCOVERED SUBGROUPS
+
+R0: (size=[1.00,2.00)) [size=58/196]
+[SM] R1: (X211762_s_at=[9.00,10.00)) [size=14/196; jaccard-c=0.12; jaccard-d=0.00]
+[SM] R2: (X202240_at=[6.00,7.00)) [size=46/196; jaccard-c=0.20; jaccard-d=0.00]
+[SM] R3: (X203306_s_at=[9.00,10.00]) [size=98/196; jaccard-c=0.29; jaccard-d=0.00]
+[SM] R6: (X201664_at=[9.00,9.00)) & (er=positive) [size=52/196; jaccard-c=0.22; jaccard-d=0.00]
+
+R4: (X204015_s_at=[7.00,8.00)) [size=27/196]
+[SM] R5: (X208180_s_at=[7.00,8.00]) [size=68/196; jaccard-c=0.12; jaccard-d=0.00]
+[SM] R7: (size=[2.00,2.00]) [size=129/196; jaccard-c=0.17; jaccard-d=0.00]
+
+R8: (er=positive) [size=132/196]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

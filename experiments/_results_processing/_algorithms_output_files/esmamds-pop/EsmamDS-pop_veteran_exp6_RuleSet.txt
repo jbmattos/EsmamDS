@@ -1,0 +1,12 @@
+DISCOVERED SUBGROUPS
+
+R0: (cell-type={'adeno'}) [size=27/137]
+[SM] R1: (cell-type={'adeno', 'small'}) [size=75/137; jaccard-c=0.36; jaccard-d=0.50]
+
+R2: (cell-type={'aquamous'}) [size=35/137]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

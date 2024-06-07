@@ -1,0 +1,18 @@
+DISCOVERED SUBGROUPS
+
+R0: (sb={'[2.00,4.00]'}) [size=62/276]
+
+R1: (ptb={'[10.00,10.00]'}) [size=98/276]
+[SM] R2: (hist-stage={'4'}) [size=94/276; jaccard-c=0.40; jaccard-d=0.00]
+
+R3: (uc={'[4.00,39.00)'}) [size=55/276]
+[SM] R4: (sb={'[0.00,0.00)'}) [size=88/276; jaccard-c=0.36; jaccard-d=0.00]
+[SM] R5: (ascites={'no'}) & (hp={'no'}) & (sex={'female'}) & (spiders={'no'}) [size=97/276; jaccard-c=0.29; jaccard-d=0.00]
+
+R6: (ascites={'no'}) & (edema={'0.0'}) & (albumin={'[3.00,3.00]'}) [size=219/276]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

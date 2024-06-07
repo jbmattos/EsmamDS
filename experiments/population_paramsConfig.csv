@@ -1,0 +1,15 @@
+,max_depth,num_rules,min_cov
+actg320,7,4,116
+breast-cancer,7,10,20
+cancer,4,4,17
+carcinoma,4,6,20
+gbsg2,3,6,69
+lung,4,4,91
+melanoma,3,3,21
+mgus2,4,6,134
+mgus,4,4,18
+pbc,6,7,28
+ptc,9,6,34
+uis,4,7,58
+veteran,3,4,14
+whas500,6,6,50

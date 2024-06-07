@@ -1,0 +1,3 @@
+id,sg,baseline,fitness,pvalue,mean_sg,mean_pop,mean_cpm,size_sg,size_pop,size_cpm
+R0,(condition=2.0),population,0.999984,0.000016,322.279070,561.259067,629.766667,43,193,150
+R1,"(n-staging=3) & (age=[50.00,58.00))",population,0.991600,0.008400,367.400000,561.259067,583.670520,20,193,173

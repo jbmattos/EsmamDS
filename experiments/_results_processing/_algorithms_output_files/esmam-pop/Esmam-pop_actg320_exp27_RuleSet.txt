@@ -1,0 +1,17 @@
+DISCOVERED SUBGROUPS
+
+R0: (cd4=[148.00,392.00]) [size=234/1151]
+
+R1: (strat2=0) & (cd4=[0.00,17.00)) [size=227/1151]
+[SM] R2: (strat2=0) [size=439/1151; jaccard-c=0.52; jaccard-d=0.50]
+[SM] R3: (ivdrug=1) & (strat2=0) & (cd4=[0.00,17.00)) [size=198/1151; jaccard-c=0.87; jaccard-d=0.67]
+[SM] R4: (cd4=[0.00,17.00)) [size=229/1151; jaccard-c=0.99; jaccard-d=0.50]
+
+R5: (karnof=100) [size=396/1151]
+[SM] R6: (strat2=1) [size=712/1151; jaccard-c=0.34; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

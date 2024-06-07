@@ -1,0 +1,14 @@
+DISCOVERED SUBGROUPS
+
+R0: (edema={'1.0'}) [size=17/276]
+
+R1: (sb={'[2.00,4.00]'}) [size=62/276]
+[SM] R2: (ptb={'[10.00,10.00]'}) & (spiders={'yes'}) [size=44/276; jaccard-c=0.25; jaccard-d=0.00]
+
+R3: (ascites={'no'}) [size=257/276]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

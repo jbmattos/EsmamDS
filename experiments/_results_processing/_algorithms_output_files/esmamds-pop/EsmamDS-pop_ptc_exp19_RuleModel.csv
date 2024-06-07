@@ -1,0 +1,5 @@
+id,sg,baseline,fitness,pvalue,mean_sg,mean_pop,mean_cpm,size_sg,size_pop,size_cpm
+R0,(PATH_N_STAGE={'N1b'}),population,0.994821,0.005179,12.951220,24.102410,25.673540,41,332,291
+R1,(RISK_GROUP={'Low'}) & (METHYLATION_CLUSTER={'classical 2'}),population,0.951851,0.048149,24.733333,24.102410,23.963235,60,332,272
+R2,(MRNA_CLUSTER={'5.0'}) & (WGS_STATUS={'No'}),population,0.978966,0.021034,27.576271,24.102410,23.351648,59,332,273
+R3,(PATH_N_STAGE={'N0'}) & (TUMOR_STATUS={'TUMOR FREE'}) & (SEX={'Female'}),population,0.991020,0.008980,25.944954,24.102410,23.201794,109,332,223

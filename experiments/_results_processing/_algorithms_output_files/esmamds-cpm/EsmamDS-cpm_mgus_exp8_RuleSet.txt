@@ -1,0 +1,19 @@
+DISCOVERED SUBGROUPS
+
+R0: (age={'[74.00,87.00]'}) [size=39/176]
+[SM] R2: (alb={'[2.00,3.00)'}) & (sex={'male'}) [size=27/176; jaccard-c=0.25; jaccard-d=0.00]
+[SM] R3: (hgb={'[11.00,12.00)'}) & (creat={'[0.00,0.00]'}) [size=13/176; jaccard-c=0.13; jaccard-d=0.00]
+[SM] R6: (hgb={'[12.00,13.00)'}) & (dxyr={'[70.00,73.00]'}) & (mspike={'[1.00,1.00)'}) [size=11/176; jaccard-c=0.11; jaccard-d=0.00]
+
+R1: (age={'[34.00,53.00)'}) [size=30/176]
+[SM] R5: (age={'[53.00,59.00)'}) & (mspike={'[1.00,1.00)'}) [size=23/176; jaccard-c=0.00; jaccard-d=0.00]
+
+R4: (age={'[66.00,74.00)'}) [size=38/176]
+
+R7: (alb={'[3.00,3.00]'}) [size=131/176]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

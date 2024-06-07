@@ -1,0 +1,15 @@
+DISCOVERED SUBGROUPS
+
+R0: (PATH_N_STAGE={'N1b'}) [size=41/332]
+[SM] R1: (MRNA_CLUSTER={'5.0'}) [size=71/332; jaccard-c=0.13; jaccard-d=0.00]
+[SM] R4: (SEX={'Male'}) & (PRIMARY_EXOME={'Yes'}) & (RISK_GROUP={'Intermediate'}) [size=40/332; jaccard-c=0.14; jaccard-d=0.00]
+
+R2: (SEX={'Female'}) & (RISK_GROUP={'Low'}) [size=102/332]
+[SM] R3: (PATH_N_STAGE={'N0'}) & (TUMOR_STATUS={'TUMOR FREE'}) [size=141/332; jaccard-c=0.47; jaccard-d=0.00]
+[SM] R5: (TUMOR_STATUS={'TUMOR FREE'}) & (SEX={'Female'}) & (METHYLATION_CLUSTER={'classical 2'}) & (LOWPASS={'No'}) & (WGS_STATUS={'No'}) [size=108/332; jaccard-c=0.20; jaccard-d=0.17]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

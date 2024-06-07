@@ -1,0 +1,15 @@
+DISCOVERED SUBGROUPS
+
+R0: (cd4={'[0.00,17.00)'}) [size=229/1151]
+[SM] R5: (strat2={'0'}) & (txgrp={'1'}) & (sex={'1'}) [size=183/1151; jaccard-c=0.29; jaccard-d=0.00]
+
+R1: (cd4={'[98.00,148.00)'}) & (hemophil={'0'}) [size=222/1151]
+[SM] R2: (karnof={'100'}) [size=396/1151; jaccard-c=0.16; jaccard-d=0.00]
+[SM] R3: (cd4={'[148.00,392.00]'}) [size=234/1151; jaccard-c=0.00; jaccard-d=0.00]
+[SM] R4: (tx={'1'}) & (strat2={'1'}) [size=355/1151; jaccard-c=0.24; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

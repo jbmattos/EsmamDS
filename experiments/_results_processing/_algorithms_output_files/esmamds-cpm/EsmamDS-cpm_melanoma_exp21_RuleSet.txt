@@ -1,0 +1,13 @@
+DISCOVERED SUBGROUPS
+
+R0: (ulceration={'1'}) [size=90/205]
+
+R1: (tumor-th={'[0.00,0.00)'}) [size=56/205]
+[SM] R2: (sex={'woman'}) [size=126/205; jaccard-c=0.25; jaccard-d=0.00]
+[SM] R3: (ulceration={'0'}) [size=115/205; jaccard-c=0.42; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

@@ -1,0 +1,16 @@
+DISCOVERED SUBGROUPS
+
+R0: (X202240_at={'[6.00,7.00)'}) [size=46/196]
+[SM] R2: (X203306_s_at={'[9.00,10.00]'}) [size=98/196; jaccard-c=0.26; jaccard-d=0.00]
+[SM] R3: (X221928_at={'[6.00,7.00]'}) [size=110/196; jaccard-c=0.24; jaccard-d=0.00]
+
+R1: (X204015_s_at={'[7.00,8.00)'}) & (X204888_s_at={'[6.00,6.00]'}) [size=18/196]
+[SM] R4: (X201663_s_at={'[9.00,9.00)'}) & (X204631_at={'[5.00,5.00)'}) [size=34/196; jaccard-c=0.04; jaccard-d=0.00]
+
+R5: (X219588_s_at={'[8.00,8.00]'}) [size=141/196]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

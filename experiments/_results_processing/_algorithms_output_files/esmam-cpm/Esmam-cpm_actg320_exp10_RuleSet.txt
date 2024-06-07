@@ -1,0 +1,17 @@
+DISCOVERED SUBGROUPS
+
+R0: (karnof=100) [size=396/1151]
+[SM] R1: (strat2=1) [size=712/1151; jaccard-c=0.34; jaccard-d=0.00]
+[SM] R6: (tx=1) [size=574/1151; jaccard-c=0.25; jaccard-d=0.00]
+
+R2: (cd4=[0.00,17.00)) & (txgrp=1) [size=115/1151]
+[SM] R3: (strat2=0) & (tx=0) [size=220/1151; jaccard-c=0.51; jaccard-d=0.00]
+[SM] R5: (strat2=0) & (txgrp=1) [size=219/1151; jaccard-c=0.51; jaccard-d=0.33]
+
+R4: (strat2=0) & (ivdrug=1) & (hemophil=0) [size=357/1151]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

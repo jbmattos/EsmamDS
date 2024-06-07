@@ -1,0 +1,4 @@
+id,sg,baseline,fitness,pvalue,mean_sg,mean_pop,mean_cpm,size_sg,size_pop,size_cpm
+R0,(condition=2.0),complement,1.000000,0.000000,322.279070,561.259067,629.766667,43,193,150
+R1,"(t-staging=4) & (n-staging=3) & (age=[50.00,58.00))",complement,0.998554,0.001446,281.727273,561.259067,578.153846,11,193,182
+R2,(n-staging=3) & (sex=male) & (site=1),complement,0.999701,0.000299,305.850000,561.259067,590.786127,20,193,173

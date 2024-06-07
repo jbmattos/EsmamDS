@@ -1,0 +1,4 @@
+id,sg,baseline,fitness,pvalue,mean_sg,mean_pop,mean_cpm,size_sg,size_pop,size_cpm
+R0,(MRNA_CLUSTER={'5.0'}),complement,0.998006,0.001994,26.323944,24.102410,23.498084,71,332,261
+R1,(RISK_GROUP={'Intermediate'}),complement,0.984686,0.015314,25.789474,24.102410,21.845070,190,332,142
+R2,(RISK_GROUP={'Low'}),complement,0.983971,0.016029,20.724409,24.102410,26.195122,127,332,205

@@ -1,0 +1,25 @@
+DISCOVERED SUBGROUPS
+
+R0: (tx=0) & (strat2=0) [size=220/1151]
+[SM] R1: (strat2=0) & (ivdrug=1) [size=372/1151; jaccard-c=0.45; jaccard-d=0.33]
+[SM] R2: (cd4=[0.00,17.00)) [size=229/1151; jaccard-c=0.34; jaccard-d=0.00]
+[SM] R3: (strat2=0) [size=439/1151; jaccard-c=0.50; jaccard-d=0.50]
+[SM] R4: (cd4=[0.00,17.00)) & (ivdrug=1) [size=199/1151; jaccard-c=0.31; jaccard-d=0.00]
+[SM] R5: (strat2=0) & (cd4=[0.00,17.00)) [size=227/1151; jaccard-c=0.34; jaccard-d=0.33]
+[SM] R10: (strat2=0) & (hemophil=0) [size=423/1151; jaccard-c=0.48; jaccard-d=0.33]
+[SM] R13: (strat2=0) & (tx=0) & (ivdrug=1) [size=184/1151; jaccard-c=0.84; jaccard-d=0.67]
+[SM] R14: (karnof=80) [size=182/1151; jaccard-c=0.16; jaccard-d=0.00]
+
+R6: (cd4=[98.00,148.00)) [size=229/1151]
+[SM] R7: (age=[35.00,40.00)) & (txgrp=2) [size=139/1151; jaccard-c=0.09; jaccard-d=0.00]
+[SM] R8: (cd4=[148.00,392.00]) [size=234/1151; jaccard-c=0.00; jaccard-d=0.00]
+[SM] R9: (txgrp=2) & (strat2=1) [size=354/1151; jaccard-c=0.25; jaccard-d=0.00]
+[SM] R11: (strat2=1) & (tx=1) [size=355/1151; jaccard-c=0.25; jaccard-d=0.00]
+[SM] R12: (karnof=100) [size=396/1151; jaccard-c=0.16; jaccard-d=0.00]
+[SM] R15: (strat2=1) [size=712/1151; jaccard-c=0.32; jaccard-d=0.00]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

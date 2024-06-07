@@ -1,0 +1,16 @@
+DISCOVERED SUBGROUPS
+
+R0: (op=0) [size=376/901]
+[SM] R1: (stage-4=1.0) [size=185/901; jaccard-c=0.45; jaccard-d=0.00]
+[SM] R2: (stage-3=2.0) [size=296/901; jaccard-c=0.43; jaccard-d=0.00]
+[SM] R4: (stage-1=3.0) [size=437/901; jaccard-c=0.58; jaccard-d=0.00]
+[SM] R5: (stage-2=3.0) [size=170/901; jaccard-c=0.25; jaccard-d=0.00]
+[SM] R6: (cell-type=3.0) [size=148/901; jaccard-c=0.32; jaccard-d=0.00]
+
+R3: (stage-1=1.0) [size=353/901]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

@@ -1,0 +1,17 @@
+DISCOVERED SUBGROUPS
+
+R0: (sb={'[2.00,4.00]'}) & (hp={'yes'}) & (sex={'female'}) [size=41/276]
+[SM] R2: (hist-stage={'4'}) & (ptb={'[10.00,10.00]'}) [size=55/276; jaccard-c=0.26; jaccard-d=0.00]
+
+R1: (age={'[21483.00,28650.00]'}) [size=56/276]
+[SM] R3: (spiders={'yes'}) & (hp={'yes'}) [size=59/276; jaccard-c=0.08; jaccard-d=0.00]
+
+R4: (sex={'female'}) & (hist-stage={'2'}) [size=53/276]
+[SM] R5: (sb={'[0.00,0.00)'}) [size=88/276; jaccard-c=0.27; jaccard-d=0.00]
+[SM] R6: (hp={'no'}) & (sex={'female'}) & (albumin={'[3.00,3.00]'}) & (spiders={'no'}) [size=96/276; jaccard-c=0.32; jaccard-d=0.20]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description

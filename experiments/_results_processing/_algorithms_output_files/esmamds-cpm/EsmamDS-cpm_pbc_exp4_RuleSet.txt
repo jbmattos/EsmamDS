@@ -1,0 +1,18 @@
+DISCOVERED SUBGROUPS
+
+R0: (edema={'1.0'}) [size=17/276]
+
+R1: (sb={'[2.00,4.00]'}) [size=62/276]
+[SM] R2: (hp={'yes'}) & (uc={'[152.00,588.00]'}) [size=39/276; jaccard-c=0.35; jaccard-d=0.00]
+[SM] R3: (ptb={'[10.00,10.00]'}) & (age={'[21483.00,28650.00]'}) [size=29/276; jaccard-c=0.15; jaccard-d=0.00]
+
+R4: (ptb={'[10.00,10.00]'}) [size=98/276]
+[SM] R5: (hist-stage={'4'}) [size=94/276; jaccard-c=0.40; jaccard-d=0.00]
+
+R6: (edema={'0.0'}) [size=234/276]
+
+---------
+[SM] similar model
+[SD] similar description
+[jaccard-c] jaccard index over coverage
+[jaccard-d] jaccard index over description
