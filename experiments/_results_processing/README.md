@@ -1,9 +1,9 @@
-This folder provides the log files and the scripts for generating the analysis results provided in the experiments [folder](https://github.com/jbmattos/EsmamDS/tree/icde2022/experiments).
+This folder provides the log files and the scripts for generating the analysis results provided in the experiments [folder](https://github.com/rvimieiro/EsmamDS/tree/main/experiments).
 
 ### Scripts
 
 #### generate_proc_outputs.py
-This script is responsible for processing the [output files](https://github.com/jbmattos/EsmamDS/tree/icde2022/experiments/_results_processing/_algorithms_output_files) of the different algorithms compared in the experimentation into [(processed) log files](https://github.com/jbmattos/EsmamDS/tree/icde2022/experiments/_results_processing/_processed_output_files) to be used to produce the final results.
+This script is responsible for processing the [output files](https://github.com/rvimieiro/EsmamDS/tree/main/experiments/_results_processing/_algorithms_output_files) of the different algorithms compared in the experimentation into [(processed) log files](https://github.com/rvimieiro/EsmamDS/tree/main/experiments/_results_processing/_processed_output_files) to be used to produce the final results.
 ```
 usage: generate_proc_outputs.py [-h]
                                 [--alg {esmamds-pop,esmamds-cpm,esmam-pop,esmam-cpm,bs-emm-pop,bs-emm-cpm,bs-sd-pop,bs-sd-cpm,lr-rules,dssd-cbss}]
@@ -25,7 +25,7 @@ optional arguments:
 - The `--setOnly` argument generates only the _inter-set similarity_ log files (and does not process the algorithm's results).
 
 #### generate_results.py
-This script is responsible for generating the final results provided in the main folders of [EsmamDS/experiments](https://github.com/jbmattos/EsmamDS/tree/icde2022/experiments). The script allows the user to choose the baseline family of algorithms to generate the results, and which results are to be generated.
+This script is responsible for generating the final results provided in the main folders of [EsmamDS/experiments](https://github.com/rvimieiro/EsmamDS/tree/main/experiments). The script allows the user to choose the baseline family of algorithms to generate the results, and which results are to be generated.
 ```
 usage: generate_results.py [-h] [--base {all,complement,population}]
                            [--res {all,tbl,surv,setsim,setred}]
@@ -40,13 +40,13 @@ optional arguments:
                         The results to be generated.
 ```
 For the `--res` argument:
-- `tbl` generates the [metrics results](https://github.com/jbmattos/EsmamDS/tree/icde2022/experiments/metrics%20results%20(tables%20and%20statistics)) results
-- `surv` generates the [survival models](https://github.com/jbmattos/EsmamDS/tree/icde2022/experiments/survival%20models) results
-- `setsim` generates the [sets similarities](https://github.com/jbmattos/EsmamDS/tree/icde2022/experiments/sets%20similarities%20(heatmap%20matrix)) results
-- `setred` generates the [set redundancy](https://github.com/jbmattos/EsmamDS/tree/icde2022/experiments/set%20redundancy%20(heatmap%20matrix)) results
+- `tbl` generates the [metrics results](https://github.com/rvimieiro/EsmamDS/tree/main/experiments/metrics%20results%20(tables%20and%20statistics)) results
+- `surv` generates the [survival models](https://github.com/rvimieiro/EsmamDS/tree/main/experiments/survival%20models) results
+- `setsim` generates the [sets similarities](https://github.com/rvimieiro/EsmamDS/tree/main/experiments/sets%20similarities%20(heatmap%20matrix)) results
+- `setred` generates the [set redundancy](https://github.com/rvimieiro/EsmamDS/tree/main/experiments/set%20redundancy%20(heatmap%20matrix)) results
 
 #### params_random_search.py
-This script generates the algorithms' parameters values used in the empirical evaluation, for each baseline and each data set. The files presenting the values are provided in the [EsmamDS/experiments](https://github.com/jbmattos/EsmamDS/tree/icde2022/experiments) folder.
+This script generates the algorithms' parameters values used in the empirical evaluation, for each baseline and each data set. The files presenting the values are provided in the [EsmamDS/experiments](https://github.com/rvimieiro/EsmamDS/tree/main/experiments) folder.
 
 #### \_utils
 This folder contains auxiliar scripts used in the processing. 

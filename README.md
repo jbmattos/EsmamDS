@@ -4,11 +4,11 @@ The EsmamDS builds on the [Esmam](https://github.com/jbmattos/ESM-AM_bracis2020)
 
 ### References
 
-_Mattos et al, "EsmamDS: A more diverse exceptional survival model mining approach" submitted to ICDE 2022 first round_
+_Mattos et al, "EsmamDS: A more diverse exceptional survival model mining approach"_
 
 ### Repository Overview
 
-This branch contains the EsmamDS version and results presented on the IEEE International Conference on Data Engineering (ICDE) 2022.  
+This repository contains the code for EsmamDS, data sets and results for experiments conducted to assess its performance.  
 - All data sets used in the EsmamDS experiments are provided in `EsmamDS/data sets` folder, along with data sources and data processing codes.
 - The algorithm code and the scripts used to generate the results are provided in `EsmamDS/code` folder.
 - The `EsmamDS/experiments` folder provide all final results of the empirical evaluation presented in the article referred, and all algorithms' output files and scripts for processing the final results.

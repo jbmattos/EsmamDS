@@ -1,4 +1,4 @@
-# ICDE2022 - Empirical Evaluation
+# Empirical Evaluation
 
 Here are presented the experiments conducted to evaluate the EsmamDS approach for mining local patterns associated with exceptional survival behaviours.
 The goal is to provide comprehensible and diverse characterisation of subgroups presenting unusual KM models.
@@ -31,7 +31,7 @@ The normalised sum of the similarity measures (description, coverage, model) for
 CR measure (Van Leeuwen and Knobbe, 2012)
 
 
-## Experimental proceadure
+## Experimental procedure
 
 The EsmamDS algorithm was implemented to mine exceptional subgroups considering two different (comparison) baselines:  
 (i)  to compare the subgroup to its complement; or  
@@ -39,7 +39,7 @@ The EsmamDS algorithm was implemented to mine exceptional subgroups considering 
 Such configuration is defined by the _baseline_ parameter. In the empirical evaluation, both configurations are considered separately.
 
 For each baseline, the EsmamDS was performed 30 times over each data set.  
-The [statistical_evaluation.py](https://github.com/jbmattos/EsmamDS/blob/icde2022/code/statistical_evaluation.py) script to run the statistical evaluation procedure is provided in the [code folder](https://github.com/jbmattos/EsmamDS/tree/icde2022/code).
+The [statistical_evaluation.py](https://github.com/rvimieiro/EsmamDS/blob/main/code/statistical_evaluation.py) script to run the statistical evaluation procedure is provided in the [code folder](https://github.com/rvimieiro/EsmamDS/tree/main/code).
 
 ## EsmamDS hyper-parameters selection
 
@@ -52,7 +52,7 @@ The following hyper-parameters were defined with a randomised search considering
 - _W_ = 0.9; and
 - _alpha_ = 0.05  
 
-The EsmamDS was executed on _actg320_, _breast-cancer_ and _ptc_ data sets for (a sample of) 10\% of the total number of parameters' combinations. The [random_search.py](https://github.com/jbmattos/EsmamDS/blob/icde2022/code/random_search.py) script for running the randomised search is provided in the [code folder](https://github.com/jbmattos/EsmamDS/tree/icde2022/code).
+The EsmamDS was executed on _actg320_, _breast-cancer_ and _ptc_ data sets for (a sample of) 10\% of the total number of parameters' combinations. The [random_search.py](https://github.com/rvimieiro/EsmamDS/blob/main/code/random_search.py) script for running the randomised search is provided in the [code folder](https://github.com/rvimieiro/EsmamDS/tree/main/code).
 
 The algorithm configurations were chosen by ordering all samples according to their average performance considering the following metrics' order: description redundancy; coverage redundancy; CR; model redundancy; subgroup (average) coverage; data set coverage; subgroup (average) description size; and number of discovered subgroups.  
 

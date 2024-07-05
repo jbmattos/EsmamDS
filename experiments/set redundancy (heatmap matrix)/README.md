@@ -3,7 +3,7 @@
 Redundancy in a final set of subgroups is analysed assessing the three types of redundancy (description, coverage and model) within each resultant set of subgroups
 provided by the compared algorithms.  
 For each pair of different subgroups in the considered set, the similarity measures are computed. 
-The redundancy metrics presented in the [metrics results](https://github.com/jbmattos/EsmamDS/tree/icde2022/experiments/metrics%20results%20(tables%20and%20statistics))
+The redundancy metrics presented in the [metrics results](https://github.com/rvimieiro/EsmamDS/tree/main/experiments/metrics%20results%20(tables%20and%20statistics))
 are the normalised sum of the (similarity) values ploted in this analysis.
 
 The results for the three types of redundancy are presented in the files 
